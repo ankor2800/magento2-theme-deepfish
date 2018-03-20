@@ -1,0 +1,24 @@
+<?php
+/**
+ * Root structure of page
+ *
+ * @var string $htmlAttributes
+ * @var string $headAttributes
+ * @var string $requireJs
+ * @var string $headContent
+ * @var string $headAdditional
+ * @var string $bodyAttributes
+ * @var string $layoutContent
+ */
+?>
+<!doctype html>
+<html <?= $htmlAttributes ?>>
+    <head <?= $headAttributes ?>>
+        <?= $requireJs ?>
+        <?= $headContent ?>
+        <?= $headAdditional ?>
+    </head>
+    <body <?= $bodyAttributes ?>>
+        <?= $layoutContent ?>
+    </body>
+</html>
