@@ -1,0 +1,15 @@
+body {
+    .lib-css(color, @text__color);
+    .lib-css(font-family, @font-family__base);
+    .lib-line-height(@line-height__base);
+    .lib-font-size(@font-size__base);
+}
+a {
+    .lib-css(color, @link__color);
+    .lib-css(text-decoration, @link__text-decoration);
+    .lib-css(transition, all 0.2s ease-in-out, 1);
+
+    &:hover {
+        .lib-css(color, @link__hover__color);
+    }
+}
