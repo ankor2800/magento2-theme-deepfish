@@ -9,8 +9,14 @@
         <referenceContainer name="header.panel.wrapper" htmlClass="panel" />
         <referenceContainer name="header.panel" htmlClass="content" />
 
+        <!-- Header body -->
+        <referenceContainer name="header-wrapper">
+            <container name="header.inner.right" htmlTag="div" htmlClass="right" />
+        </referenceContainer>
+
         <referenceBlock name="logo">
             <arguments>
+                <argument name="theme_name" xsi:type="string">deepfish</argument>
                 <argument name="logo_file" xsi:type="string">images/logo.png</argument>
                 <argument name="logo_img_width" xsi:type="number">274</argument>
                 <argument name="logo_img_height" xsi:type="number">58</argument>

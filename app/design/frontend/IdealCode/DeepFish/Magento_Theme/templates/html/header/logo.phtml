@@ -1,0 +1,18 @@
+<?php
+/**
+ * Logo block in header
+ *
+ * @var \Magento\Theme\Block\Html\Header\Logo $block
+ */
+?>
+<?php $storeName = $block->getLogoAlt() ?: $block->__call('getThemeName', []); ?>
+<?php if(!$block->isHomePage()): ?>
+    <a href="<?= $block->getUrl('') ?>" title="<?= $storeName ?>">
+<?php endif; ?>
+        <img src="<?= $block->getLogoSrc() ?>" alt="<?= $storeName ?>"
+             <?= $block->getLogoWidth() ? 'width="' .$block->getLogoWidth() .'"' : '' ?>
+             <?= $block->getLogoHeight() ? 'height="' .$block->getLogoHeight() .'"' : '' ?>
+        />
+<?php if(!$block->isHomePage()): ?>
+    </a>
+<?php endif; ?>
