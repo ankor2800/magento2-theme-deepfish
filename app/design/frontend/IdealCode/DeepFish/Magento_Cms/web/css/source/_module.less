@@ -1,0 +1,28 @@
+header {
+    .header {
+        .phone {
+            text-align: right;
+            margin: 4px 23px 0 0;
+
+            .callto {
+                display: inline-block;
+                margin-bottom: -5px;
+                .lib-font-size(21px);
+                .lib-css(font-weight, @font-weight__heavybold);
+                .lib-css(color, @link__hover__color);
+                .lib-css(transition, color 0.3s ease, 1);
+
+                .material-icons {
+                    margin-right: 4px;
+                    vertical-align: top;
+                    .lib-line-height(31px);
+                    .lib-css(color, @link__hover__color);
+                }
+
+                &:hover {
+                    .lib-css(color, @link__color);
+                }
+            }
+        }
+    }
+}
