@@ -6,7 +6,6 @@
         <remove src="css/styles-m.css" />
         <remove src="css/styles-l.css" />
         <remove src="css/print.css" />
-        <remove src="requirejs/require.js" />
 
         <css src="css/styles.css" />
         <css src="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;amp;amp;subset=latin,cyrillic"
