@@ -2,9 +2,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <!-- Remove unused JS -->
-        <referenceBlock name="frontend-storage-manager" remove="true" />
-
-        <referenceBlock name="catalog.compare.link" remove="true" />
+        <referenceBlock name="register-link" remove="true" />
+        <referenceBlock name="authorization-link" remove="true" />
     </body>
 </page>

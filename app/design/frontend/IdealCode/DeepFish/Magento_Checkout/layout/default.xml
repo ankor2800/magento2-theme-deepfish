@@ -3,5 +3,15 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <move element="minicart" destination="header.inner.right" />
+
+        <referenceBlock name="top.links">
+            <block class="Magento\Framework\View\Element\Html\Link" name="top.links.checkout" after="top.links.blog"
+                   before="-">
+                <arguments>
+                    <argument name="path" xsi:type="helper" helper="Magento\Checkout\Helper\Cart::getCartUrl" />
+                    <argument name="label" xsi:type="string">Checkout</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
     </body>
 </page>

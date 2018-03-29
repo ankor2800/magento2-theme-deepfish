@@ -9,6 +9,18 @@
         <referenceContainer name="header.panel.wrapper" htmlClass="panel" />
         <referenceContainer name="header.panel" htmlClass="content" />
 
+        <!-- Remove skip block-->
+        <referenceBlock name="skip_to_content" remove="true" />
+
+        <!-- Remove welcome block-->
+        <referenceBlock name="header" remove="true" />
+
+        <referenceBlock name="top.links">
+            <arguments>
+                <argument name="css_class" xsi:type="string">links</argument>
+            </arguments>
+        </referenceBlock>
+
         <!-- Header body -->
         <referenceContainer name="header-wrapper">
             <container name="header.inner.right" htmlTag="div" htmlClass="right" />

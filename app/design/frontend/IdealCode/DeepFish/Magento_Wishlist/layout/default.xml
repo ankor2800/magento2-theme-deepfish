@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="wish-list-link" remove="true" />
+
+        <referenceBlock name="top.links">
+            <block class="Magento\Framework\View\Element\Html\Link" name="top.links.wishlist"
+                   template="Magento_Wishlist::link.phtml" before="top.links.blog">
+                <arguments>
+                    <argument name="path" xsi:type="helper" helper="Magento\Wishlist\Helper\Data::getListUrl" />
+                    <argument name="label" xsi:type="string">My Wishlist</argument>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="Magento_Ui/js/core/app" xsi:type="array">
+                            <item name="components" xsi:type="array">
+                                <item name="wishlist" xsi:type="array">
+                                    <item name="component" xsi:type="string">Magento_Wishlist/js/view/wishlist</item>
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>
