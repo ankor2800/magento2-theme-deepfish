@@ -5,44 +5,54 @@ header {
         .lib-css(background-color, @color-white);
         .lib-line-height(59px);
 
-        a {
-            .lib-css(color, @color-gray);
-
-            &:hover {
-                .lib-css(color, @color-blue);
-            }
-        }
-
-        .links {
-            list-style: none;
+        .content {
             .lib-vendor-prefix-display();
+            .lib-css(justify-content, space-between, 1);
 
-            li {
-                margin-right: 29px;
-                text-transform: uppercase;
+            a {
+                .lib-css(color, @color-gray);
 
-                a {
-                    &:before {
-                        text-align: center;
-                        margin: 1px 10px 0 0;
-                        width: 19px;
-                        height: 19px;
-                        .lib-css(content, @icon-chevron-right);
-                        .lib-css(font-family, @icons__font-name);
-                        .lib-font-size(16px);
-                        .lib-line-height(19px);
-                        .lib-css(color, @color-white);
-                        .lib-css(background-color, @color-gray);
-                        .lib-css(transition, background 0.3s ease, 1);
-                    }
-
-                    &:hover:before {
-                        .lib-css(background-color, @color-blue);
-                    }
-
-                    .lib-vendor-prefix-display();
-                    .lib-css(align-items, center, 1);
+                &:hover {
+                    .lib-css(color, @color-blue);
                 }
+            }
+
+            .links {
+                list-style: none;
+                .lib-vendor-prefix-display();
+
+                li {
+                    margin-right: 29px;
+                    text-transform: uppercase;
+
+                    a {
+                        &:before {
+                            text-align: center;
+                            margin: 1px 10px 0 0;
+                            width: 19px;
+                            height: 19px;
+                            .lib-css(content, @icon-chevron-right);
+                            .lib-css(font-family, @icons__font-name);
+                            .lib-font-size(16px);
+                            .lib-line-height(19px);
+                            .lib-css(color, @color-white);
+                            .lib-css(background-color, @color-gray);
+                            .lib-css(transition, background 0.3s ease, 1);
+                        }
+
+                        &:hover:before {
+                            .lib-css(background-color, @color-blue);
+                        }
+
+                        .lib-vendor-prefix-display();
+                        .lib-css(align-items, center, 1);
+                    }
+                }
+            }
+
+            .welcome {
+                margin: -1px 0 0 0;
+                .lib-css(color, @color-blue);
             }
         }
     }

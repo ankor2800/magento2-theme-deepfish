@@ -12,8 +12,22 @@
         <!-- Remove skip block-->
         <referenceBlock name="skip_to_content" remove="true" />
 
-        <!-- Remove welcome block-->
-        <referenceBlock name="header" remove="true" />
+        <!-- Welcome block-->
+        <move element="header" destination="header.panel" after="top.links" before="-" />
+
+        <referenceBlock name="header">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="Magento_Ui/js/core/app" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="customer" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Customer/js/view/customer</item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
 
         <referenceBlock name="top.links">
             <arguments>
