@@ -1,0 +1,38 @@
+header {
+    .header {
+        .dropdown.compare {
+            .action:before {
+                .lib-css(content, @icon-compare);
+            }
+
+            .dialog {
+                .item {
+                    padding: 0 25px 10px 0;
+                    border-width: 0 0 1px 0;
+                    .lib-font-size(16px);
+
+                    .name {
+                        color: #333;
+                        margin: 0;
+
+                        &:hover {
+                            .lib-css(color, @color-blue);
+                        }
+                    }
+
+                    .remove {
+                        top: 4px;
+                        right: 3px;
+                        .lib-font-size(18px);
+                    }
+                }
+
+                .actions {
+                    .lib-vendor-prefix-display();
+                    .lib-css(justify-content, space-between, 1);
+                    .lib-css(align-items, center, 1);
+                }
+            }
+        }
+    }
+}

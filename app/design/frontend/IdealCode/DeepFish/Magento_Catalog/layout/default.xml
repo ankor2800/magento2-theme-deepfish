@@ -6,5 +6,23 @@
         <referenceBlock name="frontend-storage-manager" remove="true" />
 
         <referenceBlock name="catalog.compare.link" remove="true" />
+
+        <referenceContainer name="header.inner.right">
+            <block name="header.inner.compare"
+                   template="Magento_Catalog::product/compare/header.phtml"
+                   after="header.inner.wishlist">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="Magento_Ui/js/core/app" xsi:type="array">
+                            <item name="components" xsi:type="array">
+                                <item name="compareProducts" xsi:type="array">
+                                    <item name="component" xsi:type="string">Magento_Catalog/js/view/compare-products</item>
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
     </body>
 </page>
