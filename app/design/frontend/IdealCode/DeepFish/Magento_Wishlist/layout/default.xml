@@ -22,5 +22,21 @@
                 </arguments>
             </block>
         </referenceBlock>
+
+        <referenceContainer name="header.inner.right">
+            <block name="header.inner.wishlist" template="Magento_Wishlist::header.phtml">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="Magento_Ui/js/core/app" xsi:type="array">
+                            <item name="components" xsi:type="array">
+                                <item name="wishlist" xsi:type="array">
+                                    <item name="component" xsi:type="string">Magento_Wishlist/js/view/wishlist</item>
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
     </body>
 </page>

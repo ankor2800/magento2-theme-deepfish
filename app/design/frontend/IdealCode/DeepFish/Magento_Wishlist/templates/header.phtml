@@ -1,0 +1,72 @@
+<?php
+/**
+ * Header wishlist block
+ *
+ * @var \Magento\Framework\View\TemplateEngine\Php $this
+ * @var \Magento\Framework\View\Element\Template $block
+ */
+
+/** @var \Magento\Wishlist\Helper\Data $helper */
+$helper = $this->helper('Magento\Wishlist\Helper\Data');
+
+$dropdownJsLayout = [
+    'dropdownDialog' => [
+        'appendTo' => '.dropdown.wishlist',
+        'triggerTarget' => '.dropdown.wishlist .action',
+        'closeOnMouseLeave' => false,
+        'dialogContentClass' => 'active',
+        'buttons' => []
+    ],
+    'Magento_Theme/js/dropdown' => []
+];
+?>
+<div class="dropdown wishlist" data-mage-init='<?= $block->getJsLayout() ?>'>
+    <a href="#" class="action" data-bind="scope: 'wishlist'">
+        <span class="inner">
+            <span class="label"><?= __('Wishlist') ?></span>
+            <span class="count" data-bind="text: wishlist().counter ? wishlist().counter : '<?= __('0 item') ?>'"></span>
+        </span>
+    </a>
+    <div class="dialog" data-mage-init='<?= \Zend_Json::encode($dropdownJsLayout) ?>'>
+        <div data-bind="scope: 'wishlist'">
+            <!-- ko if: wishlist().counter -->
+                <a href="#" class="material-icons close" title="<?= __('Close') ?>">cancel</a>
+                <div class="title"><?= __('Last added items') ?></div>
+                <!-- ko foreach: wishlist().items -->
+                    <div class="item">
+                        <a href="#"
+                           class="material-icons remove"
+                           title="<?= __('Remove this item') ?>"
+                           data-bind="attr: {'data-post': delete_item_params}">
+                            close
+                        </a>
+                        <a data-bind="attr: {href: product_url, title: product_name}">
+                            <!-- ko template: {name: image.template, data: image} --><!-- /ko -->
+                        </a>
+                        <div class="details">
+                            <div class="name">
+                                <a data-bind="attr: {href: product_url, title: product_name}">
+                                    <!-- ko text: product_name --><!-- /ko -->
+                                </a>
+                            </div>
+                            <div data-bind="html: product_price"></div>
+                            <!-- ko if: product_is_saleable_and_visible -->
+                                <a href="#" data-bind="attr: {'data-post': add_to_cart_params}">
+                                    <?= __('Add to Cart') ?>
+                                </a>
+                            <!-- /ko -->
+                        </div>
+                    </div>
+                <!-- /ko -->
+                <div class="actions">
+                    <a href="<?= $helper->getListUrl() ?>" class="button">
+                        <span><?= __('Go to wishlist') ?></span>
+                    </a>
+                </div>
+            <!-- /ko -->
+            <!-- ko ifnot: wishlist().counter -->
+                <?= __('You have no items in your wishlist.') ?>
+            <!-- /ko -->
+        </div>
+    </div>
+</div>

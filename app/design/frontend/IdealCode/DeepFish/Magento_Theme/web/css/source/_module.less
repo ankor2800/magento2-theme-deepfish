@@ -46,6 +46,7 @@ header {
             }
         }
     }
+
     .header {
         .lib-vendor-prefix-display();
         .lib-css(justify-content, space-between, 1);
@@ -53,6 +54,143 @@ header {
         .right {
             margin-top: 6px;
             .lib-vendor-prefix-display();
+        }
+
+        .dropdown {
+            position: relative;
+            margin-left: 8px;
+
+            .action {
+                min-width: 232px;
+                border: 2px solid;
+                text-transform: uppercase;
+                .lib-vendor-prefix-display();
+                .lib-css(color, @color-gray);
+                .lib-css(border-color, @color-gray);
+                .lib-css(transition, none, 1);
+
+                &:before {
+                    width: 58px;
+                    text-align: center;
+                    border-right: 1px solid;
+                    .lib-font-size(34px);
+                    .lib-line-height(56px);
+                    .lib-css(border-color, @color-gray);
+                    .lib-css(font-family, @icons__font-name);
+                }
+                &:after {
+                    position: absolute;
+                    right: 16px;
+                    top: 11px;
+                    .lib-font-size(23px);
+                    .lib-css(font-family, @icons__font-name);
+                    .lib-css(content, @icon-keyboard-arrow-down);
+                }
+
+                .inner {
+                    padding: 6px 35px 10px 12px;
+
+                    .label {
+                        display: block;
+                        margin-bottom: -2px;
+                        .lib-font-size(16px);
+                        .lib-css(font-weight, @font-weight__heavybold);
+                    }
+                    .count {
+                        display: block;
+                        .lib-font-size(12px);
+                    }
+                }
+
+                &:hover {
+                    .lib-css(color, @color-white);
+                    .lib-css(background, @color-blue);
+                }
+            }
+
+            .dialog {
+                opacity: 0;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                width: 430px;
+                padding: 25px 30px 30px 30px;
+                .lib-css(box-shadow, 0 0 20px rgba(0, 0, 0, 0.15), 1);
+                .lib-css(transition, opacity 0.25s linear, 1);
+
+                &.active {
+                    opacity: 1;
+                }
+
+                .close {
+                    position: absolute;
+                    top: 30px;
+                    right: 29px;
+                }
+                .title {
+                    text-transform: uppercase;
+                    margin-bottom: 10px;
+                    .lib-font-size(24px);
+                    .lib-line-height(40px);
+                    .lib-css(color, @color-gray);
+                }
+
+                .item {
+                    position: relative;
+                    padding: 11px 46px 19px 14px;
+                    border: 1px solid #e4e4e5;
+                    margin: 10px 0;
+                    .lib-vendor-prefix-display();
+
+                    .remove {
+                        position: absolute;
+                        right: 27px;
+                        top: 13px;
+                    }
+                    img {
+                        display: block;
+                    }
+                    .details {
+                        margin-left: 26px;
+                    }
+
+                    .name {
+                        margin-bottom: 5px;
+
+                        a {
+                            text-transform: uppercase;
+                            .lib-css(font-weight, @font-weight__heavybold);
+                            .lib-css(color, @color-gray);
+                            .lib-font-size(16px);
+
+                            &:hover {
+                                .lib-css(color, @color-blue);
+                            }
+                        }
+                    }
+
+                    .price {
+                        margin-bottom: 10px;
+                        .lib-css(font-weight, @font-weight__heavybold);
+                        .lib-css(color, @color-gray);
+                        .lib-font-size(20px);
+
+                        span {
+                            display: block;
+                        }
+                        .special-price {
+                            .lib-css(color, @color-blue);
+                        }
+                        .old-price {
+                            text-decoration: line-through;
+                        }
+                    }
+                }
+
+                .actions {
+                    margin-top: 20px;
+                }
+            }
         }
     }
 }
