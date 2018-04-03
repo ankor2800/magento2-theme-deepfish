@@ -2,6 +2,22 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
+        <referenceBlock name="common.head.components">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="*" xsi:type="array">
+                        <item name="Magento_Ui/js/core/app" xsi:type="array">
+                            <item name="components" xsi:type="array">
+                                <item name="wishlist" xsi:type="array">
+                                    <item name="component" xsi:type="string">Magento_Wishlist/js/view/wishlist</item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+
         <referenceBlock name="wish-list-link" remove="true" />
 
         <referenceBlock name="top.links">
@@ -10,33 +26,12 @@
                 <arguments>
                     <argument name="path" xsi:type="helper" helper="Magento\Wishlist\Helper\Data::getListUrl" />
                     <argument name="label" xsi:type="string">My Wishlist</argument>
-                    <argument name="jsLayout" xsi:type="array">
-                        <item name="Magento_Ui/js/core/app" xsi:type="array">
-                            <item name="components" xsi:type="array">
-                                <item name="wishlist" xsi:type="array">
-                                    <item name="component" xsi:type="string">Magento_Wishlist/js/view/wishlist</item>
-                                </item>
-                            </item>
-                        </item>
-                    </argument>
                 </arguments>
             </block>
         </referenceBlock>
 
         <referenceContainer name="header.inner.right">
-            <block name="header.inner.wishlist" template="Magento_Wishlist::header.phtml">
-                <arguments>
-                    <argument name="jsLayout" xsi:type="array">
-                        <item name="Magento_Ui/js/core/app" xsi:type="array">
-                            <item name="components" xsi:type="array">
-                                <item name="wishlist" xsi:type="array">
-                                    <item name="component" xsi:type="string">Magento_Wishlist/js/view/wishlist</item>
-                                </item>
-                            </item>
-                        </item>
-                    </argument>
-                </arguments>
-            </block>
+            <block name="header.inner.wishlist" template="Magento_Wishlist::header.phtml" />
         </referenceContainer>
     </body>
 </page>

@@ -5,6 +5,10 @@
         <!-- Remove unused JS -->
         <referenceBlock name="js_cookies" remove="true" />
 
+        <referenceContainer name="head.components">
+            <block name="common.head.components" template="Magento_Theme::js/components.phtml" />
+        </referenceContainer>
+
         <!-- Header panel -->
         <referenceContainer name="header.panel.wrapper" htmlClass="panel" />
         <referenceContainer name="header.panel" htmlClass="content" />
@@ -14,20 +18,6 @@
 
         <!-- Welcome block-->
         <move element="header" destination="header.panel" after="top.links" before="-" />
-
-        <referenceBlock name="header">
-            <arguments>
-                <argument name="jsLayout" xsi:type="array">
-                    <item name="Magento_Ui/js/core/app" xsi:type="array">
-                        <item name="components" xsi:type="array">
-                            <item name="customer" xsi:type="array">
-                                <item name="component" xsi:type="string">Magento_Customer/js/view/customer</item>
-                            </item>
-                        </item>
-                    </item>
-                </argument>
-            </arguments>
-        </referenceBlock>
 
         <referenceBlock name="top.links">
             <arguments>

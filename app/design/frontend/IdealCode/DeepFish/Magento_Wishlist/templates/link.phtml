@@ -1,8 +1,9 @@
 <?php
 /* @var \Magento\Framework\View\Element\Html\Link $block */
 ?>
-<li data-mage-init='<?= $block->getJsLayout() ?>'>
-    <a data-bind="scope: 'wishlist'" <?= /* @noEscape */ $block->getLinkAttributes() ?>><?= $block->escapeHtml($block->getLabel()) ?>
+<li>
+    <a data-bind="scope: 'wishlist'" <?= $block->getLinkAttributes() ?>>
+        <?= $block->escapeHtml($block->getLabel()) ?>
         <!-- ko if: wishlist().counter -->
         <span data-bind="text: '('+wishlist().counter+')'" class="counter"></span>
         <!-- /ko -->
