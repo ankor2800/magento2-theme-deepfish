@@ -8,17 +8,6 @@
 
 /** @var \Magento\Wishlist\Helper\Data $helper */
 $helper = $this->helper('Magento\Wishlist\Helper\Data');
-
-$dropdownJsLayout = [
-    'dropdownDialog' => [
-        'appendTo' => '.dropdown.wishlist',
-        'triggerTarget' => '.dropdown.wishlist .action',
-        'closeOnMouseLeave' => false,
-        'dialogContentClass' => 'active',
-        'buttons' => []
-    ],
-    'Magento_Theme/js/dropdown' => []
-];
 ?>
 <div class="dropdown wishlist">
     <a href="#" class="action" data-bind="scope: 'wishlist'">
@@ -27,7 +16,7 @@ $dropdownJsLayout = [
             <span class="count" data-bind="text: wishlist().counter ? wishlist().counter : '<?= __('0 items') ?>'"></span>
         </span>
     </a>
-    <div class="dialog" data-mage-init='<?= \Zend_Json::encode($dropdownJsLayout) ?>'>
+    <div class="dialog" data-role="dropdown-dialog">
         <div data-bind="scope: 'wishlist'">
             <!-- ko if: wishlist().counter -->
                 <a href="#" class="material-icons close" title="<?= __('Close') ?>">cancel</a>

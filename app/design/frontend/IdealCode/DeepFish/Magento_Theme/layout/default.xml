@@ -6,7 +6,19 @@
         <referenceBlock name="js_cookies" remove="true" />
 
         <referenceContainer name="head.components">
-            <block name="common.head.components" template="Magento_Theme::js/components.phtml" />
+            <block name="common.head.components" template="Magento_Theme::js/components.phtml">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name=".header [data-role=dropdown-dialog]" xsi:type="array">
+                            <item name="Magento_Theme/js/dropdown-dialog-ex" xsi:type="array">
+                                <item name="closeOnMouseLeave" xsi:type="boolean">false</item>
+                                <item name="dialogContentClass" xsi:type="string">active</item>
+                                <item name="buttons" xsi:type="array" />
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
         </referenceContainer>
 
         <!-- Header panel -->
