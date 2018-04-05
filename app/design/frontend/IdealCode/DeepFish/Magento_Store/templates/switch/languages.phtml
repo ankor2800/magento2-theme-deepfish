@@ -5,7 +5,7 @@
 $helper = $this->helper('Magento\Framework\Data\Helper\PostHelper');
 ?>
 <?php if (count($block->getStores()) > 1): ?>
-    <div class="switcher dropdown">
+    <div class="switcher">
         <a class="action" title="Language" href="#"><?= $block->escapeHtml($block->getStoreCode()) ?></a>
             <ul data-role="dropdown-dialog">
                 <?php foreach ($block->getStores() as $_lang): ?>
@@ -19,7 +19,7 @@ $helper = $this->helper('Magento\Framework\Data\Helper\PostHelper');
                     ?>
                     <li>
                         <a href="#" data-post='<?=$postData?>'
-                        <?=($_lang->getId() == $block->getCurrentStoreId() ? "class=\"selected\"" : "")?>>
+                           <?=($_lang->getId() == $block->getCurrentStoreId() ? "class=\"selected\"" : "")?>>
                             <?= $block->escapeHtml($_lang->getName()) ?>
                         </a>
                     </li>

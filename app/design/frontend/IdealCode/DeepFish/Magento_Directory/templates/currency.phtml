@@ -1,0 +1,25 @@
+<?php
+/**
+ * Currency switcher
+ *
+ * @var \Magento\Directory\Block\Currency $block
+ */
+
+?>
+<?php if ($block->getCurrencyCount() > 1): ?>
+    <?php $currentCurrencyCode = $block->getCurrentCurrencyCode(); ?>
+    <div class="switcher">
+        <a href="#" class="action" title="<?=__('Currency')?>"><?=$block->escapeHtml($currentCurrencyCode)?></a>
+        <ul data-role="dropdown-dialog">
+            <?php foreach ($block->getCurrencies() as $_code => $_name): ?>
+                <li>
+                    <a href="#"
+                       data-post='<?=$block->getSwitchCurrencyPostData($_code)?>'
+                       <?=($_code == $currentCurrencyCode ? "class=\"selected\"" : "")?>>
+                        <?=$block->escapeHtml($_name)?> - <?=$block->escapeHtml($_code) ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>

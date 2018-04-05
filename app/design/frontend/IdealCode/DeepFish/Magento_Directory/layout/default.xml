@@ -2,8 +2,6 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <move element="store_language" destination="header.panel.right" after="header" before="currency"/>
-
-        <referenceBlock name="store.settings.language" remove="true" />
+        <move element="currency" destination="header.panel.right" after="store_language" />
     </body>
 </page>
