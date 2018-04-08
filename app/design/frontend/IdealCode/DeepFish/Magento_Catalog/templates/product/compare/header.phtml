@@ -43,7 +43,9 @@ $postHelper = $this->helper('Magento\Framework\Data\Helper\PostHelper');
                     <a class="button" data-bind="attr: {'href': compareProducts().listUrl}">
                         <span><?= __('Compare') ?></span>
                     </a>
-                    <a href="#" data-post='<?= $postHelper->getPostData($compareHelper->getClearListUrl()) ?>'>
+                    <a href="#"
+                       class="clear"
+                       data-post='<?= $postHelper->getPostData($compareHelper->getClearListUrl()) ?>'>
                         <?= __('Clear All') ?>
                     </a>
                 </div>
