@@ -20,5 +20,6 @@
 
         <referenceBlock name="register-link" remove="true" />
         <referenceBlock name="authorization-link" remove="true" />
+        <referenceBlock name="authentication-popup" remove="true" />
     </body>
 </page>

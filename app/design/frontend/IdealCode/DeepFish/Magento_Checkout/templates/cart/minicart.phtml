@@ -1,0 +1,28 @@
+<?php
+/**
+ * Header minicart block
+ *
+ * @var \Magento\Checkout\Block\Cart\Sidebar $block
+ */
+
+$jsLayout = [
+    'Magento_Ui/js/core/app' => \Zend_Json::decode($block->getJsLayout())
+];
+?>
+<div class="dropdown minicart" data-mage-init='<?= \Zend_Json::encode($jsLayout) ?>'>
+    <a href="<?= $block->getShoppingCartUrl() ?>" class="action" data-bind="scope: 'minicart_content'">
+        <span class="inner">
+            <span class="label"><?= __('My Cart') ?></span>
+            <span class="count" data-bind="text: cart().summary_count == 1 ? '<?= __('1 item') ?>' :
+                '<?= __('%1 items') ?>'.replace('%1', cart().summary_count ? cart().summary_count : 0)">
+            </span>
+        </span>
+    </a>
+    <?php if($block->getIsNeedToDisplaySideBar()): ?>
+        <div class="dialog" data-role="dropdown-dialog">
+            <div data-bind="scope: 'minicart_content'">
+            </div>
+            <?= $block->getChildHtml('minicart.addons') ?>
+        </div>
+    <?php endif; ?>
+</div>
