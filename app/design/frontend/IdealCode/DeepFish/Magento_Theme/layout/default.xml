@@ -38,7 +38,29 @@
         <referenceContainer name="header.panel.wrapper" htmlClass="panel" />
 
         <referenceContainer name="header.panel" htmlClass="content">
-            <container name="header.panel.right" htmlTag="div" htmlClass="right"/>
+            <container name="header.panel.right" htmlTag="div" htmlClass="right">
+                <container name="header.panel.right.socials" htmlTag="div" htmlClass="socials" before="store_language"
+                           after="header">
+                    <block name="socials.facebook" template="Magento_Theme::html/socials.phtml" >
+                        <arguments>
+                            <argument name="href" xsi:type="string">https://www.facebook.com/</argument>
+                            <argument name="icon_name" xsi:type="string">fa-facebook</argument>
+                        </arguments>
+                    </block>
+                    <block name="socials.twitter" template="Magento_Theme::html/socials.phtml" >
+                        <arguments>
+                            <argument name="href" xsi:type="string">https://twitter.com/</argument>
+                            <argument name="icon_name" xsi:type="string">fa-twitter</argument>
+                        </arguments>
+                    </block>
+                    <block name="socials.google" template="Magento_Theme::html/socials.phtml" >
+                        <arguments>
+                            <argument name="href" xsi:type="string">https://plus.google.com/</argument>
+                            <argument name="icon_name" xsi:type="string">fa-google-plus</argument>
+                        </arguments>
+                    </block>
+                </container>
+            </container>
         </referenceContainer>
 
         <!-- Remove skip block-->
