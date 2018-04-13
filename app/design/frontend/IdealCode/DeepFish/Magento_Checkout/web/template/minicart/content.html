@@ -1,0 +1,31 @@
+<if args="cart().summary_count">
+    <a href="#" class="material-icons close" data-bind="attr: {title: $t('Close')}">cancel</a>
+    <div class="title" translate="'Recently added items'"></div>
+
+    <each args="data: cart().items, as: 'item'">
+        <each args="$parent.getRegion($parent.itemRenderer[item.product_type] || 'defaultRenderer')"
+              render="{name: getTemplate(), data: item}"
+        />
+    </each>
+
+    <each args="getRegion('subtotalContainer')" render="" />
+    <each args="getRegion('extraInfo')" render="" />
+
+    <div class="actions">
+        <a class="button checkout" data-bind="attr: {href: checkoutUrl}" if="cart().possible_onepage_checkout">
+            <span translate="'Checkout'"></span>
+        </a>
+        <a class="cart-link"
+           data-bind="attr: {href: shoppingCartUrl}"
+           translate="'View shopping cart'">
+        </a>
+        <div data-bind="html: cart().extra_actions"></div>
+    </div>
+</if>
+
+<ifnot args="cart().summary_count">
+    <span translate="'You have no items in your shopping cart.'"></span>
+</ifnot>
+
+<each args="getRegion('promotion')" render="" />
+<each args="getRegion('sign-in-popup')" render="" />

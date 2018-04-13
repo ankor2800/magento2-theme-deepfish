@@ -5,22 +5,25 @@
  * @var \Magento\Checkout\Block\Cart\Sidebar $block
  */
 
-$jsLayout = [
-    'Magento_Ui/js/core/app' => \Zend_Json::decode($block->getJsLayout())
+$jsLayout = \Zend_Json::decode($block->getJsLayout());
+$jsLayout['components']['minicart_content']['config'] += [
+    'checkoutUrl' => $block->getCheckoutUrl(),
+    'shoppingCartUrl' => $block->getShoppingCartUrl()
 ];
 ?>
-<div class="dropdown minicart" data-mage-init='<?= \Zend_Json::encode($jsLayout) ?>'>
+<div class="dropdown minicart" data-mage-init='<?= \Zend_Json::encode(['Magento_Ui/js/core/app' => $jsLayout]) ?>'>
     <a href="<?= $block->getShoppingCartUrl() ?>" class="action" data-bind="scope: 'minicart_content'">
         <span class="inner">
             <span class="label"><?= __('My Cart') ?></span>
             <span class="count" data-bind="text: cart().summary_count == 1 ? '<?= __('1 item') ?>' :
-                '<?= __('%1 items') ?>'.replace('%1', cart().summary_count ? cart().summary_count : 0)">
+                '<?= __('%1 items') ?>'.replace('%1', cart().summary_count || 0)">
             </span>
         </span>
     </a>
     <?php if($block->getIsNeedToDisplaySideBar()): ?>
         <div class="dialog" data-role="dropdown-dialog">
             <div data-bind="scope: 'minicart_content'">
+                <!-- ko template: getTemplate() --><!-- /ko -->
             </div>
             <?= $block->getChildHtml('minicart.addons') ?>
         </div>

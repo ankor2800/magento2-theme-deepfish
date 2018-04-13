@@ -7,13 +7,13 @@
  */
 
 /** @var \Magento\Wishlist\Helper\Data $helper */
-$helper = $this->helper('Magento\Wishlist\Helper\Data');
+$helper = $this->helper(\Magento\Wishlist\Helper\Data::class);
 ?>
 <div class="dropdown wishlist">
     <a href="#" class="action" data-bind="scope: 'wishlist'">
         <span class="inner">
             <span class="label"><?= __('Wishlist') ?></span>
-            <span class="count" data-bind="text: wishlist().counter ? wishlist().counter : '<?= __('0 items') ?>'"></span>
+            <span class="count" data-bind="text: wishlist().counter || '<?= __('0 items') ?>'"></span>
         </span>
     </a>
     <div class="dialog" data-role="dropdown-dialog">

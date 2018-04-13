@@ -1,1 +1,12 @@
 @import 'module/_minicart.less';
+
+button,
+.button {
+    &.checkout {
+        padding: 0 30px;
+        border: 0;
+        .lib-css(color, @color-white);
+        .lib-css(background, @color-blue);
+        .lib-line-height(58px);
+    }
+}

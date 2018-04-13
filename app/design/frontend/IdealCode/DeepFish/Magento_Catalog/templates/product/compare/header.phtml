@@ -7,18 +7,16 @@
  */
 
 /** @var \Magento\Catalog\Helper\Product\Compare $compareHelper */
-$compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');
+$compareHelper = $this->helper(\Magento\Catalog\Helper\Product\Compare::class);
 
 /** @var \Magento\Framework\Data\Helper\PostHelper $postHelper */
-$postHelper = $this->helper('Magento\Framework\Data\Helper\PostHelper');
+$postHelper = $this->helper(\Magento\Framework\Data\Helper\PostHelper::class);
 ?>
 <div class="dropdown compare">
     <a href="#" class="action" data-bind="scope: 'compareProducts'">
         <span class="inner">
             <span class="label"><?= __('Compare') ?></span>
-            <span class="count"
-                  data-bind="text: compareProducts().countCaption ? compareProducts().countCaption : '<?= __('0 items') ?>'">
-            </span>
+            <span class="count" data-bind="text: compareProducts().countCaption || '<?= __('0 items') ?>'"></span>
         </span>
     </a>
     <div class="dialog" data-role="dropdown-dialog">

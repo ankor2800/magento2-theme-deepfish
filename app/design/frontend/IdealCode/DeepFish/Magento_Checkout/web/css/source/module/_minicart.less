@@ -4,6 +4,50 @@ header {
             .action:before {
                 .lib-css(content, @icon-shopping-cart);
             }
+
+            .dialog {
+                .subtotal {
+                    margin: 20px 0;
+                    .lib-vendor-prefix-display();
+
+                    .label {
+                        text-transform: uppercase;
+                        margin-right: 6px;
+                        white-space: nowrap;
+                        .lib-vendor-prefix-display();
+                        .lib-css(color, @color-gray);
+                        .lib-font-size(24px);
+
+                        &:after {
+                            content: ':';
+                        }
+                    }
+
+                    .price {
+                        .lib-css(font-weight, @font-weight__heavybold);
+                        .lib-css(color, @color-blue);
+                        .lib-font-size(24px);
+                    }
+                    [data-label] {
+                        display: block;
+                        margin-bottom: -5px;
+
+                        &:before {
+                            content: attr(data-label) ': ';
+                        }
+                    }
+                }
+
+                .actions {
+                    .button {
+                        margin-right: 25px;
+                    }
+                    .cart-link {
+                        margin: 17px 0;
+                        text-transform: uppercase;
+                    }
+                }
+            }
         }
     }
 }
