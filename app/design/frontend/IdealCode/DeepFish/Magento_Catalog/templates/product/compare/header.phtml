@@ -22,15 +22,14 @@ $postHelper = $this->helper(\Magento\Framework\Data\Helper\PostHelper::class);
     <div class="dialog" data-role="dropdown-dialog">
         <div data-bind="scope: 'compareProducts'">
             <!-- ko if: compareProducts().count -->
-                <a href="#" class="material-icons close" title="<?= __('Close') ?>">cancel</a>
+                <a href="#" class="icon close" title="<?= __('Close') ?>"></a>
                 <div class="title"><?= __('Items to compare') ?></div>
                 <!-- ko foreach: compareProducts().items -->
                     <div class="item">
                         <a href="#"
-                           class="material-icons remove"
+                           class="icon remove"
                            title="<?= __('Remove this item') ?>"
                            data-bind="attr: {'data-post': remove_url}">
-                            close
                         </a>
                         <a class="name" data-bind="attr: {href: product_url, title: name}">
                             <!-- ko text: name --><!-- /ko -->

@@ -19,15 +19,14 @@ $helper = $this->helper(\Magento\Wishlist\Helper\Data::class);
     <div class="dialog" data-role="dropdown-dialog">
         <div data-bind="scope: 'wishlist'">
             <!-- ko if: wishlist().counter -->
-                <a href="#" class="material-icons close" title="<?= __('Close') ?>">cancel</a>
+                <a href="#" class="icon close" title="<?= __('Close') ?>"></a>
                 <div class="title"><?= __('Last added items') ?></div>
                 <!-- ko foreach: wishlist().items -->
                     <div class="item">
                         <a href="#"
-                           class="material-icons remove"
+                           class="icon remove"
                            title="<?= __('Remove this item') ?>"
                            data-bind="attr: {'data-post': delete_item_params}">
-                            close
                         </a>
                         <a data-bind="attr: {href: product_url, title: product_name}">
                             <!-- ko template: {name: image.template, data: image} --><!-- /ko -->
