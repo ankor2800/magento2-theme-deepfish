@@ -18,6 +18,22 @@ header {
             }
 
             .dialog {
+                .item {
+                    .prices {
+                        .price {
+                            span {
+                                display: block;
+                            }
+                            .special-price {
+                                .lib-css(color, @color-blue);
+                            }
+                            .old-price {
+                                text-decoration: line-through;
+                            }
+                        }
+                    }
+                }
+
                 .actions {
                     .lib-css(justify-content, flex-end, 1);
                 }

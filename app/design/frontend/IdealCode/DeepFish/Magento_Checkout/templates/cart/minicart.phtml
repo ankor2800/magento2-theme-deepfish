@@ -6,9 +6,12 @@
  */
 
 $jsLayout = \Zend_Json::decode($block->getJsLayout());
+$jsConfig = $block->getConfig();
+
 $jsLayout['components']['minicart_content']['config'] += [
-    'checkoutUrl' => $block->getCheckoutUrl(),
-    'shoppingCartUrl' => $block->getShoppingCartUrl()
+    'checkoutUrl' => $jsConfig['checkoutUrl'],
+    'shoppingCartUrl' => $jsConfig['shoppingCartUrl'],
+    'maxItemsToDisplay' => $jsConfig['maxItemsToDisplay']
 ];
 ?>
 <div class="dropdown minicart" data-mage-init='<?= \Zend_Json::encode(['Magento_Ui/js/core/app' => $jsLayout]) ?>'>

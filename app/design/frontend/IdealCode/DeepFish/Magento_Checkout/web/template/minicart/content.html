@@ -4,7 +4,8 @@
 
     <each args="data: cart().items, as: 'item'">
         <each args="$parent.getRegion($parent.itemRenderer[item.product_type] || 'defaultRenderer')"
-              render="{name: getTemplate(), data: item}"
+              render="{name: getTemplate(), data: item, afterRender: function(){$parents[1].updatePrices()}}"
+              if="$index() < $parent.maxItemsToDisplay"
         />
     </each>
 

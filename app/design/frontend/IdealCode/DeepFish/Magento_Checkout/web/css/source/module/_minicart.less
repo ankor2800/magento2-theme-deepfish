@@ -6,6 +6,18 @@ header {
             }
 
             .dialog {
+                .item {
+                    .edit:before {
+                        top: 45px;
+                        right: 19px;
+                        .lib-font-size(18px);
+                        .lib-css(content, @icon-mode-edit);
+                    }
+                    .name {
+                        margin-top: 4px;
+                    }
+                }
+
                 .subtotal {
                     margin: 20px 0;
                     .lib-vendor-prefix-display();
@@ -29,12 +41,7 @@ header {
                         .lib-font-size(24px);
                     }
                     [data-label] {
-                        display: block;
-                        margin-bottom: -5px;
-
-                        &:before {
-                            content: attr(data-label) ': ';
-                        }
+                        margin-bottom: -3px;
                     }
                 }
 
@@ -46,6 +53,15 @@ header {
                         margin: 17px 0;
                         text-transform: uppercase;
                     }
+                }
+            }
+
+            [data-label] {
+                display: block;
+
+                &:before {
+                    content: attr(data-label) ':';
+                    margin-right: 3px;
                 }
             }
         }
