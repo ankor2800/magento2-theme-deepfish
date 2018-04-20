@@ -6,6 +6,11 @@ header {
             }
 
             .dialog {
+                .error-message {
+                    margin: 10px 0;
+                    .lib-css(color, @error__color);
+                }
+
                 .item {
                     .edit:before {
                         top: 45px;
@@ -15,6 +20,43 @@ header {
                     }
                     .name {
                         margin-top: 4px;
+                    }
+
+                    .qty {
+                        margin-top: 12px;
+                        .lib-vendor-prefix-display();
+
+                        label {
+                            margin: 3px 8px 0 0;
+                        }
+
+                        .input {
+                            position: relative;
+                            width: 100%;
+                            .lib-vendor-prefix-display();
+
+                            input {
+                                text-align: center;
+                                width: 70px;
+                                margin-right: 10px;
+                                padding: 5px 7px;
+                                height: 28px;
+                            }
+                            .mage-error[generated] {
+                                top: 32px;
+                            }
+                        }
+
+                        .submit {
+                            display: none;
+                            padding-top: 2px;
+                            letter-spacing: .8px;
+                            .lib-css(font-weight, @font-weight__heavybold);
+
+                            &.active {
+                                display: block;
+                            }
+                        }
                     }
                 }
 

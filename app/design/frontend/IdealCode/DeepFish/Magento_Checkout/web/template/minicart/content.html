@@ -1,6 +1,7 @@
 <if args="cart().summary_count">
     <a href="#" class="icon close" data-bind="attr: {title: $t('Close')}"></a>
     <div class="title" translate="'Recently added items'"></div>
+    <div class="error-message" data-bind="text: errorMessage()"></div>
 
     <each args="data: cart().items, as: 'item'">
         <each args="$parent.getRegion($parent.itemRenderer[item.product_type] || 'defaultRenderer')"

@@ -19,5 +19,17 @@
         <div class="prices"
              data-bind="html: canApplyMsrp ? $t('See price before order confirmation.') : product_price">
         </div>
+
+        <form class="qty" data-bind="attr: {action: $parents[2].updateItemQtyUrl}, mageInit: {validation: {}}">
+            <input type="hidden" name="item_id" data-bind="value: item_id" />
+            <label translate="'Qty\:'" data-bind="attr: {for: 'minicart-quantity-'+item_id}"></label>
+            <div class="input">
+                <input name="item_qty"
+                       data-bind="value: qty, attr: {id: 'minicart-quantity-'+item_id, 'data-value': qty}"
+                       data-validate="{required: true, 'validate-number': true, 'validate-greater-than-zero': true}"
+                />
+                <a href="#" class="submit" translate="'OK'"></a>
+            </div>
+        </form>
     </div>
 </div>

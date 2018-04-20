@@ -1,0 +1,33 @@
+input {
+    outline: 0;
+    .lib-css(background, @input-text__background);
+    .lib-css(border, @input-text__border);
+    .lib-css(color, @input-text__color);
+    .lib-css(font-family, @input-text__font-family);
+    .lib-font-size(@input-text__font-size);
+}
+
+.mage-error[generated] {
+    position: absolute;
+    z-index: 1;
+    .lib-css(color, @form-validation-note__color-error);
+    .lib-css(padding, @form-validation-note__padding);
+    .lib-css(background, @form-validation-note__background);
+    .lib-css(border, @form-validation-note__border);
+    .lib-css(border-radius, 3px, 1);
+    .lib-font-size(@form-validation-note__font-size);
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: 10px;
+        width: 8px;
+        height: 8px;
+        .lib-css(border, @form-validation-note__border);
+        .lib-css(background, @form-validation-note__background);
+        .lib-css(transform, rotate(45deg), 1);
+        border-right: 0;
+        border-bottom: 0;
+    }
+}
