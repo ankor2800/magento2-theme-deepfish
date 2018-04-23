@@ -2,6 +2,6 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <move element="top.search" destination="header.navigation.content.wrapper" />
+        <referenceBlock name="advanced-search-link" remove="true" />
     </body>
 </page>

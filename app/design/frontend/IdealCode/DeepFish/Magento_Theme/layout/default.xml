@@ -90,6 +90,14 @@
             </arguments>
         </referenceBlock>
 
-        <move element="navigation.sections" destination="header.container" />
+        <referenceContainer name="header.container">
+            <container name="header.navigation" htmlTag="div" htmlClass="navigation" >
+                <container name="header.navigation.content" htmlTag="div" htmlClass="content" >
+                    <container name="header.navigation.content.wrapper" htmlTag="div" htmlClass="wrapper" />
+                </container>
+            </container>
+        </referenceContainer>
+
+        <referenceBlock name="navigation.sections" remove="true" />
     </body>
 </page>

@@ -1,0 +1,95 @@
+header {
+    .navigation {
+        .content {
+            .wrapper {
+                .search {
+                    position: absolute;
+                    width: 100%;
+                    top: 0;
+
+                    a.action {
+                        position: absolute;
+                        right: 0;
+                        .lib-font-size(34px);
+                        .lib-line-height(60px);
+                        .lib-css(color, @color-white);
+
+                        &:hover {
+                            .lib-css(color, @color-blue);
+                        }
+
+                        &:before {
+                            .lib-css(font-family, @icons__font-name);
+                            .lib-css(content, @icon-search);
+                        }
+                    }
+
+                    form[name=search] {
+                        display: none;
+                        padding: 0 50px 0 0;
+                        position: relative;
+                        .lib-css(background-color, @color-gray);
+
+                        .input {
+                            .lib-vendor-prefix-display();
+
+                            &:before {
+                                position: absolute;
+                                left: 19px;
+                                top: 4px;
+                                .lib-font-size(34px);
+                                .lib-css(color, @color-white);
+                                .lib-css(font-family, @icons__font-name);
+                                .lib-css(content, @icon-search);
+                            }
+
+                            input {
+                                width: 100%;
+                                padding: 5px 10px 5px 75px;
+                                background: none;
+                                .lib-css(border, @button__border);
+                                .lib-css(border-color, @color-white);
+                                border-right: none;
+                            }
+
+                            button {
+                                height: 60px;
+                                white-space: nowrap;
+                                background: none;
+                                .lib-css(border-color, @color-white);
+                                .lib-css(color, @color-white);
+
+                                &:after {
+                                    content: none;
+                                }
+
+                                &:hover {
+                                    .lib-css(color, @color-blue);
+                                }
+                            }
+                        }
+
+                        .close {
+                            position: absolute;
+                            right: -2px;
+                            top: 0;
+                            height: 60px;
+                            .lib-font-size(34px);
+                            .lib-line-height(60px);
+                            .lib-css(color, @color-white);
+
+                            &:hover {
+                                .lib-css(color, @color-blue);
+                            }
+
+                            &:before {
+                                .lib-css(content, @icon-close);
+                                .lib-css(font-family, @icons__font-name);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

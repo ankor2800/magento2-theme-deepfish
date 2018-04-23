@@ -5,6 +5,32 @@ input {
     .lib-css(color, @input-text__color);
     .lib-css(font-family, @input-text__font-family);
     .lib-font-size(@input-text__font-size);
+
+    &::-moz-placeholder {
+        .lib-css(color, @input-text-placeholder__color);
+    }
+
+    &::-webkit-input-placeholder {
+        .lib-css(color, @input-text-placeholder__color);
+    }
+
+    &:-ms-input-placeholder {
+        .lib-css(color, @input-text-placeholder__color);
+    }
+
+    &:focus {
+        &::-moz-placeholder {
+            .lib-css(opacity, @input-text-placeholder__focus__opacity);
+        }
+
+        &::-webkit-input-placeholder {
+            .lib-css(opacity, @input-text-placeholder__focus__opacity);
+        }
+
+        &:-ms-input-placeholder {
+            .lib-css(opacity, @input-text-placeholder__focus__opacity);
+        }
+    }
 }
 
 .mage-error[generated] {
