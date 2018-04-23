@@ -15,8 +15,11 @@ $jsLayout['components']['minicart_content']['config'] += [
     'maxItemsToDisplay' => $jsConfig['maxItemsToDisplay']
 ];
 ?>
-<div class="dropdown minicart" data-mage-init='<?= \Zend_Json::encode(['Magento_Ui/js/core/app' => $jsLayout]) ?>'>
-    <a href="<?= $block->getShoppingCartUrl() ?>" class="action" data-bind="scope: 'minicart_content'">
+<div class="dropdown minicart"
+     data-mage-init='<?= \Zend_Json::encode(['Magento_Ui/js/core/app' => $jsLayout]) ?>'>
+    <a href="<?= $block->getShoppingCartUrl() ?>"
+       class="action<?php if(!$block->getIsNeedToDisplaySideBar()): ?> no-arrow<?php endif; ?>"
+       data-bind="scope: 'minicart_content'">
         <span class="inner">
             <span class="label"><?= __('My Cart') ?></span>
             <span class="count" data-bind="text: cart().summary_count == 1 ? '<?= __('1 item') ?>' :

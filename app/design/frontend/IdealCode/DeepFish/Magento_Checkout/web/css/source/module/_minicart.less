@@ -1,8 +1,16 @@
+@minicart-popup__background: #f6f6f6;
+@minicart-popup__border-color: #e4e4e5;
+
 header {
     .header {
         .dropdown.minicart {
-            .action:before {
-                .lib-css(content, @icon-shopping-cart);
+            .action {
+                &:before {
+                    .lib-css(content, @icon-shopping-cart);
+                }
+                &.no-arrow:after {
+                    content: none;
+                }
             }
 
             .dialog {
@@ -55,6 +63,83 @@ header {
 
                             &.active {
                                 display: block;
+                            }
+                        }
+                    }
+
+                    .options {
+                        display: inline-block;
+                        position: relative;
+                        margin-top: 15px;
+                        cursor: help;
+
+                        a {
+                            text-transform: uppercase;
+                            cursor: help;
+                        }
+
+                        .popup {
+                            visibility: hidden;
+                            opacity: 0;
+                            position: absolute;
+                            top: 31px;
+                            left: -44px;
+                            z-index: 3;
+                            width: 200px;
+                            padding: 18px;
+                            border: 1px solid;
+                            .lib-css(border-color, @minicart-popup__border-color);
+                            .lib-css(background, @minicart-popup__background);
+                            .lib-css(box-shadow, 0 0 5px rgba(0, 0, 0, 0.15), 1);
+                            .lib-css(transition, all 0.8s ease-in-out, 1);
+
+                            &:before,
+                            &:after {
+                                content: '';
+                                position: absolute;
+                                border-right: 14px solid transparent;
+                                border-bottom: 14px solid;
+                            }
+
+                            &:before {
+                                top: -14px;
+                                left: 50px;
+                                .lib-css(border-bottom-color, @minicart-popup__border-color);
+                            }
+                            &:after {
+                                top: -12px;
+                                left: 51px;
+                                .lib-css(border-bottom-color, @minicart-popup__background);
+                            }
+
+                            .option {
+                                margin-bottom: 6px;
+                                .lib-font-size(@font-size__s);
+                                .lib-vendor-prefix-display();
+                                .lib-vendor-prefix-flex-wrap();
+
+                                div {
+                                    color: #333;
+                                    margin-right: 10px;
+                                }
+                                &:last-child {
+                                    margin-bottom: 0;
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            a:after {
+                                content: '';
+                                position: absolute;
+                                top: 17px;
+                                left: 0;
+                                height: 14px;
+                                width: 100%;
+                            }
+                            .popup {
+                                visibility: visible;
+                                opacity: 1;
                             }
                         }
                     }

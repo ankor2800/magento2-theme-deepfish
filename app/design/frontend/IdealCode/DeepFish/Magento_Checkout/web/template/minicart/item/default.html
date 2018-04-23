@@ -31,5 +31,15 @@
                 <a href="#" class="submit" translate="'OK'"></a>
             </div>
         </form>
+
+        <div class="options" if="options.length">
+            <a translate="'Details'" data-bind="attr: {href: configure_url}"></a>
+            <div class="popup" each="{data: options, as: 'option'}">
+                <div class="option">
+                    <div data-bind="text: label+':'"></div>
+                    <span data-bind="text: value"></span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
