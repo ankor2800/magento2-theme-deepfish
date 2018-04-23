@@ -1,0 +1,35 @@
+.breadcrumbs {
+    background: #f3f3f3;
+    .lib-css(margin, @breadcrumbs__container-margin);
+    .lib-css(padding, @breadcrumbs__padding);
+    .lib-font-size(@breadcrumbs__font-size);
+
+    ul {
+        list-style: none;
+        .lib-vendor-prefix-display();
+
+        li {
+            margin-right: 7px;
+
+            & when not (@breadcrumbs-separator__symbol = false) {
+                .lib-vendor-prefix-display();
+
+                &:not(:last-child):after {
+                    margin-left: 8px;
+                    .lib-css(content, @breadcrumbs-separator__symbol);
+                }
+            }
+
+            a {
+                .lib-css(color, @breadcrumbs-link__color);
+
+                &:hover {
+                    .lib-css(color, @breadcrumbs-link__hover__color);
+                }
+            }
+            .current {
+                .lib-css(color, @breadcrumbs-current__color);
+            }
+        }
+    }
+}

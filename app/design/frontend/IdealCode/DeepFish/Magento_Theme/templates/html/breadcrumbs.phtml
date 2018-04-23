@@ -1,0 +1,30 @@
+<?php
+/**
+ * Breadcrumbs block
+ *
+ * @var \Magento\Theme\Block\Html\Breadcrumbs $block
+ * @var array $crumbs
+ */
+?>
+<?php if($crumbs && is_array($crumbs)): ?>
+    <div class="breadcrumbs">
+        <div class="content">
+            <ul>
+                <?php foreach($crumbs as $crumb): ?>
+                    <li>
+                        <?php if($crumb['link'] && !$crumb['last']): ?>
+                            <a href="<?= $crumb['link'] ?>"
+                               <?php if($crumb['title']): ?>title="<?= $crumb['title'] ?>"<?php endif; ?>>
+                                <?= $crumb['label'] ?>
+                            </a>
+                        <?php else: ?>
+                            <span<?php if($crumb['last']): ?> class="current"<?php endif; ?>>
+                                <?= $crumb['label'] ?>
+                            </span>
+                        <?php endif; ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+<?php endif; ?>

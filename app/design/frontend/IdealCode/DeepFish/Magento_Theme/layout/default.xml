@@ -99,5 +99,6 @@
         </referenceContainer>
 
         <referenceBlock name="navigation.sections" remove="true" />
+        <move element="breadcrumbs" destination="header.container" />
     </body>
 </page>
