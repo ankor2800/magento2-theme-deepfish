@@ -11,22 +11,17 @@
                     <argument name="jsLayout" xsi:type="array">
                         <item name=".header [data-role=dropdown-dialog]" xsi:type="array">
                             <item name="Magento_Theme/js/dropdown-dialog-ex" xsi:type="array">
-                                <item name="closeOnMouseLeave" xsi:type="boolean">false</item>
                                 <item name="dialogContentClass" xsi:type="string">active</item>
-                                <item name="buttons" xsi:type="array" />
                             </item>
                         </item>
                         <item name=".panel .switcher [data-role=dropdown-dialog]" xsi:type="array">
                             <item name="Magento_Theme/js/dropdown-dialog-ex" xsi:type="array">
-                                <item name="closeOnMouseLeave" xsi:type="boolean">false</item>
                                 <item name="show" xsi:type="array">
                                     <item name="effect" xsi:type="string">blind</item>
                                 </item>
                                 <item name="hide" xsi:type="array">
                                     <item name="effect" xsi:type="string">blind</item>
                                 </item>
-                                <item name="dialogContentClass" xsi:type="string">active</item>
-                                <item name="buttons" xsi:type="array" />
                             </item>
                         </item>
                     </argument>

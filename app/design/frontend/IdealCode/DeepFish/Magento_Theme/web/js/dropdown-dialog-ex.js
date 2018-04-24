@@ -16,7 +16,9 @@ define([
             this.element.each(function() {
                 $(this).dropdownDialog($.extend({
                     'appendTo': $(this).parent(),
-                    'triggerTarget': $(this).parent().find('.action')
+                    'triggerTarget': $(this).parent().find('.action'),
+                    'closeOnMouseLeave': false,
+                    'buttons': []
                 }, self.options));
             });
 
