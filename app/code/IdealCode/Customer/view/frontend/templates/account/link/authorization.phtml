@@ -1,9 +1,0 @@
-<?php
-/** @var \IdealCode\Customer\Block\Account\AuthorizationLink $block */
-?>
-<div class="customer" data-bind="scope: 'customer', css: 'active'">
-    <a href="#"
-       data-bind="text: customer().fullname ? '<?=__('Log Out')?>' : '<?=__('Log In')?>',
-       attr: { href: customer().fullname ? '<?=$block->getLogoutUrl()?>' : '<?=$block->getLoginUrl()?>' }">
-    </a>
-</div>
