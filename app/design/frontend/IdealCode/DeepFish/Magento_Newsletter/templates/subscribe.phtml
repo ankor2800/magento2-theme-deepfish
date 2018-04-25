@@ -1,0 +1,20 @@
+<?php
+/** @var \Magento\Newsletter\Block\Subscribe $block */
+?>
+<div class="subscribe">
+    <h2><?=__('Newsletter')?></h2>
+    <h3><?=__('Get the latest news delivered daily!')?></h3>
+    <form action="<?=$block->escapeUrl($block->getFormActionUrl())?>"
+          data-mage-init='{"validation": {}}'
+          method="post"
+          class="input-box">
+            <input type="email"
+                   name="email"
+                   placeholder="<?=__('Enter your e-mail')?>"
+                   title="<?=__('Sign up for our newsletter')?>"
+                   data-validate="{required: true, 'validate-email': true}">
+        <button type="submit" title="<?=__('Subscribe')?>">
+            <?=__('Subscribe')?>
+        </button>
+    </form>
+</div>

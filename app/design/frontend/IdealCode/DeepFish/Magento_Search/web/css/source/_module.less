@@ -30,9 +30,7 @@ header {
                         position: relative;
                         .lib-css(background-color, @color-gray);
 
-                        .input {
-                            .lib-vendor-prefix-display();
-
+                        .input-box {
                             &:before {
                                 position: absolute;
                                 left: 19px;
@@ -44,28 +42,12 @@ header {
                             }
 
                             input {
-                                width: 100%;
-                                padding: 5px 10px 5px 75px;
-                                background: none;
-                                .lib-css(border, @button__border);
-                                .lib-css(border-color, @color-white);
-                                border-right: none;
+                                padding: 0 10px 0 75px;
+                                .lib-line-height(@line-height__base);
                             }
 
-                            button {
-                                height: 60px;
-                                white-space: nowrap;
-                                background: none;
-                                .lib-css(border-color, @color-white);
-                                .lib-css(color, @color-white);
-
-                                &:after {
-                                    content: none;
-                                }
-
-                                &:hover {
-                                    .lib-css(color, @color-blue);
-                                }
+                            .mage-error[generated] {
+                                left: 77px;
                             }
                         }
 

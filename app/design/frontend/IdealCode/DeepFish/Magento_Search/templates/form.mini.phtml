@@ -9,7 +9,8 @@
 $helper = $this->helper(\Magento\Search\Helper\Data::class);
 
 $dropdownJsLayout = [
-    'Magento_Theme/js/dropdown-dialog-ex' => []
+    'Magento_Theme/js/dropdown-dialog-ex' => [],
+    'validation'=> []
 ];
 ?>
 <div class="search">
@@ -18,12 +19,14 @@ $dropdownJsLayout = [
           name="search"
           method="get"
           data-mage-init='<?=\Zend_Json::encode($dropdownJsLayout)?>'>
-        <div class="input">
+        <div class="input-box">
             <input type="text"
+                   data-mage-init="{}"
                    name="<?=$helper->getQueryParamName() ?>"
                    value="<?=$helper->getEscapedQueryText() ?>"
                    placeholder="<?= __('Enter keyword') ?>"
-                   maxlength="<?=$helper->getMaxQueryLength() ?>"/>
+                   maxlength="<?=$helper->getMaxQueryLength() ?>"
+                   data-validate="{required: true}"/>
             <button type="submit" title="<?= $block->escapeHtml(__('Search')) ?>">
                 <?=__('Search') ?>
             </button>

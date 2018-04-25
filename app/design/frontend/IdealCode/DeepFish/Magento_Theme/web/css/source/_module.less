@@ -295,3 +295,43 @@ header {
         }
     }
 }
+
+footer {
+    text-align: center;
+    padding-top: 67px;
+    padding-bottom: 46px;
+    .lib-css(background-color, @color-gray);
+}
+
+.input-box {
+    .lib-vendor-prefix-display();
+
+    input {
+        width: 100%;
+        background: none;
+        .lib-line-height(56px);
+        .lib-css(border, @button__border);
+        .lib-css(border-color, @color-white);
+        border-right: none;
+    }
+
+    button {
+        height: 60px;
+        white-space: nowrap;
+        background: none;
+        .lib-css(border-color, @color-white);
+        .lib-css(color, @color-white);
+
+        &:after {
+            content: none;
+        }
+
+        &:hover {
+            .lib-css(color, @color-blue);
+        }
+    }
+
+    .mage-error[generated] {
+        top: 60px;
+    }
+}
