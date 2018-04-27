@@ -29,7 +29,7 @@ $postHelper = $this->helper(\Magento\Framework\Data\Helper\PostHelper::class);
                         <a href="#"
                            class="icon remove"
                            title="<?= __('Remove this item') ?>"
-                           data-bind="attr: {'data-post': remove_url}">
+                           data-bind="attr: {'data-ajax': remove_url}">
                         </a>
                         <a class="name" data-bind="attr: {href: product_url, title: name}">
                             <!-- ko text: name --><!-- /ko -->
@@ -42,7 +42,7 @@ $postHelper = $this->helper(\Magento\Framework\Data\Helper\PostHelper::class);
                     </a>
                     <a href="#"
                        class="clear"
-                       data-post='<?= $postHelper->getPostData($compareHelper->getClearListUrl()) ?>'>
+                       data-ajax='<?= $postHelper->getPostData($compareHelper->getClearListUrl()) ?>'>
                         <?= __('Clear All') ?>
                     </a>
                 </div>

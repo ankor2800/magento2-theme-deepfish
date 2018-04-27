@@ -26,7 +26,7 @@ $helper = $this->helper(\Magento\Wishlist\Helper\Data::class);
                         <a href="#"
                            class="icon remove"
                            title="<?= __('Remove this item') ?>"
-                           data-bind="attr: {'data-post': delete_item_params}">
+                           data-bind="attr: {'data-ajax': delete_item_params}">
                         </a>
                         <a data-bind="attr: {href: product_url, title: product_name}">
                             <!-- ko template: {name: image.template, data: image} --><!-- /ko -->
@@ -39,7 +39,7 @@ $helper = $this->helper(\Magento\Wishlist\Helper\Data::class);
                             </div>
                             <div class="prices" data-bind="html: product_price"></div>
                             <!-- ko if: product_is_saleable_and_visible -->
-                                <a href="#" data-bind="attr: {'data-post': add_to_cart_params}">
+                                <a href="#" data-bind="attr: {'data-ajax': add_to_cart_params}">
                                     <?= __('Add to Cart') ?>
                                 </a>
                             <!-- /ko -->
