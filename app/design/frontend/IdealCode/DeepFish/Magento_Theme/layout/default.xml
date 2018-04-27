@@ -10,12 +10,12 @@
                 <arguments>
                     <argument name="jsLayout" xsi:type="array">
                         <item name=".header [data-role=dropdown-dialog]" xsi:type="array">
-                            <item name="Magento_Theme/js/dropdown-dialog-ex" xsi:type="array">
+                            <item name="js/dropdown-dialog" xsi:type="array">
                                 <item name="dialogContentClass" xsi:type="string">active</item>
                             </item>
                         </item>
                         <item name=".panel .switcher [data-role=dropdown-dialog]" xsi:type="array">
-                            <item name="Magento_Theme/js/dropdown-dialog-ex" xsi:type="array">
+                            <item name="js/dropdown-dialog" xsi:type="array">
                                 <item name="show" xsi:type="array">
                                     <item name="effect" xsi:type="string">blind</item>
                                 </item>

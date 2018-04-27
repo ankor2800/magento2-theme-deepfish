@@ -20,7 +20,7 @@
              data-bind="html: canApplyMsrp ? $t('See price before order confirmation.') : product_price">
         </div>
 
-        <form class="qty" data-bind="attr: {action: $parents[2].updateItemQtyUrl}, mageInit: {validation: {}}">
+        <form class="qty" data-bind="attr: {action: $parents[2].updateItemQtyUrl}, mageInit: {'js/validation': {}}">
             <input type="hidden" name="item_id" data-bind="value: item_id" />
             <label translate="'Qty\:'" data-bind="attr: {for: 'minicart-quantity-'+item_id}"></label>
             <div class="input">

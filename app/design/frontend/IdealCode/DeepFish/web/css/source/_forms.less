@@ -33,6 +33,8 @@ input {
 }
 
 .mage-error[generated] {
+    opacity: 0;
+    visibility: hidden;
     position: absolute;
     z-index: 1;
     .lib-css(color, @form-validation-note__color-error);
@@ -41,6 +43,7 @@ input {
     .lib-css(border, @form-validation-note__border);
     .lib-css(border-radius, 3px, 1);
     .lib-font-size(@form-validation-note__font-size);
+    .lib-css(transition, all 1s, 1);
 
     &:before {
         content: '';
@@ -54,5 +57,9 @@ input {
         .lib-css(transform, rotate(45deg), 1);
         border-right: 0;
         border-bottom: 0;
+    }
+    &.active {
+        opacity: 1;
+        visibility: visible;
     }
 }
