@@ -15,8 +15,7 @@ $jsLayout['components']['minicart_content']['config'] += [
     'maxItemsToDisplay' => $jsConfig['maxItemsToDisplay']
 ];
 ?>
-<div class="dropdown minicart"
-     data-mage-init='<?= \Zend_Json::encode(['Magento_Ui/js/core/app' => $jsLayout]) ?>'>
+<div class="dropdown minicart" data-mage-init='<?= \Zend_Json::encode(['Magento_Ui/js/core/app' => $jsLayout]) ?>'>
     <a href="<?= $block->getShoppingCartUrl() ?>"
        class="action<?php if(!$block->getIsNeedToDisplaySideBar()): ?> no-arrow<?php endif; ?>"
        data-bind="scope: 'minicart_content'">
@@ -28,10 +27,8 @@ $jsLayout['components']['minicart_content']['config'] += [
         </span>
     </a>
     <?php if($block->getIsNeedToDisplaySideBar()): ?>
-        <div class="dialog" data-role="dropdown-dialog">
-            <div data-bind="scope: 'minicart_content'" data-role="preloader">
-                <!-- ko template: getTemplate() --><!-- /ko -->
-            </div>
+        <div class="dialog" data-bind="scope: 'minicart_content'" data-role-dropdown-dialog data-role-preloader>
+            <!-- ko template: getTemplate() --><!-- /ko -->
             <?= $block->getChildHtml('minicart.addons') ?>
         </div>
     <?php endif; ?>

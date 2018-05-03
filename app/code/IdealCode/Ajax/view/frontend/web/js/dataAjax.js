@@ -25,7 +25,7 @@ define([
 
             // Remove loader
             $(document).on('customer-data-reload', function() {
-                $(this).find('[data-role=preloader]').trigger('processStop');
+                $(this).find('[data-role-preloader]').trigger('processStop');
             });
         }
     });

@@ -1,10 +1,12 @@
-[data-role=preloader] {
+[data-role-preloader] {
     position: relative;
 
     .loading-mask {
         position: absolute;
-        width: 100%;
-        height: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
         background-repeat: no-repeat;
         .lib-css(background-color, @loading__background-color);
         .lib-css(background-image, @loading__background-image);

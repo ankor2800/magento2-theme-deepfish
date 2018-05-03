@@ -9,12 +9,12 @@
             <block name="common.head.components" template="Magento_Theme::js/components.phtml">
                 <arguments>
                     <argument name="jsLayout" xsi:type="array">
-                        <item name=".header [data-role=dropdown-dialog]" xsi:type="array">
+                        <item name=".header [data-role-dropdown-dialog]" xsi:type="array">
                             <item name="js/dropdown-dialog" xsi:type="array">
                                 <item name="dialogContentClass" xsi:type="string">active</item>
                             </item>
                         </item>
-                        <item name=".panel .switcher [data-role=dropdown-dialog]" xsi:type="array">
+                        <item name=".panel .switcher [data-role-dropdown-dialog]" xsi:type="array">
                             <item name="js/dropdown-dialog" xsi:type="array">
                                 <item name="show" xsi:type="array">
                                     <item name="effect" xsi:type="string">blind</item>
