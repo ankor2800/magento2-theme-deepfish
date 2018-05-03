@@ -20,7 +20,7 @@ $postHelper = $this->helper(\Magento\Framework\Data\Helper\PostHelper::class);
         </span>
     </a>
     <div class="dialog" data-role="dropdown-dialog">
-        <div data-bind="scope: 'compareProducts'">
+        <div data-bind="scope: 'compareProducts'" data-role="preloader">
             <!-- ko if: compareProducts().count -->
                 <a href="#" class="icon close" title="<?= __('Close') ?>"></a>
                 <div class="title"><?= __('Items to compare') ?></div>

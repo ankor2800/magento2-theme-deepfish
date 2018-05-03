@@ -54,6 +54,7 @@ define([
             // Ajax request if form is valid
             this.miniCart.on('submit', '.qty', function() {
                 if($(this).valid()) {
+                    $(this).trigger('processStart');
                     $.post($(this).attr('action'), $(this).serialize(), function(response) {
                         self.errorMessage(response.error_message || '');
                     }, 'json');

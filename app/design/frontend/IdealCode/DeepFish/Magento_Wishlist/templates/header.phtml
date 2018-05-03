@@ -17,7 +17,7 @@ $helper = $this->helper(\Magento\Wishlist\Helper\Data::class);
         </span>
     </a>
     <div class="dialog" data-role="dropdown-dialog">
-        <div data-bind="scope: 'wishlist'">
+        <div data-bind="scope: 'wishlist'" data-role="preloader">
             <!-- ko if: wishlist().counter -->
                 <a href="#" class="icon close" title="<?= __('Close') ?>"></a>
                 <div class="title"><?= __('Last added items') ?></div>

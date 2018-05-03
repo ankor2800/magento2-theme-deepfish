@@ -17,8 +17,15 @@ define([
                     'form_key': $.mage.cookies.get('form_key')
                 });
 
+                $(this).trigger('processStart');
                 $.post($(this).data('ajax')['action'], data);
+
                 return false;
+            });
+
+            // Remove loader
+            $(document).on('customer-data-reload', function() {
+                $(this).find('[data-role=preloader]').trigger('processStop');
             });
         }
     });
