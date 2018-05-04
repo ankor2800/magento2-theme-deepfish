@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.panel.right">
+            <block name="header.socials" class="DeepFish\Theme\Block\Html\Socials"
+                   template="DeepFish_Theme::html/socials.phtml" before="store_language" after="header"/>
+        </referenceContainer>
+
+        <referenceContainer name="footer">
+            <block name="footer.socials.block" class="DeepFish\Theme\Block\Html\Socials"
+                   template="DeepFish_Theme::html/socials.phtml" before="-" after="form.subscribe" />
+        </referenceContainer>
+    </body>
+</page>

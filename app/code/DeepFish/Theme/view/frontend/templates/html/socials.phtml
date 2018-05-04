@@ -1,0 +1,12 @@
+<?php
+/**
+ * Panel social link
+ *
+ * @var \DeepFish\Theme\Block\Html\Socials $block
+ */
+?>
+<div class="socials">
+    <?php foreach($block->renderSocials() as $social): ?>
+        <a href="<?=$social["href"]?>" target="_blank" class="fa <?=$social["icon"]?>"></a>
+    <?php endforeach; ?>
+</div>
