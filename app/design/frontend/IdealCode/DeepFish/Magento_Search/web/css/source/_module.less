@@ -2,16 +2,10 @@ header {
     .navigation {
         .content {
             .wrapper {
-                .search {
-                    position: absolute;
-                    width: 100%;
-                    top: 0;
+                position: relative;
 
+                .search {
                     a.action {
-                        position: absolute;
-                        right: 0;
-                        .lib-font-size(34px);
-                        .lib-line-height(60px);
                         .lib-css(color, @color-white);
 
                         &:hover {
@@ -21,13 +15,18 @@ header {
                         &:before {
                             .lib-css(font-family, @icons__font-name);
                             .lib-css(content, @icon-search);
+                            .lib-font-size(34px);
+                            .lib-line-height(70px);
                         }
                     }
 
                     form[name=search] {
                         display: none;
                         padding: 0 50px 0 0;
-                        position: relative;
+                        position: absolute;
+                        left: 0;
+                        right: 0;
+                        top: 5px;
                         .lib-css(background-color, @color-gray);
 
                         .input-box {
