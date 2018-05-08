@@ -288,6 +288,28 @@ footer {
     padding-top: 67px;
     padding-bottom: 46px;
     .lib-css(background-color, @color-gray);
+
+    a {
+        .lib-css(color, @color-white);
+
+        &:hover {
+            .lib-css(color, @color-blue);
+        }
+    }
+
+    .links {
+        list-style: none;
+        margin-bottom: 18px;
+        .lib-vendor-prefix-display();
+        .lib-css(justify-content, center, 1);
+        .lib-css(flex-wrap, wrap, 1);
+
+        li {
+            text-transform: uppercase;
+            padding: 12px 0;
+            margin: 0 16px;
+        }
+    }
 }
 
 .input-box {

@@ -3,5 +3,17 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="advanced-search-link" remove="true" />
+        <referenceBlock name="catalog-search-advanced-link" remove="true" />
+
+        <referenceBlock name="footer_links">
+            <block class="Magento\Framework\View\Element\Html\Link" name="footer.links.search.advanced">
+                <arguments>
+                    <argument name="label" xsi:type="string">Advanced Search</argument>
+                    <argument name="path" xsi:type="helper"
+                              helper="Magento\CatalogSearch\Helper\Data::getAdvancedSearchUrl" />
+                    <argument name="sortOrder" xsi:type="number">70</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
     </body>
 </page>

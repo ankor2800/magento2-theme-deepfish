@@ -73,5 +73,12 @@
 
         <referenceBlock name="navigation.sections" remove="true" />
         <move element="breadcrumbs" destination="header.container" />
+
+        <!-- Footer links block -->
+        <referenceBlock name="footer_links">
+            <arguments>
+                <argument name="css_class" xsi:type="string">links</argument>
+            </arguments>
+        </referenceBlock>
     </body>
 </page>

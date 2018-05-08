@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="sales-guest-form-link" remove="true" />
+
+        <referenceBlock name="footer_links">
+            <block name="footer.links.guest" class="Magento\Framework\View\Element\Html\Link">
+                <arguments>
+                    <argument name="label" xsi:type="string">Orders and Returns</argument>
+                    <argument name="path" xsi:type="string">sales/guest/form</argument>
+                    <argument name="sortOrder" xsi:type="number">80</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

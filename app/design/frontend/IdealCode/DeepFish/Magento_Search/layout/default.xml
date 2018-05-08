@@ -3,5 +3,17 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <move element="top.search" destination="header.navigation.content.wrapper" />
+        <referenceBlock name="search-term-popular-link" remove="true" />
+
+        <referenceBlock name="footer_links">
+            <block class="Magento\Framework\View\Element\Html\Link" ifconfig="catalog/seo/search_terms"
+                   name="footer.links.search.term">
+                <arguments>
+                    <argument name="label" xsi:type="string">Search Terms</argument>
+                    <argument name="path" xsi:type="helper" helper="Magento\Search\Helper\Data::getSearchTermUrl" />
+                    <argument name="sortOrder" xsi:type="number">60</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
     </body>
 </page>

@@ -22,7 +22,7 @@
 
         <referenceBlock name="top.links">
             <block class="Magento\Framework\View\Element\Html\Link" name="top.links.wishlist"
-                   template="Magento_Wishlist::link.phtml" before="top.links.blog">
+                   template="Magento_Wishlist::link.phtml" before="top.links.blog" ifconfig="wishlist/general/active">
                 <arguments>
                     <argument name="path" xsi:type="helper" helper="Magento\Wishlist\Helper\Data::getListUrl" />
                     <argument name="label" xsi:type="string">My Wishlist</argument>
@@ -31,7 +31,19 @@
         </referenceBlock>
 
         <referenceContainer name="header.inner.right">
-            <block name="header.inner.wishlist" template="Magento_Wishlist::header.phtml" />
+            <block name="header.inner.wishlist" template="Magento_Wishlist::header.phtml"
+                   ifconfig="wishlist/general/active"/>
         </referenceContainer>
+
+        <referenceBlock name="footer_links">
+            <block class="Magento\Framework\View\Element\Html\Link" name="footer.links.wishlist"
+                   ifconfig="wishlist/general/active">
+                <arguments>
+                    <argument name="path" xsi:type="helper" helper="Magento\Wishlist\Helper\Data::getListUrl" />
+                    <argument name="label" xsi:type="string">My Wishlist</argument>
+                    <argument name="sortOrder" xsi:type="number">160</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
     </body>
 </page>
