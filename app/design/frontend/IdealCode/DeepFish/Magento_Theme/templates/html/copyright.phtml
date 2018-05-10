@@ -1,0 +1,10 @@
+<?php
+/**
+ * @var \Magento\Theme\Block\Html\Footer $block
+ */
+?>
+<?php if (strlen($block->getCopyright()) > 0):?>
+    <div class="copyright">
+        &copy; <?=date("Y")?> <?=$block->getCopyright()?>
+    </div>
+<?php endif; ?>
