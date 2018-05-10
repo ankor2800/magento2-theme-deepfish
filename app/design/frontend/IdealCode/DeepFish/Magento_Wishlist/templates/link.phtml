@@ -5,7 +5,7 @@
     <a data-bind="scope: 'wishlist'" <?= $block->getLinkAttributes() ?>>
         <?= $block->escapeHtml($block->getLabel()) ?>
         <!-- ko if: wishlist().counter -->
-        <span data-bind="text: '('+wishlist().counter+')'" class="counter"></span>
+        <span data-bind="text: '('+wishlist().counter+')', css: 'counter'"></span>
         <!-- /ko -->
     </a>
 </li>
