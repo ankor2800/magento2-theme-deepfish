@@ -18,6 +18,12 @@
             </arguments>
         </referenceBlock>
 
+        <referenceBlock name="my-account-link">
+            <arguments>
+                <argument name="sortOrder" xsi:type="number">10</argument>
+            </arguments>
+        </referenceBlock>
+
         <referenceBlock name="register-link" remove="true" />
         <referenceBlock name="authorization-link" remove="true" />
         <referenceBlock name="authentication-popup" remove="true" />

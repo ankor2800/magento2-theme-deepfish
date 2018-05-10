@@ -3,10 +3,11 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="top.links">
-            <block class="Magento\Framework\View\Element\Html\Link" name="top.links.blog" after="my-account-link">
+            <block class="Magento\Framework\View\Element\Html\Link" name="top.links.blog">
                 <arguments>
                     <argument name="path" xsi:type="helper" helper="IdealCode\Blog\Helper\Blog::getBlogUrl" />
                     <argument name="label" xsi:type="string">Blog</argument>
+                    <argument name="sortOrder" xsi:type="number">30</argument>
                 </arguments>
             </block>
         </referenceBlock>
