@@ -7,6 +7,9 @@
                    template="DeepFish_Theme::html/socials.phtml" before="store_language" after="header"/>
         </referenceContainer>
 
+        <referenceBlock name="catalog.topnav" template="DeepFish_Theme::html/topmenu.phtml" />
+        <move element="catalog.topnav" destination="header.navigation.content.wrapper" />
+
         <referenceContainer name="footer">
             <block name="footer.socials.block" class="DeepFish\Theme\Block\Html\Socials"
                    template="DeepFish_Theme::html/socials.phtml" before="-" after="form.subscribe" />

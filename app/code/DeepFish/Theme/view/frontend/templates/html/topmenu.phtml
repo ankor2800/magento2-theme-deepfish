@@ -1,0 +1,19 @@
+<?php
+/**
+ * Top menu for store
+ *
+ * @var \DeepFish\Theme\Override\Block\Html\Topmenu $block
+ */
+
+$jsLayout = [
+    'DeepFish_Theme/js/menu' => [
+        'container' => '.navigation .menu',
+    ]
+];
+?>
+<div class="menu">
+    <ul data-mage-init='<?= \Zend_Json::encode($jsLayout) ?>'>
+        <?= $block->getHtml() ?>
+        <?= $block->getChildHtml() ?>
+    </ul>
+</div>
