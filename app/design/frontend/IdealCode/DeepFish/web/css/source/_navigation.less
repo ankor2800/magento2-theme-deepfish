@@ -31,11 +31,6 @@
                     .lib-css(font-weight, @font-weight__heavybold);
                     .lib-font-size(16px);
                     .lib-vendor-prefix-display();
-
-                    &.ui-state-focus,
-                    &.ui-state-active {
-                        .lib-css(color, @navigation-desktop-level0-item__hover__color);
-                    }
                 }
 
                 &.parent {
@@ -59,54 +54,70 @@
                     }
                 }
 
-                > ul {
+                &.focus {
+                    > a {
+                        .lib-css(color, @navigation-desktop-level0-item__hover__color);
+                    }
+                    > .submenu {
+                        .lib-vendor-prefix-display();
+                    }
+                }
+
+                > .submenu {
+                    z-index: 1;
                     display: none;
                     position: absolute;
                     .lib-css(background, @submenu-desktop__background);
                     .lib-css(padding, @submenu-desktop__padding);
 
-                    li {
-                        margin-bottom: 15px;
+                    > ul {
+                        li {
+                            margin-bottom: 15px;
 
-                        a {
-                            white-space: nowrap;
-                            position: relative;
-                            .lib-css(color, @submenu-desktop-item__color);
-                            .lib-css(padding, @submenu-desktop-item__padding);
-
-                            &:before {
-                                position: absolute;
-                                left: 0;
-                                width: 19px;
-                                text-align: center;
-                                margin-top: 1px;
-                                .lib-css(transition, left 0.2s ease-in-out 0s, 1);
-                                .lib-css(content, @icon-chevron-right);
-                                .lib-css(font-family, @icons__font-name);
-                                .lib-css(background, @color-white);
-                                .lib-css(color, @color-blue);
-                                .lib-line-height(19px);
-                                .lib-font-size(16px);
-                            }
-
-                            &:hover {
-                                .lib-css(color, @submenu-desktop-item__hover__color);
+                            a {
+                                white-space: nowrap;
+                                position: relative;
+                                .lib-css(color, @submenu-desktop-item__color);
+                                .lib-css(padding, @submenu-desktop-item__padding);
 
                                 &:before {
-                                    left: 4px;
+                                    position: absolute;
+                                    left: 0;
+                                    width: 19px;
+                                    text-align: center;
+                                    margin-top: 1px;
+                                    .lib-css(transition, left 0.2s ease-in-out 0s, 1);
+                                    .lib-css(content, @icon-chevron-right);
+                                    .lib-css(font-family, @icons__font-name);
+                                    .lib-css(background, @color-white);
+                                    .lib-css(color, @color-blue);
+                                    .lib-line-height(19px);
+                                    .lib-font-size(16px);
+                                }
+
+                                &:hover {
+                                    .lib-css(color, @submenu-desktop-item__hover__color);
+
+                                    &:before {
+                                        left: 4px;
+                                    }
                                 }
                             }
-                        }
 
-                        &.active,
-                        &.has-active {
-                            a {
-                                .lib-css(color, @submenu-desktop-item__active__color);
+                            &.active,
+                            &.has-active {
+                                a {
+                                    .lib-css(color, @submenu-desktop-item__active__color);
+                                }
                             }
-                        }
 
-                        &:last-child {
-                            margin-bottom: 0;
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+
+                            ul {
+                                display: none;
+                            }
                         }
                     }
                 }

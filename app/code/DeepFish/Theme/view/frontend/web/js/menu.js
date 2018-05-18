@@ -1,15 +1,15 @@
 define([
     'jquery',
-    'jquery/ui',
     'mage/translate'
 ], function($) {
     'use strict';
 
-    $.widget('deepfish.menu', $.ui.menu, {
+    $.widget('deepfish.menu', {
         options: {
             container: '#menu',
             moreText: $.mage.__('more'),
             position: {
+                my: 'left top',
                 at: 'left bottom'
             }
         },
@@ -19,14 +19,19 @@ define([
          */
         _create: function() {
             var self = this;
-
             this._setupMoreMenu();
-            this._super();
 
-            $(this.element).on('mouseleave', '.ui-menu-item', function() {
-                self.blur();
-                self._close($(this));
-            });
+            this.element.find('li').hover(
+                function() {
+                    $(this)
+                        .addClass('focus')
+                        .find('> .submenu')
+                        .position($.extend({of: this}, self.options.position));
+                },
+                function() {
+                    $(this).removeClass('focus');
+                }
+            );
         },
 
         /**
@@ -37,7 +42,7 @@ define([
 
             this.moreMenu = $('<li class="parent">')
                 .append('<a href="#">' + this.options.moreText + '</a>')
-                .append('<ul>')
+                .append('<div class="submenu"><ul></ul></div>')
                 .find('ul')
                 .append(this.element.children().not('.divider').clone())
                 .end()
@@ -54,7 +59,7 @@ define([
          * @private
          */
         _responsive: function() {
-            var $moreLinks = this.moreMenu.find('> ul > li');
+            var $moreLinks = this.moreMenu.find('> .submenu > ul > li');
 
             // init value
             $moreLinks.hide();
