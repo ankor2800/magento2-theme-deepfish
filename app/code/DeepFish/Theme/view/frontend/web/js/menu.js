@@ -19,13 +19,15 @@ define([
          */
         _create: function() {
             var self = this;
+
+            this.element.find('.divider:last').remove();
             this._setupMoreMenu();
 
             this.element.find('li').hover(
                 function() {
                     $(this)
                         .addClass('focus')
-                        .find('> .submenu')
+                        .find('> .submenu, > ul')
                         .position($.extend({of: this}, self.options.position));
                 },
                 function() {
@@ -38,13 +40,14 @@ define([
          * @private
          */
         _setupMoreMenu: function() {
-            this.element.find('.divider:last').remove();
+            var $moreContent = this.element.children(':not(.divider)').clone();
+            $moreContent.find('> .submenu > ul').unwrap();
 
             this.moreMenu = $('<li class="parent">')
                 .append('<a href="#">' + this.options.moreText + '</a>')
                 .append('<div class="submenu"><ul></ul></div>')
                 .find('ul')
-                .append(this.element.children().not('.divider').clone())
+                .append($moreContent)
                 .end()
                 .appendTo(this.element);
 

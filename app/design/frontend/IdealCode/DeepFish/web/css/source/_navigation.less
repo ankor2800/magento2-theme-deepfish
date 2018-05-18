@@ -72,7 +72,8 @@
 
                     > ul {
                         li {
-                            margin-bottom: 15px;
+                            padding: 5px 0;
+                            margin-bottom: 10px;
 
                             a {
                                 white-space: nowrap;
@@ -115,8 +116,19 @@
                                 margin-bottom: 0;
                             }
 
+                            &.focus {
+                                > ul {
+                                    display: block;
+                                }
+                            }
+
                             ul {
+                                z-index: 2;
                                 display: none;
+                                position: absolute;
+                                padding: 20px 30px;
+                                .lib-css(background, @submenu-desktop__background);
+                                .lib-css(box-shadow, 0 0 20px rgba(0, 0, 0, 0.15), 1);
                             }
                         }
                     }
