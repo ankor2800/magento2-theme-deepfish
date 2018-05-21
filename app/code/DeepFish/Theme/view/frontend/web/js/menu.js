@@ -9,7 +9,7 @@ define([
             container: '#menu',
             moreText: $.mage.__('more'),
             position: {
-                my: 'left top',
+                my: 'left top+30',
                 at: 'left bottom'
             }
         },
@@ -18,22 +18,43 @@ define([
          * @private
          */
         _create: function() {
-            var self = this;
-
             this.element.find('.divider:last').remove();
             this._setupMoreMenu();
+            this._bind();
+        },
 
-            this.element.find('li').hover(
-                function() {
-                    $(this)
-                        .addClass('focus')
-                        .find('> .submenu, > ul')
-                        .position($.extend({of: this}, self.options.position));
-                },
-                function() {
-                    $(this).removeClass('focus');
-                }
-            );
+        /**
+         * @private
+         */
+        _bind: function() {
+            var self = this, top = 30;
+
+            this.element.find('li').each(function() {
+                var $submenu = $(this).find('> .submenu, > ul');
+
+                $(this).hover(
+                    function() {
+                        $submenu
+                            .addClass('open')
+                            .position($.extend({of: this}, self.options.position))
+                            .stop()
+                            .animate({
+                                opacity: 1,
+                                top: $submenu.position().top > 0 ? '-='+top : '+='+top
+                            }, 300);
+                    },
+                    function() {
+                        $submenu
+                            .stop()
+                            .animate({
+                                opacity: 0,
+                                top: $submenu.position().top > 0 ? '+='+top : '-='+top
+                            }, 300, function() {
+                                $(this).removeClass('open');
+                            });
+                    }
+                );
+            });
         },
 
         /**
