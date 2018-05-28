@@ -32,28 +32,30 @@ define([
             this.element.find('li').each(function() {
                 var $submenu = $(this).find('> .submenu, > ul');
 
-                $(this).hover(
-                    function() {
-                        $submenu
-                            .addClass('open')
-                            .position($.extend({of: this}, self.options.position))
-                            .stop()
-                            .animate({
-                                opacity: 1,
-                                top: $submenu.position().top > 0 ? '-='+top : '+='+top
-                            }, 300);
-                    },
-                    function() {
-                        $submenu
-                            .stop()
-                            .animate({
-                                opacity: 0,
-                                top: $submenu.position().top > 0 ? '+='+top : '-='+top
-                            }, 300, function() {
-                                $(this).removeClass('open');
-                            });
-                    }
-                );
+                if($submenu.length > 0) {
+                    $(this).hover(
+                        function() {
+                            $submenu
+                                .addClass('open')
+                                .position($.extend({of: this}, self.options.position))
+                                .stop()
+                                .animate({
+                                    opacity: 1,
+                                    top: $submenu.position().top > 0 ? '-='+top : '+='+top
+                                }, 300);
+                        },
+                        function() {
+                            $submenu
+                                .stop()
+                                .animate({
+                                    opacity: 0,
+                                    top: $submenu.position().top > 0 ? '+=' + top : '-=' + top
+                                }, 300, function() {
+                                    $(this).removeClass('open');
+                                });
+                        }
+                    );
+                }
             });
         },
 
