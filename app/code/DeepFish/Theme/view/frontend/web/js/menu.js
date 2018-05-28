@@ -65,6 +65,7 @@ define([
         _setupMoreMenu: function() {
             var $moreContent = this.element.children(':not(.divider)').clone();
             $moreContent.find('> .submenu > ul').unwrap();
+            $moreContent.find('.banner').remove();
 
             this.moreMenu = $('<li class="parent">')
                 .append('<a href="#">' + this.options.moreText + '</a>')

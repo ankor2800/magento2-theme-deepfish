@@ -9,7 +9,7 @@ class Topmenu extends \Magento\Theme\Block\Html\Topmenu
 
         if($childLevel == 0) {
             if(strlen($html) > 0) {
-                $html = '<div class="submenu">'.$html.'</div>';
+                $html = '<div class="submenu">'.$html.$child->getData('description').'</div>';
             }
 
             // Add dividers for menu items top level

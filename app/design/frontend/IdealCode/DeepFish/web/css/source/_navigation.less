@@ -60,8 +60,8 @@
                     }
                 }
 
-                > .submenu {
-                    z-index: 1;
+                .submenu {
+                    z-index: 3;
                     display: none;
                     position: absolute;
                     .lib-css(background, @submenu-desktop__background);
@@ -120,16 +120,83 @@
                             }
 
                             ul {
-                                z-index: 2;
+                                z-index: 3;
                                 display: none;
                                 position: absolute;
-                                padding: 20px 30px;
+                                padding: 25px 30px;
                                 .lib-css(background, @submenu-desktop__background);
                                 .lib-css(box-shadow, 0 0 20px rgba(0, 0, 0, 0.15), 1);
 
                                 &.open {
                                     opacity: 0;
                                     display: block;
+                                }
+                            }
+                        }
+                    }
+
+                    .banner {
+                        margin: 5px 0 5px 50px;
+                        position: relative;
+
+                        a {
+                            .over {
+                                position: absolute;
+                                top: 0;
+                                bottom: 0;
+                                left: 0;
+                                right: 0;
+
+                                .lib-url('images/banner-hover.png', 'DeepFish_Theme');
+                                background: url(@url);
+                            }
+                            img {
+                                display: block;
+                            }
+
+                            .inner {
+                                position: absolute;
+                                bottom: 7%;
+                                text-align: center;
+                                .lib-css(color, @color-white);
+
+                                .title {
+                                    display: block;
+                                    text-transform: uppercase;
+                                    margin-bottom: 8px;
+                                    .lib-css(font-weight, @font-weight__heavybold);
+                                    .lib-line-height(1.1);
+                                    .lib-font-size(37px);
+                                }
+                                .text {
+                                    display: block;
+                                    margin-bottom: 30px;
+                                    .lib-line-height(1.4);
+                                }
+                                .link {
+                                    display: inline-block;
+                                    min-width: 148px;
+                                    letter-spacing: .3px;
+                                    text-transform: uppercase;
+                                    border: 2px solid;
+                                    .lib-css(font-weight, @font-weight__bold);
+                                    .lib-css(border-color, @color-white);
+                                    .lib-line-height(56px);
+                                }
+                            }
+
+                            .over,
+                            .link {
+                                .lib-css(transition, 0.3s all cubic-bezier(0.785, 0.135, 0.15, 0.86), 1);
+                            }
+
+                            &:hover {
+                                .over {
+                                    opacity: 0;
+                                }
+                                .link {
+                                    .lib-css(background, @color-white);
+                                    .lib-css(color, @color-gray);
                                 }
                             }
                         }
