@@ -7,7 +7,7 @@
             <container name="global.notices" as="global_notices" before="-" />
             <container name="main.content" htmlTag="main">
                 <container name="columns.top" label="Before Main Columns" />
-                <container name="columns" htmlTag="div" htmlClass="columns">
+                <container name="columns">
                     <container name="main" label="Main Content Container" htmlTag="div" htmlClass="column main" />
                 </container>
             </container>

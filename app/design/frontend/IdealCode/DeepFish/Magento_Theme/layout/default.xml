@@ -71,8 +71,13 @@
             </container>
         </referenceContainer>
 
+        <move element="page.top" destination="header.container" />
         <referenceBlock name="navigation.sections" remove="true" />
-        <move element="breadcrumbs" destination="header.container" />
+
+        <referenceContainer name="main.content" htmlClass="content" />
+        <referenceContainer name="main" htmlClass="main" />
+        <referenceContainer name="div.sidebar.main" htmlClass="sidebar" />
+        <referenceContainer name="div.sidebar.additional" htmlClass="sidebar" />
 
         <!-- Footer links block -->
         <referenceBlock name="footer_links">
