@@ -2,7 +2,6 @@ header {
     .panel {
         margin-bottom: 24px;
         border-bottom: solid 1px #e1e1e8;
-        .lib-css(background-color, @color-white);
         .lib-line-height(59px);
 
         .content {
@@ -120,6 +119,7 @@ header {
     .header {
         margin-bottom: 30px;
         .lib-vendor-prefix-display();
+        .lib-css(align-items, flex-start, 1);
         .lib-css(justify-content, space-between, 1);
 
         .right {
@@ -169,7 +169,7 @@ header {
                     }
                     .count {
                         display: block;
-                        .lib-font-size(12px);
+                        .lib-font-size(@font-size__s);
                     }
                 }
 
