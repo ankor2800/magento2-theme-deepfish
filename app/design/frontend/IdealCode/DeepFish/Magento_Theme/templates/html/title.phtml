@@ -1,0 +1,12 @@
+<?php
+/**
+ * Page title
+ *
+ * @var \Magento\Theme\Block\Html\Title $block
+ */
+$pageTitle = $block->getPageTitle();
+?>
+<?php if($pageTitle): ?>
+    <h1 class="page-title"><?= $pageTitle ?></h1>
+    <?= $block->getChildHtml() ?>
+<?php endif; ?>
