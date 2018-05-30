@@ -1,0 +1,37 @@
+<?php
+/**
+ * @var \IdealCode\Banner\Block\Widget\ItemList $block
+ */
+$sliderJsLayout = [
+    'IdealCode_Banner/js/carousel' => [
+        'navigation' => true
+    ]
+];
+
+/**
+ * @var \IdealCode\Banner\Model\ResourceModel\Item\Collection $items
+ */
+$items = $block->getItems();
+?>
+<?php if ($items->count() > 0):?>
+    <div class="carousel loading" data-mage-init='<?=\Zend_Json::encode($sliderJsLayout)?>'>
+        <?php
+        /**
+         * @var \IdealCode\Banner\Model\Item $item
+         */
+        foreach ($items as $item):
+        ?>
+            <div class="item">
+                <?php if (strlen($item->getImage()) > 0):?>
+                    <img src="<?=$item->getImage()?>">
+                <?php endif;?>
+                <?php if (strlen($item->getContent()) > 0):?>
+                    <div>
+                        <?=$item->getContent()?>
+                    </div>
+                <?php endif;?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
+
