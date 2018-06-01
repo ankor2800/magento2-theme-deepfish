@@ -291,6 +291,23 @@ main {
         .lib-css(color, @color-gray);
         .lib-font-size(34px);
     }
+
+    .sidebar {
+        .block {
+            margin-bottom: 80px;
+
+            h2 {
+                margin-bottom: 17px;
+                .lib-css(font-weight, @font-weight__heavybold);
+                .lib-css(color, @color-gray);
+                .lib-line-height(42px);
+                .lib-font-size(34px);
+            }
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
 }
 
 footer {

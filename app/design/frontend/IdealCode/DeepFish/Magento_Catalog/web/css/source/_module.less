@@ -39,6 +39,52 @@ header {
     }
 }
 
+main {
+    .sidebar {
+        .block.compare {
+            .item {
+                margin: 0 20px 16px 0;
+
+                .name {
+                    text-transform: uppercase;
+                    .lib-css(font-weight, @font-weight__bold);
+                    .lib-css(color, @color-gray);
+                    .lib-font-size(16px);
+
+                    &:hover {
+                        .lib-css(color, @color-blue);
+                    }
+                }
+
+                .remove {
+                    position: absolute;
+                    margin: 1px 0 0 5px;
+
+                    &:before {
+                        vertical-align: top;
+                        .lib-css(font-family, @icons__font-name);
+                        .lib-css(content, @icon-close);
+                        .lib-line-height(23px);
+                        .lib-font-size(23px);
+                    }
+                }
+            }
+
+            .actions {
+                margin-top: 30px;
+                padding-bottom: 10px;
+                .lib-css(align-items, center, 1);
+                .lib-vendor-prefix-display();
+
+                .clear {
+                    margin-left: 20px;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+
 .catalog-category-view {
     .page-title {
         text-align: left;

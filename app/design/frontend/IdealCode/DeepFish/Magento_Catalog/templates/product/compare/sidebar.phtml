@@ -1,0 +1,16 @@
+<?php
+/**
+ * Sidebar compare block
+ *
+ * @var \Magento\Framework\View\Element\Template $block
+ */
+?>
+<div class="block compare" data-bind="scope: 'compareProducts'" data-role-preloader>
+    <h2>
+        <?= __('Compare Products') ?>
+        <!-- ko if: compareProducts().count -->
+            <span data-bind="text: '('+compareProducts().count+')'"></span>
+        <!-- /ko -->
+    </h2>
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
