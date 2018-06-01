@@ -1,0 +1,21 @@
+<if args="compareProducts().count">
+    <each args="{data: compareProducts().items}">
+        <div class="item">
+            <a class="name" data-bind="text: name, attr: {href: product_url, title: name}"></a>
+            <a href="#"
+               class="icon remove"
+               data-bind="attr: {title: $t('Remove this item'), 'data-ajax': remove_url}">
+            </a>
+        </div>
+    </each>
+    <div class="actions">
+        <a class="button" data-bind="attr: {href: compareProducts().listUrl}">
+            <span translate="'Compare'"></span>
+        </a>
+        <a href="#" class="clear" data-bind="text: $t('Clear All'), attr: {'data-ajax': clearUrl}"></a>
+    </div>
+</if>
+
+<ifnot args="compareProducts().count">
+    <translate args="'You have no items to compare.'" />
+</ifnot>

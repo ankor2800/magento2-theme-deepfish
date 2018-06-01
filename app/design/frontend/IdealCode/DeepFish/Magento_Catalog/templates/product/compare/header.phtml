@@ -2,15 +2,8 @@
 /**
  * Header compare block
  *
- * @var \Magento\Framework\View\TemplateEngine\Php $this
  * @var \Magento\Framework\View\Element\Template $block
  */
-
-/** @var \Magento\Catalog\Helper\Product\Compare $compareHelper */
-$compareHelper = $this->helper(\Magento\Catalog\Helper\Product\Compare::class);
-
-/** @var \Magento\Framework\Data\Helper\PostHelper $postHelper */
-$postHelper = $this->helper(\Magento\Framework\Data\Helper\PostHelper::class);
 ?>
 <div class="dropdown compare">
     <a href="#" class="action" data-bind="scope: 'compareProducts'">
@@ -23,29 +16,7 @@ $postHelper = $this->helper(\Magento\Framework\Data\Helper\PostHelper::class);
         <!-- ko if: compareProducts().count -->
             <a href="#" class="icon close" title="<?= __('Close') ?>"></a>
             <div class="title"><?= __('Items to compare') ?></div>
-            <!-- ko foreach: compareProducts().items -->
-                <div class="item">
-                    <a href="#"
-                       class="icon remove"
-                       title="<?= __('Remove this item') ?>"
-                       data-bind="attr: {'data-ajax': remove_url}">
-                    </a>
-                    <a class="name" data-bind="text: name, attr: {href: product_url, title: name}"></a>
-                </div>
-            <!-- /ko -->
-            <div class="actions">
-                <a class="button" data-bind="attr: {'href': compareProducts().listUrl}">
-                    <span><?= __('Compare') ?></span>
-                </a>
-                <a href="#"
-                   class="clear"
-                   data-ajax='<?= $postHelper->getPostData($compareHelper->getClearListUrl()) ?>'>
-                    <?= __('Clear All') ?>
-                </a>
-            </div>
         <!-- /ko -->
-        <!-- ko ifnot: compareProducts().count -->
-            <?= __('You have no items to compare.') ?>
-        <!-- /ko -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
     </div>
 </div>

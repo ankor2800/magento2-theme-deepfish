@@ -12,7 +12,17 @@
                         <item name="Magento_Ui/js/core/app" xsi:type="array">
                             <item name="components" xsi:type="array">
                                 <item name="compareProducts" xsi:type="array">
-                                    <item name="component" xsi:type="string">Magento_Catalog/js/view/compare-products</item>
+                                    <item name="component" xsi:type="string">
+                                        Magento_Catalog/js/view/compare-products
+                                    </item>
+                                    <item name="config" xsi:type="array">
+                                        <item name="template" xsi:type="string">
+                                            Magento_Catalog/product/compare/sidebar
+                                        </item>
+                                        <item name="clearUrl"
+                                              xsi:type="helper"
+                                              helper="Magento\Catalog\Helper\Product\Compare::getPostDataClearList" />
+                                    </item>
                                 </item>
                             </item>
                         </item>
