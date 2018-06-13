@@ -1,0 +1,33 @@
+<if args="wishlist().counter">
+    <div class="title" translate="'Last added items'"></div>
+    <each args="data: wishlist().items">
+        <div class="item">
+            <a href="#"
+               class="icon remove"
+               data-bind="attr: {title: $t('Remove this item'), 'data-ajax': delete_item_params}">
+            </a>
+            <a data-bind="attr: {href: product_url, title: product_name}">
+                <render args="name: image.template, data: image" />
+            </a>
+            <div class="details">
+                <div class="name">
+                    <a data-bind="text: product_name, attr: {href: product_url, title: product_name}"></a>
+                </div>
+                <div class="prices" data-bind="html: product_price"></div>
+                <a href="#"
+                   data-bind="text: $t('Add to Cart'), attr: {'data-ajax': add_to_cart_params}"
+                   if="product_is_saleable_and_visible">
+                </a>
+            </div>
+        </div>
+    </each>
+    <div class="actions">
+        <a class="button" data-bind="attr: {href: listUrl}">
+            <span translate="'Go to wishlist'"></span>
+        </a>
+    </div>
+</if>
+
+<ifnot args="wishlist().counter">
+    <translate args="'You have no items in your wishlist.'" />
+</ifnot>

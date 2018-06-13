@@ -2,12 +2,8 @@
 /**
  * Header wishlist block
  *
- * @var \Magento\Framework\View\TemplateEngine\Php $this
  * @var \Magento\Framework\View\Element\Template $block
  */
-
-/** @var \Magento\Wishlist\Helper\Data $helper */
-$helper = $this->helper(\Magento\Wishlist\Helper\Data::class);
 ?>
 <div class="dropdown wishlist">
     <a href="#" class="action" data-bind="scope: 'wishlist'">
@@ -19,38 +15,7 @@ $helper = $this->helper(\Magento\Wishlist\Helper\Data::class);
     <div class="dialog" data-bind="scope: 'wishlist'" data-role-dropdown-dialog data-role-preloader>
         <!-- ko if: wishlist().counter -->
             <a href="#" class="icon close" title="<?= __('Close') ?>"></a>
-            <div class="title"><?= __('Last added items') ?></div>
-            <!-- ko foreach: wishlist().items -->
-                <div class="item">
-                    <a href="#"
-                       class="icon remove"
-                       title="<?= __('Remove this item') ?>"
-                       data-bind="attr: {'data-ajax': delete_item_params}">
-                    </a>
-                    <a data-bind="attr: {href: product_url, title: product_name}">
-                        <!-- ko template: {name: image.template, data: image} --><!-- /ko -->
-                    </a>
-                    <div class="details">
-                        <div class="name">
-                            <a data-bind="text: product_name, attr: {href: product_url, title: product_name}"></a>
-                        </div>
-                        <div class="prices" data-bind="html: product_price"></div>
-                        <!-- ko if: product_is_saleable_and_visible -->
-                            <a href="#" data-bind="attr: {'data-ajax': add_to_cart_params}">
-                                <?= __('Add to Cart') ?>
-                            </a>
-                        <!-- /ko -->
-                    </div>
-                </div>
-            <!-- /ko -->
-            <div class="actions">
-                <a href="<?= $helper->getListUrl() ?>" class="button">
-                    <span><?= __('Go to wishlist') ?></span>
-                </a>
-            </div>
         <!-- /ko -->
-        <!-- ko ifnot: wishlist().counter -->
-            <?= __('You have no items in your wishlist.') ?>
-        <!-- /ko -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
     </div>
 </div>

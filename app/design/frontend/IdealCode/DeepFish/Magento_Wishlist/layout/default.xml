@@ -10,6 +10,12 @@
                             <item name="components" xsi:type="array">
                                 <item name="wishlist" xsi:type="array">
                                     <item name="component" xsi:type="string">Magento_Wishlist/js/view/wishlist</item>
+                                    <item name="config" xsi:type="array">
+                                        <item name="template" xsi:type="string">Magento_Wishlist/sidebar</item>
+                                        <item name="listUrl"
+                                              xsi:type="helper"
+                                              helper="Magento\Wishlist\Helper\Data::getListUrl" />
+                                    </item>
                                 </item>
                             </item>
                         </item>
