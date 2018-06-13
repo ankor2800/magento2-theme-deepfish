@@ -1,5 +1,6 @@
 <if args="compareProducts().count">
-    <each args="{data: compareProducts().items}">
+    <h3 translate="'Items to compare'"></h3>
+    <each args="data: compareProducts().items">
         <div class="item">
             <a class="name" data-bind="text: name, attr: {href: product_url, title: name}"></a>
             <a href="#"

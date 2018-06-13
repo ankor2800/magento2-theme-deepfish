@@ -208,9 +208,8 @@ header {
                     right: 29px;
                     .lib-css(content, @icon-cancel);
                 }
-                .title {
-                    text-transform: uppercase;
-                    margin: 0 30px 10px 0;
+                h3 {
+                    margin-right: 30px;
                     .lib-font-size(24px);
                     .lib-line-height(40px);
                     .lib-css(color, @color-gray);
@@ -294,8 +293,6 @@ main {
 
     .sidebar {
         .block {
-            margin-bottom: 80px;
-
             h2 {
                 margin-bottom: 17px;
                 .lib-css(font-weight, @font-weight__heavybold);
@@ -303,8 +300,8 @@ main {
                 .lib-line-height(42px);
                 .lib-font-size(34px);
             }
-            &:last-child {
-                margin-bottom: 0;
+            & + .block {
+                margin-top: 80px;
             }
         }
     }
