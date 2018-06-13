@@ -5,3 +5,12 @@
  * @var \Magento\Wishlist\Block\Customer\Sidebar $block
  */
 ?>
+<div class="block wishlist hide" data-bind="scope: 'wishlist'" data-role-preloader>
+    <h2 data-bind="css: $element.parentElement.classList.toggle('hide', wishlist().counter == null)">
+        <?= __('My Wishlist') ?>
+        <!-- ko if: wishlist().counter -->
+            <span data-bind="text: '('+parseInt(wishlist().counter)+')'"></span>
+        <!-- /ko -->
+    </h2>
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>

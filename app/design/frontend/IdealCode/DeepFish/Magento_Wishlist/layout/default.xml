@@ -42,6 +42,14 @@
                    ifconfig="wishlist/general/active"/>
         </referenceContainer>
 
+        <referenceBlock name="wishlist_sidebar" remove="true" />
+        <referenceContainer name="sidebar.additional">
+            <block name="sidebar.additional.wishlist"
+                   template="Magento_Wishlist::sidebar.phtml"
+                   ifconfig="wishlist/general/active"
+            />
+        </referenceContainer>
+
         <referenceBlock name="footer_links">
             <block class="Magento\Framework\View\Element\Html\Link" name="footer.links.wishlist"
                    ifconfig="wishlist/general/active">

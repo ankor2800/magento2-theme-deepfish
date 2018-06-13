@@ -19,8 +19,53 @@ header {
 
             .dialog {
                 .item {
+                    .details {
+                        .lib-css(align-items, flex-start, 1);
+                        .lib-vendor-prefix-flex-direction();
+                        .lib-vendor-prefix-display();
+
+                        .prices {
+                            .price {
+                                span {
+                                    display: block;
+                                }
+                                .special-price {
+                                    .lib-css(color, @color-blue);
+                                }
+                                .old-price {
+                                    text-decoration: line-through;
+                                }
+                            }
+                        }
+
+                        > a {
+                            order: 1;
+                        }
+                    }
+                }
+
+                .actions {
+                    .lib-css(justify-content, flex-end, 1);
+                }
+            }
+        }
+    }
+}
+
+main {
+    .sidebar {
+        .block.wishlist {
+            .item {
+                .details {
+                    .name {
+                        margin-bottom: 5px;
+                    }
+
                     .prices {
                         .price {
+                            .lib-css(color, @color-gray);
+                            .lib-css(font-weight, @font-weight__heavybold);
+
                             span {
                                 display: block;
                             }
@@ -29,13 +74,14 @@ header {
                             }
                             .old-price {
                                 text-decoration: line-through;
+                                .lib-css(font-weight, @font-weight__regular);
                             }
                         }
                     }
-                }
 
-                .actions {
-                    .lib-css(justify-content, flex-end, 1);
+                    > a {
+                        text-transform: uppercase;
+                    }
                 }
             }
         }

@@ -47,17 +47,14 @@ main {
             }
 
             .item {
+                display: block;
                 margin: 0 20px 16px 0;
+                padding: 0;
+                border: 0;
 
                 .name {
-                    text-transform: uppercase;
-                    .lib-css(font-weight, @font-weight__bold);
                     .lib-css(color, @color-gray);
-                    .lib-font-size(16px);
-
-                    &:hover {
-                        .lib-css(color, @color-blue);
-                    }
+                    .lib-css(font-weight, @font-weight__bold);
                 }
 
                 .remove {
@@ -65,9 +62,8 @@ main {
                     margin: 1px 0 0 5px;
 
                     &:before {
-                        vertical-align: top;
-                        .lib-css(font-family, @icons__font-name);
-                        .lib-css(content, @icon-close);
+                        margin: 0;
+                        width: 23px;
                         .lib-line-height(23px);
                         .lib-font-size(23px);
                     }
@@ -75,7 +71,6 @@ main {
             }
 
             .actions {
-                margin-top: 30px;
                 .lib-css(align-items, center, 1);
                 .lib-vendor-prefix-display();
 

@@ -2,22 +2,22 @@
     <h3 translate="'Last added items'"></h3>
     <each args="data: wishlist().items">
         <div class="item">
-            <a href="#"
-               class="icon remove"
-               data-bind="attr: {title: $t('Remove this item'), 'data-ajax': delete_item_params}">
-            </a>
             <a data-bind="attr: {href: product_url, title: product_name}">
                 <render args="name: image.template, data: image" />
             </a>
             <div class="details">
+                <a href="#"
+                   class="icon remove"
+                   data-bind="attr: {title: $t('Remove this item'), 'data-ajax': delete_item_params}">
+                </a>
                 <div class="name">
                     <a data-bind="text: product_name, attr: {href: product_url, title: product_name}"></a>
                 </div>
-                <div class="prices" data-bind="html: product_price"></div>
                 <a href="#"
                    data-bind="text: $t('Add to Cart'), attr: {'data-ajax': add_to_cart_params}"
                    if="product_is_saleable_and_visible">
                 </a>
+                <div class="prices" data-bind="html: product_price"></div>
             </div>
         </div>
     </each>
