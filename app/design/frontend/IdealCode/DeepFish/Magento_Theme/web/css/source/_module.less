@@ -9,11 +9,7 @@ header {
             .lib-css(justify-content, space-between, 1);
 
             a {
-                .lib-css(color, @color-gray);
-
-                &:hover {
-                    .lib-css(color, @color-blue);
-                }
+                .lib-link-reverse();
             }
 
             .links {
@@ -29,11 +25,10 @@ header {
                             margin: 1px 10px 0 0;
                             width: 19px;
                             height: 19px;
-                            .lib-css(content, @icon-chevron-right);
-                            .lib-css(font-family, @icons__font-name);
                             .lib-font-size(16px);
                             .lib-line-height(19px);
                             .lib-css(color, @color-white);
+                            .lib-icon-symbol(@icon-chevron-right);
                             .lib-css(background-color, @color-gray);
                             .lib-css(transition, background 0.3s ease, 1);
                         }
@@ -63,8 +58,7 @@ header {
                             position: relative;
                             right: -3px;
                             width: 15px;
-                            .lib-css(content, @icon-expand-more);
-                            .lib-css(font-family, @icons__font-name);
+                            .lib-icon-symbol(@icon-expand-more);
                             .lib-font-size(16px);
                         }
                     }
@@ -154,8 +148,7 @@ header {
                     right: 16px;
                     top: 12px;
                     .lib-font-size(23px);
-                    .lib-css(font-family, @icons__font-name);
-                    .lib-css(content, @icon-keyboard-arrow-down);
+                    .lib-icon-symbol(@icon-keyboard-arrow-down);
                 }
 
                 .inner {
@@ -199,7 +192,7 @@ header {
                     position: absolute;
                     width: 24px;
                     text-align: center;
-                    .lib-css(font-family, @icons__font-name);
+                    .lib-icon-symbol(@icon-close);
                     .lib-line-height(24px);
                     .lib-font-size(24px);
                 }
@@ -226,7 +219,6 @@ header {
                     .remove:before {
                         top: 13px;
                         right: 19px;
-                        .lib-css(content, @icon-close);
                     }
                     img {
                         display: block;
@@ -242,12 +234,8 @@ header {
                         a {
                             text-transform: uppercase;
                             .lib-css(font-weight, @font-weight__heavybold);
-                            .lib-css(color, @color-gray);
                             .lib-font-size(16px);
-
-                            &:hover {
-                                .lib-css(color, @color-blue);
-                            }
+                            .lib-link-reverse();
                         }
                     }
 
@@ -315,6 +303,7 @@ main {
 
                 .details {
                     margin-left: 15px;
+                    width: 100%;
                 }
 
                 .remove:before {
@@ -322,8 +311,7 @@ main {
                     margin-left: 6px;
                     width: 20px;
                     text-align: center;
-                    .lib-css(font-family, @icons__font-name);
-                    .lib-css(content, @icon-close);
+                    .lib-icon-symbol(@icon-close);
                     .lib-line-height(20px);
                     .lib-font-size(18px);
                 }
@@ -331,13 +319,9 @@ main {
                 a.name,
                 .name a {
                     text-transform: uppercase;
-                    color: #333;
                     .lib-css(font-weight, @font-weight__heavybold);
+                    .lib-link-reverse(#333);
                     .lib-font-size(16px);
-
-                    &:hover {
-                        .lib-css(color, @color-blue);
-                    }
                 }
             }
 
@@ -362,11 +346,7 @@ footer {
     .lib-css(background-color, @color-gray);
 
     a {
-        .lib-css(color, @color-white);
-
-        &:hover {
-            .lib-css(color, @color-blue);
-        }
+        .lib-link-reverse(@color-white);
     }
 
     .links {
@@ -404,14 +384,10 @@ footer {
         white-space: nowrap;
         background: none;
         .lib-css(border-color, @color-white);
-        .lib-css(color, @color-white);
+        .lib-link-reverse(@color-white);
 
         &:after {
             content: none;
-        }
-
-        &:hover {
-            .lib-css(color, @color-blue);
         }
     }
 

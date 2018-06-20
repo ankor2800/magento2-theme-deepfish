@@ -1,0 +1,10 @@
+.lib-link-reverse(
+    @_link-color: @link__hover__color,
+    @_link-color-hover: @link__color
+) {
+    .lib-css(color, @_link-color);
+
+    &:hover {
+        .lib-css(color, @_link-color-hover);
+    }
+}

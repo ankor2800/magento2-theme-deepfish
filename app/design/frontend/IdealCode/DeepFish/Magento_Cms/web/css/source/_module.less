@@ -7,9 +7,9 @@ header {
             .callto {
                 display: inline-block;
                 margin-bottom: -5px;
+                .lib-link-reverse();
                 .lib-font-size(@font-size__xl);
                 .lib-css(font-weight, @font-weight__heavybold);
-                .lib-css(color, @color-gray);
                 .lib-css(transition, color 0.3s ease, 1);
 
                 .material-icons {
@@ -18,10 +18,6 @@ header {
                     .lib-line-height(29px);
                     .lib-css(color, @color-gray);
                     .lib-css(font-weight, @font-weight__heavybold);
-                }
-
-                &:hover {
-                    .lib-css(color, @color-blue);
                 }
             }
         }

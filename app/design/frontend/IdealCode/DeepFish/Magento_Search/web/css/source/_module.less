@@ -6,17 +6,12 @@ header {
 
                 .search {
                     a.action {
-                        .lib-css(color, @color-white);
-
-                        &:hover {
-                            .lib-css(color, @color-blue);
-                        }
+                        .lib-link-reverse(@color-white);
 
                         &:before {
-                            .lib-css(font-family, @icons__font-name);
-                            .lib-css(content, @icon-search);
                             .lib-font-size(34px);
                             .lib-line-height(70px);
+                            .lib-icon-symbol(@icon-search);
                         }
                     }
 
@@ -36,8 +31,7 @@ header {
                                 top: 4px;
                                 .lib-font-size(34px);
                                 .lib-css(color, @color-white);
-                                .lib-css(font-family, @icons__font-name);
-                                .lib-css(content, @icon-search);
+                                .lib-icon-symbol(@icon-search);
                             }
 
                             input {
@@ -57,15 +51,10 @@ header {
                             height: 60px;
                             .lib-font-size(34px);
                             .lib-line-height(60px);
-                            .lib-css(color, @color-white);
-
-                            &:hover {
-                                .lib-css(color, @color-blue);
-                            }
+                            .lib-link-reverse(@color-white);
 
                             &:before {
-                                .lib-css(content, @icon-close);
-                                .lib-css(font-family, @icons__font-name);
+                                .lib-icon-symbol(@icon-close);
                             }
                         }
                     }
