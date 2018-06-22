@@ -2,7 +2,7 @@
     <h3 translate="'Last added items'"></h3>
     <each args="data: wishlist().items">
         <div class="item">
-            <a data-bind="attr: {href: product_url, title: product_name}">
+            <a class="image" data-bind="attr: {href: product_url, title: product_name}">
                 <render args="name: image.template, data: image" />
             </a>
             <div class="details">

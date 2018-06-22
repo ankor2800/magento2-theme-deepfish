@@ -3,9 +3,9 @@
     <h3 translate="'Recently added items'"></h3>
     <div class="error-message" data-bind="text: errorMessage()"></div>
 
-    <each args="data: cart().items, as: 'item'">
-        <each args="$parent.getRegion($parent.itemRenderer[item.product_type] || 'defaultRenderer')"
-              render="{name: getTemplate(), data: item, afterRender: function(){$parents[1].updatePrices()}}"
+    <each args="data: cart().items">
+        <each args="$parent.getRegion($parent.itemRenderer[product_type] || 'defaultRenderer')"
+              render="{name: getTemplate(), data: $parent, afterRender: function(){$parents[1].updatePrices()}}"
               if="$index() < $parent.maxItemsToDisplay"
         />
     </each>
@@ -26,7 +26,7 @@
 </if>
 
 <ifnot args="cart().summary_count">
-    <span translate="'You have no items in your shopping cart.'"></span>
+    <translate args="'You have no items in your shopping cart.'" />
 </ifnot>
 
 <each args="getRegion('promotion')" render="" />

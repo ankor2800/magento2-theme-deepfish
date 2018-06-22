@@ -1,9 +1,9 @@
 <div class="item">
-    <a data-bind="attr: {href: product_url, title: product_name}" if="product_has_url">
-        <each args="$parent.getRegion('itemImage')" render="{name: getTemplate(), data: item.product_image}" />
+    <a class="image" data-bind="attr: {href: product_url, title: product_name}" if="product_has_url">
+        <each args="$parent.getRegion('itemImage')" render="name: getTemplate(), data: $parent.product_image" />
     </a>
     <each args="$parent.getRegion('itemImage')"
-          render="{name: getTemplate(), data: item.product_image}"
+          render="name: getTemplate(), data: $parent.product_image"
           ifnot="product_has_url"
     />
 
@@ -34,7 +34,7 @@
 
         <div class="options" if="options.length">
             <a translate="'Details'" data-bind="attr: {href: configure_url}"></a>
-            <div class="popup" each="{data: options, as: 'option'}">
+            <div class="popup" each="data: options">
                 <div class="option">
                     <div data-bind="text: label+':'"></div>
                     <span data-bind="text: value"></span>
