@@ -1,0 +1,53 @@
+<?php
+/**
+ * Sidebar recently viewed or compared product block
+ *
+ * @var \Magento\Framework\View\Element\Template $block
+ */
+
+$isViewedUiComponent = $block->getData('uiComponent') == 'widget_recently_viewed';
+$uiComponentScope = $isViewedUiComponent ? 'recentlyViewedProducts' : 'recentlyComparedProducts';
+$pageSize = intval($block->getData('page_size'));
+
+$showAttributes = [];
+if($block->hasData('show_attributes')) {
+    $showAttributes = explode(',', $block->getData('show_attributes'));
+}
+$showButtons = [];
+if($block->hasData('show_buttons')) {
+    $showButtons = explode(',', $block->getData('show_buttons'));
+}
+
+$jsLayout = [
+    '*' => [
+        'Magento_Ui/js/core/app' => [
+            'components' => [
+                $uiComponentScope => array_merge([
+                    'component' => 'DeepFish_CatalogRecentlyWidget/js/view/recently-products',
+                    'config' => [
+                        'template' => 'DeepFish_CatalogRecentlyWidget/sidebar',
+                        'dataSection' => $isViewedUiComponent ? 'recently_viewed_product' : 'recently_compared_product',
+                        'pageSize' => $pageSize,
+                        'showAttributes' => $showAttributes,
+                        'showButtons' => $showButtons,
+                        'imageCode' => $isViewedUiComponent ?
+                            'recently_viewed_products_images_names_widget' :
+                            'recently_compared_products_images_names_widget'
+                    ]
+                ], $block->getData('js_layout') ?: [])
+            ]
+        ]
+    ]
+];
+?>
+<?php if($pageSize > 0): ?>
+    <div class="block recently hide" data-bind="scope: '<?= $uiComponentScope ?>'" data-role-preloader>
+        <h2 data-bind="css: $element.parentElement.classList.toggle('hide', !recentlyProducts().count)">
+            <?= __($isViewedUiComponent ? 'Recently Viewed Products' : 'Recently Compared Products') ?>
+        </h2>
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    </div>
+    <script type="text/x-magento-init">
+        <?= \Zend_Json::encode($jsLayout) ?>
+    </script>
+<?php endif; ?>

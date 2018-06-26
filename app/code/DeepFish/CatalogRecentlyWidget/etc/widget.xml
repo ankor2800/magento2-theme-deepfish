@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="catalog_recently_viewed" class="Magento\Catalog\Block\Widget\RecentlyViewed">
+        <parameters>
+            <parameter name="show_buttons" xsi:type="multiselect" required="false" />
+            <parameter name="template" xsi:type="select">
+                <options>
+                    <option name="sidebar" value="DeepFish_CatalogRecentlyWidget::sidebar.phtml">
+                        <label>Viewed Products Sidebar Template</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+
+    <widget id="catalog_recently_compared" class="Magento\Catalog\Block\Widget\RecentlyCompared">
+        <parameters>
+            <parameter name="show_buttons" xsi:type="multiselect" required="false" />
+            <parameter name="template" xsi:type="select">
+                <options>
+                    <option name="sidebar" value="DeepFish_CatalogRecentlyWidget::sidebar.phtml">
+                        <label>Compared Products Sidebar Template</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+        <containers>
+            <container name="sidebar.main">
+                <template name="default" value="sidebar" />
+            </container>
+        </containers>
+    </widget>
+</widgets>

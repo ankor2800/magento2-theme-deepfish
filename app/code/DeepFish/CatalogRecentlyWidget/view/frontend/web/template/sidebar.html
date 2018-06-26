@@ -1,0 +1,42 @@
+<each args="data: Object.values(recentlyProducts().items)" if="recentlyProducts().count">
+    <div class="item" with="$parent.productDataStorage()[product_id]" if="$index() < $parent.pageSize">
+        <each args="data: images" if="$parents[1].showAttributes.indexOf('image') != -1">
+            <a class="image"
+               data-bind="attr: {href: $parent.url, title: $parent.name}"
+               if="code == $parents[2].imageCode">
+                <img data-bind="attr: {src: url, alt: $parent.name}" />
+            </a>
+        </each>
+        <div class="details">
+            <div class="name" if="$parents[1].showAttributes.indexOf('name') != -1">
+                <a data-bind="text: name, attr: {href: url, title: name}"></a>
+            </div>
+
+            <div data-bind="html: price_info.formatted_prices.final_price"
+                 if="$parents[1].showAttributes.indexOf('price') != -1">
+            </div>
+
+            <div if="$parents[1].showButtons.length">
+                <div if="$parents[1].showButtons.indexOf('add_to_cart') != -1">
+                    <a href="#" data-bind="
+                        text: $t('Add to Cart'),
+                        attr: add_to_cart_button.required_options ?
+                            {href: add_to_cart_button.url} :
+                            {'data-ajax': add_to_cart_button.post_data}">
+                    </a>
+                </div>
+                <div if="$parents[1].showButtons.indexOf('add_to_compare') != -1">
+                    <a href="#" data-bind="
+                        text: $t('Add to Compare'),
+                        attr: {'data-ajax': add_to_compare_button.url}">
+                    </a>
+                </div>
+                <each args="$parents[1].getRegion('additionalButtons')" render="" />
+            </div>
+
+            <div if="$parents[1].showAttributes.indexOf('learn_more') != -1">
+                <a data-bind="text: $t('Learn More'), attr: {href: url}"></a>
+            </div>
+        </div>
+    </div>
+</each>
