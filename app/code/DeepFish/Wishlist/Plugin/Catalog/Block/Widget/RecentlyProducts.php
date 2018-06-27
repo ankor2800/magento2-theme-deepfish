@@ -23,7 +23,7 @@ class RecentlyProducts
     public function beforeToHtml(
         \Magento\Framework\View\Element\Template $subject
     ) {
-        $showButtons = explode(',', $subject->getData('show_buttons'));
+        $showButtons = $subject->getData('show_buttons');
 
         if(in_array('add_to_wishlist', $showButtons)) {
             if($this->_helper->isAllow()) {
@@ -47,17 +47,12 @@ class RecentlyProducts
                 ];
 
                 $subject->setData(
-                    'js_layout',
-                    array_merge($subject->getData('js_layout') ?: [], $jsLayout)
+                    'jsLayout',
+                    array_merge($subject->getData('jsLayout'), $jsLayout)
                 );
             } else {
                 unset($showButtons[array_search('add_to_wishlist', $showButtons)]);
-
-                if(count($showButtons) > 0) {
-                    $subject->setData('show_buttons', implode(',', $showButtons));
-                } else {
-                    $subject->unsetData('show_buttons');
-                }
+                $subject->setData('show_buttons', $showButtons);
             }
         }
     }

@@ -9,15 +9,6 @@ $isViewedUiComponent = $block->getData('uiComponent') == 'widget_recently_viewed
 $uiComponentScope = $isViewedUiComponent ? 'recentlyViewedProducts' : 'recentlyComparedProducts';
 $pageSize = intval($block->getData('page_size'));
 
-$showAttributes = [];
-if($block->hasData('show_attributes')) {
-    $showAttributes = explode(',', $block->getData('show_attributes'));
-}
-$showButtons = [];
-if($block->hasData('show_buttons')) {
-    $showButtons = explode(',', $block->getData('show_buttons'));
-}
-
 $jsLayout = [
     '*' => [
         'Magento_Ui/js/core/app' => [
@@ -28,13 +19,13 @@ $jsLayout = [
                         'template' => 'DeepFish_CatalogRecentlyWidget/sidebar',
                         'dataSection' => $isViewedUiComponent ? 'recently_viewed_product' : 'recently_compared_product',
                         'pageSize' => $pageSize,
-                        'showAttributes' => $showAttributes,
-                        'showButtons' => $showButtons,
+                        'showAttributes' => $block->getData('show_attributes'),
+                        'showButtons' => $block->getData('show_buttons'),
                         'imageCode' => $isViewedUiComponent ?
                             'recently_viewed_products_images_names_widget' :
                             'recently_compared_products_images_names_widget'
                     ]
-                ], $block->getData('js_layout') ?: [])
+                ], $block->getData('jsLayout'))
             ]
         ]
     ]
