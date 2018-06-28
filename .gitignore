@@ -7,5 +7,6 @@
 /app/*
 !/app/code/
 /app/code/IdealCode/Banner/
+/app/code/IdealCode/Core/
 !/app/design/
 !/app/i18n/
