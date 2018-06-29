@@ -1,0 +1,27 @@
+<?php
+/**
+ * Product list template
+ *
+ * @var \Magento\Catalog\Block\Product\ListProduct $block
+ */
+
+$jsLayout = $block->getData('jsLayout');
+$noFoundText = $block->escapeJs(__('We can\'t find products matching the selection.'));
+$jsLayout['Magento_Ui/js/core/app']['components']['productList']['config']['items'] =
+    $block->getData('jsLayoutItems');
+?>
+<div data-mage-init='<?= \Zend_Json::encode($jsLayout) ?>'>
+    <div data-bind="scope: 'productList'">
+        <!-- ko if: items().length -->
+            <div class="product-list">
+                <!-- ko foreach: items() -->
+                    <!-- ko template: $parent.getTemplate() --><!-- /ko -->
+                <!-- /ko -->
+            </div>
+        <!-- /ko -->
+
+        <!-- ko ifnot: items().length -->
+            <span data-bind="text: '<?= $noFoundText ?>'"></span>
+        <!-- /ko -->
+    </div>
+</div>

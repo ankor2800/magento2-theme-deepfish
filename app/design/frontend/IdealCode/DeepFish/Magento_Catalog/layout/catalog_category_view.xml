@@ -4,5 +4,22 @@
     <body>
         <move element="category.description" destination="main" after="page.main.title" />
         <referenceContainer name="category.view.container" remove="true" />
+
+        <referenceBlock name="category.products.list">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="Magento_Ui/js/core/app" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="productList" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Catalog/js/product/list</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="template" xsi:type="string">Magento_Catalog/product/list/item</item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
     </body>
 </page>
