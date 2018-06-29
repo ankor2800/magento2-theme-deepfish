@@ -1,0 +1,17 @@
+<?php
+/**
+ * Authorization link in header
+ *
+ * @var \Magento\Framework\View\TemplateEngine\Php $this
+ * @var \Magento\Customer\Block\Account\AuthorizationLink $block
+ */
+
+/** @var \IdealCode\Core\Helper\Customer\Data $helper */
+$helper = $this->helper(\IdealCode\Core\Helper\Customer\Data::class);
+?>
+<div class="customer" data-bind="scope: 'customer', css: 'active'">
+    <a href="#" data-bind="
+        text: customer().fullname ? '<?= __('Log Out') ?>' : '<?= __('Log In') ?>',
+        attr: {href: customer().fullname ? '<?= $helper->getLogoutUrl() ?>' : '<?= $helper->getLoginUrl() ?>'}">
+    </a>
+</div>

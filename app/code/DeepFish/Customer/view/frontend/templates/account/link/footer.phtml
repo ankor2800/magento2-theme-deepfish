@@ -1,9 +1,0 @@
-<?php
-/** @var \DeepFish\Customer\Block\Account\AuthorizationLink $block */
-?>
-<li data-bind="scope: 'customer'">
-    <a href="#"
-       data-bind="text: customer().fullname ? '<?=__('Sign Out')?>' : '<?=__('Sign In')?>',
-       attr: { href: customer().fullname ? '<?=$block->getLogoutUrl()?>' : '<?=$block->getLoginUrl()?>' }">
-    </a>
-</li>
