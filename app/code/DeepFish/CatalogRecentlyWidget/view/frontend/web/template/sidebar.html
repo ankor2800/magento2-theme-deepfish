@@ -17,14 +17,6 @@
             </div>
 
             <div if="$parents[1].showButtons.length">
-                <div if="$parents[1].showButtons.indexOf('add_to_cart') != -1">
-                    <a href="#" data-bind="
-                        text: $t('Add to Cart'),
-                        attr: add_to_cart_button.required_options ?
-                            {href: add_to_cart_button.url} :
-                            {'data-ajax': add_to_cart_button.post_data}">
-                    </a>
-                </div>
                 <div if="$parents[1].showButtons.indexOf('add_to_compare') != -1">
                     <a href="#" data-bind="
                         text: $t('Add to Compare'),

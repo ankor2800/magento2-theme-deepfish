@@ -1,0 +1,6 @@
+<div with="$parents[1].add_to_cart_button" if="$parents[1].is_salable">
+    <a href="#" data-bind="
+        text: $t('Add to Cart'),
+        attr: required_options ? {href: url} : {'data-ajax': post_data}">
+    </a>
+</div>

@@ -38,7 +38,8 @@ class RecentlyProducts
                                 'addToWishlist' => [
                                     'component' => 'uiComponent',
                                     'config' => [
-                                        'template' => 'DeepFish_Wishlist/catalog-recently-widget/sidebar/add-button'
+                                        'template' =>
+                                            'DeepFish_Wishlist/catalog-recently-widget/sidebar/add-to-wishlist'
                                     ]
                                 ]
                             ]
@@ -48,7 +49,7 @@ class RecentlyProducts
 
                 $subject->setData(
                     'jsLayout',
-                    array_merge($subject->getData('jsLayout'), $jsLayout)
+                    array_replace_recursive($subject->getData('jsLayout'), $jsLayout)
                 );
             } else {
                 unset($showButtons[array_search('add_to_wishlist', $showButtons)]);
