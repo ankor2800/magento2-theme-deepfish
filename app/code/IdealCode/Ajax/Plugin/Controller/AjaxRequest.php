@@ -23,12 +23,12 @@ class AjaxRequest
 
     /**
      * @param \Magento\Framework\App\Action\Action $subject
-     * @param \Magento\Framework\Controller\ResultInterface $result
+     * @param mixed $result
      * @return \Magento\Framework\Controller\ResultInterface
      */
     public function afterExecute(
         \Magento\Framework\App\Action\Action $subject,
-        \Magento\Framework\Controller\ResultInterface $result
+        $result
     ) {
         /** @var \Magento\Framework\App\Request\Http $request */
         $request = $subject->getRequest();

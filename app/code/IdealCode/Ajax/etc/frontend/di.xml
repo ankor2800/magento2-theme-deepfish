@@ -7,7 +7,10 @@
     <type name="Magento\Catalog\Controller\Product\Compare\Remove">
         <plugin name="IdealCode_Ajax" type="IdealCode\Ajax\Plugin\Controller\AjaxRequest" />
     </type>
-    
+
+    <type name="Magento\Checkout\Controller\Cart\Add">
+        <plugin name="IdealCode_Ajax" type="IdealCode\Ajax\Plugin\Controller\AjaxRequest" />
+    </type>
     <type name="Magento\Checkout\Controller\Cart\Delete">
         <plugin name="IdealCode_Ajax" type="IdealCode\Ajax\Plugin\Controller\AjaxRequest" />
     </type>

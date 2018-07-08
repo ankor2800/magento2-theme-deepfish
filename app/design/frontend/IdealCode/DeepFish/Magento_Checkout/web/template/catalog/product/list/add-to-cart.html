@@ -1,0 +1,21 @@
+<with args="$parent">
+    <div class="add-to-cart"
+         data-bind="css: $parent.productInCart(id) && !required_options ? 'in-cart' : ''"
+         if="is_salable">
+        <div class="prices" data-bind="html: price"></div>
+
+        <a href="#"
+           class="required-options"
+           data-bind="attr: {title: $t('View Details'), 'data-ajax': add_to_cart}"
+           if="required_options">
+        </a>
+        <a href="#"
+           data-bind="
+               attr: {
+                   title: $t($parent.productInCart(id) ? 'Remove from Cart': 'Add to Cart'),
+                   'data-ajax': $parent.productInCart(id) ? $parent.productInCart(id).remove_url : add_to_cart
+               }"
+           ifnot="required_options">
+        </a>
+    </div>
+</with>

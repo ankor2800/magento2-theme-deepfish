@@ -12,7 +12,7 @@ define([
          */
         _create: function() {
             this.element.on('click', 'a[data-ajax]', function() {
-                var data = $(this).data('ajax')['data'];
+                var data = $(this).removeData('ajax').data('ajax')['data'];
                 $.extend(data, {
                     'form_key': $.mage.cookies.get('form_key')
                 });

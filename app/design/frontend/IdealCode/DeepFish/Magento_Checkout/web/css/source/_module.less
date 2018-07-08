@@ -1,5 +1,93 @@
 @import 'module/_minicart.less';
 
+main {
+    .product-list {
+        .item {
+            .add-to-cart {
+                border: 2px solid;
+                margin-top: 24px;
+                .lib-vendor-prefix-display();
+                .lib-css(border-color, @color-gray);
+                .lib-css(justify-content, space-between, 1);
+                .lib-css(transition, background 0.2s ease-in-out, 1);
+
+                .prices {
+                    padding: 7px 11px 7px 16px;
+                    text-align: left;
+
+                    .price {
+                        .lib-font-size(28px);
+                        .lib-css(color, @color-gray);
+                        .lib-css(font-weight, @font-weight__heavybold);
+                        .lib-css(transition, color 0.2s ease-in-out, 1);
+
+                        span {
+                            display: block;
+                        }
+                        .special-price {
+                            margin-top: -7px;
+                            .lib-css(color, @color-blue);
+                            .lib-css(transition, color 0.2s ease-in-out, 1);
+                        }
+                        .old-price {
+                            margin: -9px 0 -5px 0;
+                            text-decoration: line-through;
+                            .lib-font-size(@font-size__base);
+                            .lib-css(font-weight, @font-weight__regular);
+                        }
+                    }
+                }
+
+                a {
+                    width: 59px;
+                    border-left: 1px solid;
+                    .lib-css(color, @color-gray);
+                    .lib-css(border-color, @color-gray);
+                    .lib-vendor-prefix-flex-shrink(0);
+
+                    &:before {
+                        position: relative;
+                        top: -1px;
+                        .lib-font-size(34px);
+                        .lib-line-height(56px);
+                        .lib-icon-symbol(@icon-add-shopping-cart);
+                    }
+
+                    &.required-options {
+                        &:before {
+                            top: 0;
+                            .lib-css(content, @icon-info-outline);
+                        }
+                    }
+                }
+
+                &.in-cart {
+                    a:before {
+                        .lib-css(content, @icon-remove-shopping-cart);
+                    }
+                }
+
+                &:hover,
+                &.in-cart {
+                    .lib-css(background, @color-blue);
+
+                    .prices .price {
+                        .lib-css(color, @color-white);
+
+                        .special-price {
+                            .lib-css(color, @color-white);
+                        }
+                    }
+
+                    a {
+                        .lib-css(color, @color-white);
+                    }
+                }
+            }
+        }
+    }
+}
+
 button,
 .button {
     &.checkout {

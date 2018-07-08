@@ -30,6 +30,7 @@ class ListProduct
             $image = $this->_imageHelper->init($item, 'category_page_grid');
 
             $items[] = [
+                'id' => $item->getEntityId(),
                 'name' => $item->getName(),
                 'url' => $item->getProductUrl(),
                 'image' => [
