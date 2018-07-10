@@ -13,7 +13,7 @@
                                         <item name="component" xsi:type="string">Magento_Checkout/js/view/cart</item>
                                         <item name="config" xsi:type="array">
                                             <item name="template" xsi:type="string">
-                                                Magento_Checkout/catalog/product/list/add-to-cart
+                                                Magento_Checkout/catalog/product/list/add-to/cart
                                             </item>
                                             <item name="displayArea" xsi:type="string">
                                                 addToCart

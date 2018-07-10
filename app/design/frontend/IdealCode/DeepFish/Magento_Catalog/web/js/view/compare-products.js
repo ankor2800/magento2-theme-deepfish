@@ -5,11 +5,24 @@ define([
     'use strict';
 
     return Component.extend({
-        /** @inheritdoc */
-        initialize: function() {
-            this._super();
+        compareProducts: customerData.get('compare-products'),
 
-            this.compareProducts = customerData.get('compare-products');
+        /**
+         * Check product in compare products
+         *
+         * @param id
+         * @returns {boolean}
+         */
+        productInCompare: function(id) {
+            var items = this.compareProducts().items;
+
+            for(var index in items) {
+                if(items[index].id == id) {
+                    return items[index];
+                }
+            }
+
+            return false;
         }
     });
 });

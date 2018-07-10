@@ -1,0 +1,11 @@
+<with args="$parent">
+    <a href="#"
+       class="compare"
+       data-bind="
+           css: $parent.productInCompare(id) ? 'in-list' : '',
+           attr: {
+               title: $t($parent.productInCompare(id) ? 'Remove from Compare Products' : 'Add to Compare Products'),
+               'data-ajax': $parent.productInCompare(id) ? $parent.productInCompare(id).remove_url : add_to_compare
+           }">
+    </a>
+</with>
