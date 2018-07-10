@@ -7,6 +7,10 @@
             <a data-bind="text: name, attr: {href: url}"></a>
         </div>
         <div class="description" data-bind="html: description" if="description"></div>
+
         <each args="$parent.getRegion('addToCart')" render="" />
+        <div class="add-to">
+            <each args="$parent.getRegion('addTo')" render="" />
+        </div>
     </div>
 </div>

@@ -5,16 +5,16 @@ define([
     'use strict';
 
     return Component.extend({
-        cart: customerData.get('cart'),
+        wishlist: customerData.get('wishlist'),
 
         /**
-         * Check product in cart
+         * Check product in wishlist
          *
          * @param id
          * @returns {boolean}
          */
-        productInCart: function(id) {
-            var items = this.cart().items;
+        productInWishlist: function(id) {
+            var items = this.wishlist().items;
 
             for(var index in items) {
                 if(items[index].product_id == id) {

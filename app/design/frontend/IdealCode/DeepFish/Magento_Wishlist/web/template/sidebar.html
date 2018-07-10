@@ -1,7 +1,7 @@
 <if args="wishlist().counter">
     <h3 translate="'Last added items'"></h3>
     <each args="data: wishlist().items">
-        <div class="item">
+        <div class="item" if="$index() < $parent.sidebarMaxItems">
             <a class="image" data-bind="attr: {href: product_url, title: product_name}">
                 <render args="name: image.template, data: image" />
             </a>

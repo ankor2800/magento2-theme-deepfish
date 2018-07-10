@@ -125,6 +125,23 @@ main {
                         .lib-link-reverse(#333);
                     }
                 }
+
+                .add-to {
+                    .lib-vendor-prefix-display();
+                    .lib-css(justify-content, center, 1);
+
+                    a {
+                        margin: 21px 0 18px 0;
+                        .lib-link-reverse();
+                        .lib-font-size(34px);
+                        .lib-line-height(1em);
+                        .lib-css(font-family, @icons__font-name);
+
+                        &.in-list {
+                            .lib-css(color, @color-blue);
+                        }
+                    }
+                }
             }
         }
     }

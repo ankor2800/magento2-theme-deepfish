@@ -1,0 +1,14 @@
+<with args="$parents[1]">
+    <a href="#"
+       class="add-to-wishlist"
+       data-bind="
+           css: $parent.productInWishlist(id) ? 'in-list' : '',
+           attr: {
+               title: $t($parent.productInWishlist(id) ? 'Remove from Wishlist' : 'Add to Wishlist'),
+               'data-ajax': $parent.productInWishlist(id) ?
+                   $parent.productInWishlist(id).delete_item_params :
+                   add_to_wishlist
+           }"
+        if="hasOwnProperty('add_to_wishlist')">
+    </a>
+</with>

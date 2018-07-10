@@ -86,4 +86,22 @@ main {
             }
         }
     }
+
+    .product-list {
+        .item {
+            .add-to {
+                .add-to-wishlist {
+                    &:before {
+                        .lib-css(content, @icon-favorite-border);
+                    }
+
+                    &.in-list {
+                        &:before {
+                            .lib-css(content, @icon-favorite);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
