@@ -1,31 +1,23 @@
 <?php
-namespace DeepFish\CatalogAjax\Plugin\Catalog\Block\Product;
+namespace DeepFish\Catalog\Plugin\Block\Product;
 
-class ListProduct
+class ListProduct extends AbstractListProduct
 {
     /** @var \Magento\Catalog\Helper\Image */
     protected $_imageHelper;
 
-    /** @var \Magento\Framework\Data\Helper\PostHelper */
-    protected $_postHelper;
-
     /**
-     * @param \Magento\Catalog\Helper\Image $imageHelper
      * @param \Magento\Framework\Data\Helper\PostHelper $postHelper
+     * @param \Magento\Catalog\Helper\Image $imageHelper
      */
     public function __construct(
-        \Magento\Catalog\Helper\Image $imageHelper,
-        \Magento\Framework\Data\Helper\PostHelper $postHelper
+        \Magento\Framework\Data\Helper\PostHelper $postHelper,
+        \Magento\Catalog\Helper\Image $imageHelper
     ) {
         $this->_imageHelper = $imageHelper;
-        $this->_postHelper = $postHelper;
+        parent::__construct($postHelper);
     }
 
-    /**
-     * Prepare information about products for JS render
-     *
-     * @param \Magento\Catalog\Block\Product\ListProduct $subject
-     */
     public function beforeToHtml(
         \Magento\Catalog\Block\Product\ListProduct $subject
     ) {
@@ -34,13 +26,6 @@ class ListProduct
         /** @var \Magento\Catalog\Model\Product $item */
         foreach($subject->getLoadedProductCollection() as $item) {
             $image = $this->_imageHelper->init($item, 'category_page_grid');
-            $addToCompare = $this->_postHelper->getPostData(
-                $subject->getAddToCompareUrl(),
-                [
-                    'product' => $item->getEntityId(),
-                    \Magento\Framework\App\ActionInterface::PARAM_NAME_URL_ENCODED => ''
-                ]
-            );
 
             $items[] = [
                 'id' => $item->getEntityId(),
@@ -51,7 +36,7 @@ class ListProduct
                     'alt' => $image->getLabel()
                 ],
                 'description' => $item->getData('short_description'),
-                'add_to_compare' => $addToCompare
+                'add_to_compare' => $this->_getAddToParams($subject->getAddToCompareUrl(), $item)
             ];
         }
 

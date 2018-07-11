@@ -1,31 +1,23 @@
 <?php
 namespace DeepFish\Wishlist\Plugin\Catalog\Block\Product;
 
-class ListProduct
+class ListProduct extends \DeepFish\Catalog\Plugin\Block\Product\AbstractListProduct
 {
     /** @var \Magento\Wishlist\Helper\Data */
     protected $_wishlistHelper;
 
-    /** @var \Magento\Framework\Data\Helper\PostHelper */
-    protected $_postHelper;
-
     /**
-     * @param \Magento\Wishlist\Helper\Data $wishlistHelper
      * @param \Magento\Framework\Data\Helper\PostHelper $postHelper
+     * @param \Magento\Wishlist\Helper\Data $wishlistHelper
      */
     public function __construct(
-        \Magento\Wishlist\Helper\Data $wishlistHelper,
-        \Magento\Framework\Data\Helper\PostHelper $postHelper
+        \Magento\Framework\Data\Helper\PostHelper $postHelper,
+        \Magento\Wishlist\Helper\Data $wishlistHelper
     ) {
         $this->_wishlistHelper = $wishlistHelper;
-        $this->_postHelper = $postHelper;
+        parent::__construct($postHelper);
     }
 
-    /**
-     * Extend JS layout for product list block
-     *
-     * @param \Magento\Catalog\Block\Product\ListProduct $subject
-     */
     public function beforeToHtml(
         \Magento\Catalog\Block\Product\ListProduct $subject
     ) {
@@ -35,16 +27,11 @@ class ListProduct
 
             /** @var \Magento\Catalog\Model\Product $item */
             foreach($subject->getLoadedProductCollection() as $item) {
-                $addToWishlist = $this->_postHelper->getPostData(
-                    $subject->getUrl('wishlist/index/add'),
-                    [
-                        'product' => $item->getEntityId(),
-                        \Magento\Framework\App\ActionInterface::PARAM_NAME_URL_ENCODED => ''
-                    ]
-                );
-
                 $items[$index++] += [
-                    'add_to_wishlist' => $addToWishlist
+                    'add_to_wishlist' => $this->_getAddToParams(
+                        $subject->getUrl('wishlist/index/add'),
+                        $item
+                    )
                 ];
             }
 

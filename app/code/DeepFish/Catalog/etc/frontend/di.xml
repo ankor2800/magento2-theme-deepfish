@@ -4,4 +4,8 @@
     <preference for="Magento\Catalog\Pricing\Render\FinalPriceBox"
                 type="DeepFish\Catalog\Override\Pricing\Render\FinalPriceBox"
     />
+
+    <type name="Magento\Catalog\Block\Product\ListProduct">
+        <plugin name="DeepFish_Catalog" type="DeepFish\Catalog\Plugin\Block\Product\ListProduct" sortOrder="10" />
+    </type>
 </config>
