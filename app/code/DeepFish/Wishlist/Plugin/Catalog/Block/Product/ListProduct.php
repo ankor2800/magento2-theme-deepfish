@@ -22,12 +22,12 @@ class ListProduct extends \DeepFish\Catalog\Plugin\Block\Product\AbstractListPro
         \Magento\Catalog\Block\Product\ListProduct $subject
     ) {
         if($this->_wishlistHelper->isAllow()) {
-            $items = $subject->getData('jsLayoutItems');
+            $config = $subject->getData('jsLayoutConfig');
             $index = 0;
 
             /** @var \Magento\Catalog\Model\Product $item */
             foreach($subject->getLoadedProductCollection() as $item) {
-                $items[$index++] += [
+                $config['items'][$index++] += [
                     'add_to_wishlist' => $this->_getAddToParams(
                         $subject->getUrl('wishlist/index/add'),
                         $item
@@ -35,7 +35,7 @@ class ListProduct extends \DeepFish\Catalog\Plugin\Block\Product\AbstractListPro
                 ];
             }
 
-            $subject->setData('jsLayoutItems', $items);
+            $subject->setData('jsLayoutConfig', $config);
         }
     }
 }

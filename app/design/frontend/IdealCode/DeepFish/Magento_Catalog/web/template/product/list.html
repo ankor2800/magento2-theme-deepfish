@@ -1,0 +1,23 @@
+<div class="product-list" each="data: items()" if="items().length">
+    <div class="item" data-bind="mageInit: {loader: {}}" data-role-preloader>
+        <div class="wrapper">
+            <a class="image" data-bind="attr: {href: url, title: name}">
+                <img data-bind="attr: {src: image.src, alt: image.alt}" />
+            </a>
+            <div class="name">
+                <a data-bind="text: name, attr: {href: url}"></a>
+            </div>
+            <div class="description" data-bind="html: description" if="description"></div>
+
+            <each args="$parent.getRegion('addToCart')" render="" />
+            <div class="add-to">
+                <each args="$parent.getRegion('addToWishlist')" render="" />
+                <each args="$parent.getRegion('addToCompare')" render="" />
+            </div>
+        </div>
+    </div>
+</div>
+
+<ifnot args="items().length">
+    <translate args="'We can\'t find products matching the selection.'" />
+</ifnot>

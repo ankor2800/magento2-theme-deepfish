@@ -2,23 +2,29 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceBlock name="category.products.list">
+        <block name="catalog.product.list"
+               class="Magento\Catalog\Block\Product\ListProduct"
+               template="product/list.phtml">
             <arguments>
                 <argument name="jsLayout" xsi:type="array">
                     <item name="Magento_Ui/js/core/app" xsi:type="array">
                         <item name="components" xsi:type="array">
                             <item name="productList" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Catalog/js/product/list</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="template" xsi:type="string">Magento_Catalog/product/list</item>
+                                </item>
                                 <item name="children" xsi:type="array">
-                                    <item name="addToWishlist" xsi:type="array">
+                                    <item name="addToCompare" xsi:type="array">
                                         <item name="component" xsi:type="string">
-                                            Magento_Wishlist/js/view/wishlist
+                                            Magento_Catalog/js/view/compare-products
                                         </item>
                                         <item name="config" xsi:type="array">
                                             <item name="template" xsi:type="string">
-                                                Magento_Wishlist/catalog/product/list/add-to/wishlist
+                                                Magento_Catalog/product/list/add-to/compare
                                             </item>
                                             <item name="displayArea" xsi:type="string">
-                                                addToWishlist
+                                                addToCompare
                                             </item>
                                         </item>
                                     </item>
@@ -28,6 +34,6 @@
                     </item>
                 </argument>
             </arguments>
-        </referenceBlock>
+        </block>
     </body>
 </page>

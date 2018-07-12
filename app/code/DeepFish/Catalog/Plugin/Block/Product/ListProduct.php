@@ -21,13 +21,14 @@ class ListProduct extends AbstractListProduct
     public function beforeToHtml(
         \Magento\Catalog\Block\Product\ListProduct $subject
     ) {
-        $items = [];
+        $config = $subject->getData('jsLayoutConfig');
+        $config['items'] = $config['items'] ?: [];
 
         /** @var \Magento\Catalog\Model\Product $item */
         foreach($subject->getLoadedProductCollection() as $item) {
             $image = $this->_imageHelper->init($item, 'category_page_grid');
 
-            $items[] = [
+            $config['items'][] = [
                 'id' => $item->getEntityId(),
                 'name' => $item->getName(),
                 'url' => $item->getProductUrl(),
@@ -40,6 +41,6 @@ class ListProduct extends AbstractListProduct
             ];
         }
 
-        $subject->setData('jsLayoutItems', $items);
+        $subject->setData('jsLayoutConfig', $config);
     }
 }

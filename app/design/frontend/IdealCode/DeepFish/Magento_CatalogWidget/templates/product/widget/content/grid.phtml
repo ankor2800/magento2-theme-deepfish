@@ -1,0 +1,12 @@
+<?php
+/**
+ * View product list via widget
+ *
+ * @var \Magento\CatalogWidget\Block\Product\ProductsList $block
+ */
+
+/** @var \Magento\Catalog\Block\Product\ListProduct $renderBlock */
+$renderBlock = $block->getLayout()->getBlock('catalog.product.list');
+$renderBlock->setCollection($block->getData('product_collection'));
+
+echo $renderBlock->toHtml();

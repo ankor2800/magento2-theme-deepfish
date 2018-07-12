@@ -16,7 +16,7 @@ abstract class AbstractListProduct
     }
 
     /**
-     * Prepare information about products for JS render
+     * Prepare config for js layout
      *
      * @param \Magento\Catalog\Block\Product\ListProduct $subject
      */
