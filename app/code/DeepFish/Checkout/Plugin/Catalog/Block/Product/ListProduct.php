@@ -3,15 +3,15 @@ namespace DeepFish\Checkout\Plugin\Catalog\Block\Product;
 
 class ListProduct extends \DeepFish\Catalog\Plugin\Block\Product\AbstractListProduct
 {
-    public function beforeToHtml(
-        \Magento\Catalog\Block\Product\ListProduct $subject
+    public function afterGetJsLayout(
+        \Magento\Catalog\Block\Product\ListProduct $subject,
+        $jsLayout
     ) {
-        $config = $subject->getData('jsLayoutConfig');
         $index = 0;
 
         /** @var \Magento\Catalog\Model\Product $item */
         foreach($subject->getLoadedProductCollection() as $item) {
-            $config['items'][$index++] += [
+            $jsLayout['data']['items'][$index++] += [
                 'price' => $subject->getProductPrice($item),
                 'is_salable' => $item->isSalable(),
                 'required_options' => $item->getTypeInstance()->hasRequiredOptions($item),
@@ -22,6 +22,6 @@ class ListProduct extends \DeepFish\Catalog\Plugin\Block\Product\AbstractListPro
             ];
         }
 
-        $subject->setData('jsLayoutConfig', $config);
+        return $jsLayout;
     }
 }

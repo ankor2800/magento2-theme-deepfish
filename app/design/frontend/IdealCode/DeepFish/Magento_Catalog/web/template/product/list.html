@@ -1,4 +1,4 @@
-<div class="product-list" each="data: items()" if="items().length">
+<div class="product-list" each="data: data().items" if="data().items.length">
     <div class="item" data-bind="mageInit: {loader: {}}" data-role-preloader>
         <div class="wrapper">
             <a class="image" data-bind="attr: {href: url, title: name}">
@@ -18,6 +18,6 @@
     </div>
 </div>
 
-<ifnot args="items().length">
+<ifnot args="data().items.length">
     <translate args="'We can\'t find products matching the selection.'" />
 </ifnot>

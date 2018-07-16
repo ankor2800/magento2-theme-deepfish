@@ -6,7 +6,7 @@ define([
     return Component.extend({
         /** @inheritdoc */
         initObservable: function() {
-            this._super().observe(['items']);
+            this._super().observe(['data']);
 
             return this;
         }

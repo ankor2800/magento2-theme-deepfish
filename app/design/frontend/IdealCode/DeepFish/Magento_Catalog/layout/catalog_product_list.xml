@@ -7,33 +7,30 @@
                template="product/list.phtml">
             <arguments>
                 <argument name="jsLayout" xsi:type="array">
-                    <item name="Magento_Ui/js/core/app" xsi:type="array">
-                        <item name="components" xsi:type="array">
-                            <item name="productList" xsi:type="array">
-                                <item name="component" xsi:type="string">Magento_Catalog/js/product/list</item>
-                                <item name="config" xsi:type="array">
-                                    <item name="template" xsi:type="string">Magento_Catalog/product/list</item>
+                    <item name="component" xsi:type="string">Magento_Catalog/js/product/list</item>
+                    <item name="config" xsi:type="array">
+                        <item name="template" xsi:type="string">Magento_Catalog/product/list</item>
+                    </item>
+                    <item name="children" xsi:type="array">
+                        <item name="addToCompare" xsi:type="array">
+                            <item name="component" xsi:type="string">
+                                Magento_Catalog/js/view/compare-products
+                            </item>
+                            <item name="config" xsi:type="array">
+                                <item name="template" xsi:type="string">
+                                    Magento_Catalog/product/list/add-to/compare
                                 </item>
-                                <item name="children" xsi:type="array">
-                                    <item name="addToCompare" xsi:type="array">
-                                        <item name="component" xsi:type="string">
-                                            Magento_Catalog/js/view/compare-products
-                                        </item>
-                                        <item name="config" xsi:type="array">
-                                            <item name="template" xsi:type="string">
-                                                Magento_Catalog/product/list/add-to/compare
-                                            </item>
-                                            <item name="displayArea" xsi:type="string">
-                                                addToCompare
-                                            </item>
-                                        </item>
-                                    </item>
+                                <item name="displayArea" xsi:type="string">
+                                    addToCompare
                                 </item>
                             </item>
                         </item>
                     </item>
                 </argument>
+                <argument name="toolbar_block_name" xsi:type="string">catalog.product.list.toolbar</argument>
             </arguments>
+
+            <block name="catalog.product.list.toolbar" class="Magento\Catalog\Block\Product\ProductList\Toolbar" />
         </block>
     </body>
 </page>

@@ -16,12 +16,15 @@ abstract class AbstractListProduct
     }
 
     /**
-     * Prepare config for js layout
+     * Prepare js layout
      *
      * @param \Magento\Catalog\Block\Product\ListProduct $subject
+     * @param array|string $jsLayout
+     * @return array
      */
-    abstract public function beforeToHtml(
-        \Magento\Catalog\Block\Product\ListProduct $subject
+    abstract public function afterGetJsLayout(
+        \Magento\Catalog\Block\Product\ListProduct $subject,
+        $jsLayout
     );
 
     /**

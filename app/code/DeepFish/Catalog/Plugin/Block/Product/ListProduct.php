@@ -18,17 +18,23 @@ class ListProduct extends AbstractListProduct
         parent::__construct($postHelper);
     }
 
-    public function beforeToHtml(
-        \Magento\Catalog\Block\Product\ListProduct $subject
+    public function afterGetJsLayout(
+        \Magento\Catalog\Block\Product\ListProduct $subject,
+        $jsLayout
     ) {
-        $config = $subject->getData('jsLayoutConfig');
-        $config['items'] = $config['items'] ?: [];
+        /** @var \Magento\Framework\View\Element\Template $jsLayoutBlock */
+        $jsLayoutBlock = $subject->getLayout()->getBlock('catalog.product.list');
+        $jsLayout = $jsLayoutBlock->getData('jsLayout');
+
+        $jsLayout['data'] = [
+            'items' => []
+        ];
 
         /** @var \Magento\Catalog\Model\Product $item */
         foreach($subject->getLoadedProductCollection() as $item) {
             $image = $this->_imageHelper->init($item, 'category_page_grid');
 
-            $config['items'][] = [
+            $jsLayout['data']['items'][] = [
                 'id' => $item->getEntityId(),
                 'name' => $item->getName(),
                 'url' => $item->getProductUrl(),
@@ -41,6 +47,6 @@ class ListProduct extends AbstractListProduct
             ];
         }
 
-        $subject->setData('jsLayoutConfig', $config);
+        return $jsLayout;
     }
 }

@@ -5,23 +5,17 @@
         <referenceBlock name="catalog.product.list">
             <arguments>
                 <argument name="jsLayout" xsi:type="array">
-                    <item name="Magento_Ui/js/core/app" xsi:type="array">
-                        <item name="components" xsi:type="array">
-                            <item name="productList" xsi:type="array">
-                                <item name="children" xsi:type="array">
-                                    <item name="addToWishlist" xsi:type="array">
-                                        <item name="component" xsi:type="string">
-                                            Magento_Wishlist/js/view/wishlist
-                                        </item>
-                                        <item name="config" xsi:type="array">
-                                            <item name="template" xsi:type="string">
-                                                Magento_Wishlist/catalog/product/list/add-to/wishlist
-                                            </item>
-                                            <item name="displayArea" xsi:type="string">
-                                                addToWishlist
-                                            </item>
-                                        </item>
-                                    </item>
+                    <item name="children" xsi:type="array">
+                        <item name="addToWishlist" xsi:type="array">
+                            <item name="component" xsi:type="string">
+                                Magento_Wishlist/js/view/wishlist
+                            </item>
+                            <item name="config" xsi:type="array">
+                                <item name="template" xsi:type="string">
+                                    Magento_Wishlist/catalog/product/list/add-to/wishlist
+                                </item>
+                                <item name="displayArea" xsi:type="string">
+                                    addToWishlist
                                 </item>
                             </item>
                         </item>

@@ -18,24 +18,24 @@ class ListProduct extends \DeepFish\Catalog\Plugin\Block\Product\AbstractListPro
         parent::__construct($postHelper);
     }
 
-    public function beforeToHtml(
-        \Magento\Catalog\Block\Product\ListProduct $subject
+    public function afterGetJsLayout(
+        \Magento\Catalog\Block\Product\ListProduct $subject,
+        $jsLayout
     ) {
         if($this->_wishlistHelper->isAllow()) {
-            $config = $subject->getData('jsLayoutConfig');
             $index = 0;
 
             /** @var \Magento\Catalog\Model\Product $item */
             foreach($subject->getLoadedProductCollection() as $item) {
-                $config['items'][$index++] += [
+                $jsLayout['data']['items'][$index++] += [
                     'add_to_wishlist' => $this->_getAddToParams(
                         $subject->getUrl('wishlist/index/add'),
                         $item
                     )
                 ];
             }
-
-            $subject->setData('jsLayoutConfig', $config);
         }
+
+        return $jsLayout;
     }
 }

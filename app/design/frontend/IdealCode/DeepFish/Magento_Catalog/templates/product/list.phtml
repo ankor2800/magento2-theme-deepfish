@@ -5,18 +5,18 @@
  * @var \Magento\Catalog\Block\Product\ListProduct $block
  */
 
-$baseBlockName = 'catalog.product.list';
-if($block->getNameInLayout() != $baseBlockName) {
-    $jsLayoutBlock = $block->getLayout()->getBlock($baseBlockName);
-} else {
-    $jsLayoutBlock = $block;
-}
+$jsScope = $block->getJsId($block->getRandomString(10));
 
-$jsLayout = $jsLayoutBlock->getData('jsLayout');
-$jsLayout['Magento_Ui/js/core/app']['components']['productList']['config'] += $block->getData('jsLayoutConfig');
+$jsLayout = [
+    'Magento_Ui/js/core/app' => [
+        'components' => [
+            $jsScope => $block->getJsLayout()
+        ]
+    ]
+];
 ?>
 <div data-mage-init='<?= \Zend_Json::encode($jsLayout) ?>'>
-    <div data-bind="scope: 'productList'">
+    <div data-bind="scope: '<?= $jsScope ?>'">
         <!-- ko template: getTemplate() --><!-- /ko -->
     </div>
 </div>
