@@ -2,35 +2,11 @@
 /**
  * Search block
  *
- * @var \Magento\Framework\View\TemplateEngine\Php $this
  * @var \Magento\Framework\View\Element\Template $block
- * @var \Magento\Search\Helper\Data $helper
  */
-$helper = $this->helper(\Magento\Search\Helper\Data::class);
-
-$dropdownJsLayout = [
-    'js/dropdown-dialog' => [],
-    'js/validation' => []
-];
 ?>
-<div class="search">
+<div class="search" data-mage-init='<?= $block->getJsLayout() ?>' data-bind="scope: 'searchForm'">
     <a href="#" class="action"></a>
-    <form action="<?=$helper->getResultUrl() ?>"
-          name="search"
-          method="get"
-          data-mage-init='<?=\Zend_Json::encode($dropdownJsLayout)?>'>
-        <div class="input-box">
-            <input type="text"
-                   name="<?=$helper->getQueryParamName() ?>"
-                   value="<?=$helper->getEscapedQueryText() ?>"
-                   placeholder="<?= __('Enter keyword') ?>"
-                   maxlength="<?=$helper->getMaxQueryLength() ?>"
-                   data-validate="{required: true}"/>
-            <button type="submit" title="<?= $block->escapeHtml(__('Search')) ?>">
-                <?=__('Search') ?>
-            </button>
-        </div>
-        <a class="close" title="<?=__('Close')?>" href="#"></a>
-        <?=$block->getChildHtml()?>
-    </form>
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <?=$block->getChildHtml()?>
 </div>

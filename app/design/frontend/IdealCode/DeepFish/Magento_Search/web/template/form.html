@@ -1,0 +1,26 @@
+<form data-bind="attr: {action: helper.action}, mageInit: {'js/dropdown-dialog': {} , 'js/validation': {}},
+      event: { dropdowndialogclose: function() { resetSearch($element) }}"
+      name="search"
+      method="get"
+>
+    <div class="input-box" data-bind="css: isLoading() ? 'loader' : ''">
+        <input type="text"
+               data-validate="{required: true}"
+               data-bind="attr: {name: helper.name, value: helper.value, maxlength: helper.maxlength,
+               placeholder: $t('Enter keyword')}, event: { input: function(){ return ajaxLoad($element.value) }}"
+        />
+        <button type="submit" data-bind="text: $t('Search'), attr: { title: $t('Search') }" />
+    </div>
+    <a class="close" href="#" data-bind="attr: { title: $t('Close') }"></a>
+    <div class="item-list" each="data: items()" if="items().length">
+        <div class="item">
+            <a data-bind="attr: {href: url, title: name}" class="image">
+                <render args="name: image.template, data: image" />
+            </a>
+            <div class="item-info">
+                <a class="name" data-bind="text: name, attr: {href: url, title: name}"></a>
+                <div data-bind="html: description"></div>
+            </div>
+        </div>
+    </div>
+</form>

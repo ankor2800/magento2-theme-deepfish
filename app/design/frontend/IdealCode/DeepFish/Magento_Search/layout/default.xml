@@ -3,6 +3,36 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <move element="top.search" destination="header.navigation.content.wrapper" />
+
+        <referenceBlock name="top.search">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="Magento_Ui/js/core/app" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="searchForm" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Search/js/form</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="template" xsi:type="string">Magento_Search/form</item>
+                                </item>
+                                <item name="helper" xsi:type="array">
+                                    <item name="action" xsi:type="helper"
+                                          helper="Magento\Search\Helper\Data::getResultUrl"/>
+                                    <item name="name" xsi:type="helper"
+                                          helper="Magento\Search\Helper\Data::getQueryParamName"/>
+                                    <item name="value" xsi:type="helper"
+                                          helper="Magento\Search\Helper\Data::getEscapedQueryText"/>
+                                    <item name="maxlength" xsi:type="helper"
+                                          helper="Magento\Search\Helper\Data::getMaxQueryLength"/>
+                                </item>
+                                <item name="ajax" xsi:type="helper" helper="Magento\Search\Helper\Data::getSuggestUrl"/>
+                            </item>
+
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+
         <referenceBlock name="search-term-popular-link" remove="true" />
 
         <referenceBlock name="footer_links">

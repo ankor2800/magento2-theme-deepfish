@@ -36,6 +36,15 @@
                                     .lib-icon-symbol(@icon-search);
                                 }
 
+                                &.loader:before {
+                                    top: 14px;
+                                    content: '';
+                                    width: 32px;
+                                    height: 32px;
+                                    .lib-url("images/loader.gif", "Magento_Search");
+                                    background-image: url("@{url}");
+                                }
+
                                 input {
                                     padding: 0 10px 0 75px;
                                     .lib-line-height(@line-height__base);
@@ -57,6 +66,49 @@
 
                                 &:before {
                                     .lib-icon-symbol(@icon-close);
+                                }
+                            }
+                        }
+                    }
+
+                    .item-list {
+                        position: absolute;
+                        right: 0;
+                        left: 0;
+                        top: 65px;
+                        padding: 50px;
+                        z-index: 3;
+                        .lib-css(background-color, @submenu-desktop__background);
+
+                        .item {
+                            border: solid 1px #e4e4e5;
+                            padding: 9px 20px 9px 25px;
+                            margin: 0 0 10px;
+                            .lib-vendor-prefix-display();
+                            .lib-css(background-color, @color-white);
+
+                            &:hover {
+                                border: solid 2px;
+                                padding: 8px 19px 8px 24px;
+                                .lib-css(border-color, @color-gray);
+                            }
+
+                            .image {
+                                margin-right: 25px;
+                            }
+
+                            .item-info {
+                                padding: 30px 0 0 0;
+
+                                .name {
+                                    text-transform: uppercase;
+                                    .lib-font-size(16px);
+                                    .lib-css(font-weight, @font-weight__heavybold);
+                                    .lib-link-reverse();
+                                }
+
+                                > div {
+                                    margin-top: 7px;
                                 }
                             }
                         }
