@@ -69,7 +69,7 @@ header {
                         left: 0;
                         top: 55px;
                         z-index: 1;
-                        background: #f5f5f5;
+                        .lib-css(background, @color-white-smoke);
                     }
 
                     ul {
@@ -85,17 +85,17 @@ header {
 
                             a {
                                 display: block;
-                                color: #333333;
                                 padding: 14px 18px;
+                                .lib-css(color, @color-gray20);
                                 .lib-line-height(17px);
 
                                 &:hover {
                                     background-color: #ededed;
-                                    .lib-css(color, @color-blue)
+                                    .lib-css(color, @color-blue);
                                 }
 
                                 &.selected {
-                                    .lib-css(color, @color-blue)
+                                    .lib-css(color, @color-blue);
                                 }
                             }
                         }
@@ -322,7 +322,7 @@ main {
                 .name a {
                     text-transform: uppercase;
                     .lib-css(font-weight, @font-weight__heavybold);
-                    .lib-link-reverse(#333);
+                    .lib-link-reverse(@color-gray20);
                     .lib-font-size(16px);
                 }
             }
