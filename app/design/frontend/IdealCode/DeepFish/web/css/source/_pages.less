@@ -1,0 +1,43 @@
+.pager {
+    margin-top: 50px;
+    .lib-vendor-prefix-display();
+    .lib-css(justify-content, flex-end, 1);
+
+    a,
+    span {
+        .lib-css(font-weight, @pager__font-weight);
+        .lib-css(margin, @pager-item__margin);
+        .lib-css(color, @pager__color);
+        .lib-line-height(@pager__line-height);
+        .lib-font-size(@pager__font-size);
+    }
+
+    .current {
+        .lib-css(color, @pager-current__color);
+    }
+    a:hover {
+        .lib-css(color, @pager__hover__color);
+    }
+
+    .button {
+        min-width: 100px;
+        padding: 0 15px;
+        letter-spacing: 0;
+        text-align: center;
+        .lib-line-height(56px);
+
+        &.prev {
+            margin-right: 6px;
+        }
+        &.next {
+            margin-left: 30px;
+        }
+
+        &:after {
+            content: none;
+        }
+        &:hover {
+            .lib-css(border-color, @pager-action__hover__border);
+        }
+    }
+}
