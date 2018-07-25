@@ -6,6 +6,7 @@
 !/app/
 /app/*
 !/app/code/
+/app/code/IdealCode/Ajax/
 /app/code/IdealCode/Banner/
 /app/code/IdealCode/Core/
 !/app/design/
