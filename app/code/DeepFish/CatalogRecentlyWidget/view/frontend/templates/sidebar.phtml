@@ -32,7 +32,7 @@ $jsLayout = [
 ];
 ?>
 <?php if($pageSize > 0): ?>
-    <div class="block recently hide" data-bind="scope: '<?= $uiComponentScope ?>'" data-role-preloader>
+    <div class="block recently preloader hide" data-bind="scope: '<?= $uiComponentScope ?>'">
         <h2 data-bind="css: $element.parentElement.classList.toggle('hide', !recentlyProducts().count)">
             <?= __($isViewedUiComponent ? 'Recently Viewed Products' : 'Recently Compared Products') ?>
         </h2>

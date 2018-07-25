@@ -10,7 +10,7 @@
     <?php $currentCurrencyCode = $block->getCurrentCurrencyCode(); ?>
     <div class="switcher">
         <a href="#" class="action" title="<?=__('Currency')?>"><?=$block->escapeHtml($currentCurrencyCode)?></a>
-        <ul data-role-dropdown-dialog>
+        <ul>
             <?php foreach ($block->getCurrencies() as $_code => $_name): ?>
                 <li>
                     <a href="#"

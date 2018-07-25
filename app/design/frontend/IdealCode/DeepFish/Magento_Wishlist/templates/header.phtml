@@ -12,7 +12,7 @@
             <span class="count" data-bind="text: wishlist().counter || '<?= __('0 items') ?>'"></span>
         </span>
     </a>
-    <div class="dialog" data-bind="scope: 'wishlist'" data-role-dropdown-dialog data-role-preloader>
+    <div class="dialog preloader" data-bind="scope: 'wishlist'">
         <!-- ko if: wishlist().counter -->
             <a href="#" class="icon close" title="<?= __('Close') ?>"></a>
         <!-- /ko -->

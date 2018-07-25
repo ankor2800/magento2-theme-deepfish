@@ -27,7 +27,7 @@ $jsLayout['components']['minicart_content']['config'] += [
         </span>
     </a>
     <?php if($block->getIsNeedToDisplaySideBar()): ?>
-        <div class="dialog" data-bind="scope: 'minicart_content'" data-role-dropdown-dialog data-role-preloader>
+        <div class="dialog preloader" data-bind="scope: 'minicart_content'">
             <!-- ko template: getTemplate() --><!-- /ko -->
             <?= $block->getChildHtml('minicart.addons') ?>
         </div>

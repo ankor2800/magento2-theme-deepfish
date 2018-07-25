@@ -12,7 +12,7 @@
             <span class="count" data-bind="text: compareProducts().countCaption || '<?= __('0 items') ?>'"></span>
         </span>
     </a>
-    <div class="dialog" data-bind="scope: 'compareProducts'" data-role-dropdown-dialog data-role-preloader>
+    <div class="dialog preloader" data-bind="scope: 'compareProducts'">
         <!-- ko if: compareProducts().count -->
             <a href="#" class="icon close" title="<?= __('Close') ?>"></a>
         <!-- /ko -->

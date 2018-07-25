@@ -7,7 +7,7 @@ $helper = $this->helper('Magento\Framework\Data\Helper\PostHelper');
 <?php if (count($block->getStores()) > 1): ?>
     <div class="switcher">
         <a class="action" title="Language" href="#"><?= $block->escapeHtml($block->getStoreCode()) ?></a>
-            <ul data-role-dropdown-dialog>
+            <ul>
                 <?php foreach ($block->getStores() as $_lang): ?>
                     <?php
                     $postData = $helper->getPostData(

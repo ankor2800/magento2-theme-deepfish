@@ -1,5 +1,5 @@
 <div class="product-list" each="data: data().items" if="data().items.length">
-    <div class="item" data-bind="mageInit: {loader: {}}" data-role-preloader>
+    <div class="item preloader" data-bind="mageInit: {loader: {}}">
         <div class="wrapper">
             <a class="image" data-bind="attr: {href: url, title: name}">
                 <img data-bind="attr: {src: image.src, alt: image.alt}" />
