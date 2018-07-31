@@ -1,0 +1,34 @@
+<with args="$parent.data().pager">
+    <div class="pager" if="show_pager && (last_page_num > 1)">
+        <a href="#"
+           class="button prev"
+           data-bind="text: $t(anchor_text_for_previous ? anchor_text_for_previous : 'Previous')"
+           click="function(){ $parent.setCurPage(cur_page - 1) }"
+           if="cur_page > 1">
+        </a>
+
+        <a href="#" click="function(){ $parent.setCurPage(1) }" if="can_show_first">1</a>
+        <span if="can_show_previous_jump">...</span>
+
+        <each args="data: frame_pages">
+            <span class="current" text="$data" if="$data == $parent.cur_page"></span>
+            <a href="#"
+               data-bind="text: $data, click: function(){ $parents[1].setCurPage($data) }"
+               if="$data != $parent.cur_page">
+            </a>
+        </each>
+
+        <span if="can_show_next_jump">...</span>
+        <a href="#"
+           data-bind="text: last_page_num, click: function(){ $parent.setCurPage(last_page_num) }"
+           if="can_show_last">
+        </a>
+
+        <a href="#"
+           class="button next"
+           data-bind="text: $t(anchor_text_for_next ? anchor_text_for_next : 'Next')"
+           click="function(){ $parent.setCurPage(cur_page + 1) }"
+           if="cur_page != last_page_num">
+        </a>
+    </div>
+</with>

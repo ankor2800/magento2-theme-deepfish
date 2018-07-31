@@ -8,4 +8,7 @@
     <type name="Magento\Catalog\Block\Product\AbstractProduct">
         <plugin name="DeepFish_Catalog" type="DeepFish\Catalog\Plugin\Block\Product\AbstractProduct" sortOrder="10" />
     </type>
+    <type name="Magento\Framework\App\Action\Action">
+        <plugin name="DeepFish_Catalog" type="DeepFish\Catalog\Plugin\Framework\App\Action\Action" />
+    </type>
 </config>

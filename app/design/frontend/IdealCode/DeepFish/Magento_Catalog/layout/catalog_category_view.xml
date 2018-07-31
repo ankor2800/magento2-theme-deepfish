@@ -4,5 +4,11 @@
     <body>
         <move element="category.description" destination="main" after="page.main.title" />
         <referenceContainer name="category.view.container" remove="true" />
+
+        <referenceBlock name="category.products.list">
+            <arguments>
+                <argument name="show_pager" xsi:type="boolean">true</argument>
+            </arguments>
+        </referenceBlock>
     </body>
 </page>

@@ -29,6 +29,9 @@ class AbstractProduct extends AbstractListProduct
         $jsLayout['data'] = [
             'items' => []
         ];
+        $jsLayout['params'] = [
+            'block_name' => $subject->getNameInLayout()
+        ];
 
         if(method_exists($subject, 'createCollection')) {
             $subject->setData('product_collection', $subject->createCollection());
