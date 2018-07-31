@@ -3,7 +3,8 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
     <module name="DeepFish_Wishlist" setup_version="0.0.1">
         <sequence>
-            <module name="Magento_Catalog" />
+            <module name="DeepFish_Catalog" />
+            <module name="DeepFish_CatalogRecentlyWidget" />
             <module name="Magento_Wishlist" />
         </sequence>
     </module>

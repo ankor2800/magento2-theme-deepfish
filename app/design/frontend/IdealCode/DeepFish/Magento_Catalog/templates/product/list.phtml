@@ -5,18 +5,14 @@
  * @var \Magento\Catalog\Block\Product\ListProduct $block
  */
 
-$jsScope = $block->getJsId($block->getRandomString(10));
-
 $jsLayout = [
     'Magento_Ui/js/core/app' => [
         'components' => [
-            $jsScope => $block->getJsLayout()
+            $block->getJsId() => $block->getJsLayout()
         ]
     ]
 ];
 ?>
-<div data-mage-init='<?= \Zend_Json::encode($jsLayout) ?>'>
-    <div data-bind="scope: '<?= $jsScope ?>'">
-        <!-- ko template: getTemplate() --><!-- /ko -->
-    </div>
+<div data-mage-init='<?= \Zend_Json::encode($jsLayout) ?>' data-bind="scope: '<?= $block->getJsId() ?>'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
 </div>

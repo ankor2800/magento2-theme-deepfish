@@ -5,15 +5,4 @@
  * @var \Magento\CatalogWidget\Block\Product\ProductsList $block
  */
 
-/** @var \Magento\Catalog\Block\Product\ListProduct $renderBlock */
-$renderBlock = $block->getLayout()->getBlock('catalog.product.list');
-
-/** @var \Magento\Catalog\Model\ResourceModel\Product\Collection $collection */
-$collection = $block->getData('product_collection');
-
-$renderBlock
-    ->setCollection($collection)
-    ->getToolbarBlock()
-    ->setData('_current_limit', $collection->getPageSize());
-
-echo $renderBlock->toHtml();
+include($block->getTemplateFile('Magento_Catalog::product/list.phtml'));
