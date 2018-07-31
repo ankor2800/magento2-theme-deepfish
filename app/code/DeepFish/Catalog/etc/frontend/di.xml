@@ -5,7 +5,7 @@
                 type="DeepFish\Catalog\Override\Pricing\Render\FinalPriceBox"
     />
 
-    <type name="Magento\Catalog\Block\Product\ListProduct">
-        <plugin name="DeepFish_Catalog" type="DeepFish\Catalog\Plugin\Block\Product\ListProduct" sortOrder="10" />
+    <type name="Magento\Catalog\Block\Product\AbstractProduct">
+        <plugin name="DeepFish_Catalog" type="DeepFish\Catalog\Plugin\Block\Product\AbstractProduct" sortOrder="10" />
     </type>
 </config>

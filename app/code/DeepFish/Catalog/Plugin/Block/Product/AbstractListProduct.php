@@ -18,12 +18,12 @@ abstract class AbstractListProduct
     /**
      * Prepare js layout
      *
-     * @param \Magento\Catalog\Block\Product\ListProduct $subject
+     * @param \Magento\Catalog\Block\Product\AbstractProduct $subject
      * @param array|string $jsLayout
      * @return array
      */
     abstract public function afterGetJsLayout(
-        \Magento\Catalog\Block\Product\ListProduct $subject,
+        \Magento\Catalog\Block\Product\AbstractProduct $subject,
         $jsLayout
     );
 

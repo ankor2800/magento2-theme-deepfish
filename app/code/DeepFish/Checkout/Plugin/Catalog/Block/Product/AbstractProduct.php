@@ -1,16 +1,16 @@
 <?php
 namespace DeepFish\Checkout\Plugin\Catalog\Block\Product;
 
-class ListProduct extends \DeepFish\Catalog\Plugin\Block\Product\AbstractListProduct
+class AbstractProduct extends \DeepFish\Catalog\Plugin\Block\Product\AbstractListProduct
 {
     public function afterGetJsLayout(
-        \Magento\Catalog\Block\Product\ListProduct $subject,
+        \Magento\Catalog\Block\Product\AbstractProduct $subject,
         $jsLayout
     ) {
         $index = 0;
 
         /** @var \Magento\Catalog\Model\Product $item */
-        foreach($subject->getLoadedProductCollection() as $item) {
+        foreach($subject->getData('product_collection') as $item) {
             $jsLayout['data']['items'][$index++] += [
                 'price' => $subject->getProductPrice($item),
                 'is_salable' => $item->isSalable(),

@@ -1,7 +1,7 @@
 <?php
 namespace DeepFish\Catalog\Plugin\Block\Product;
 
-class ListProduct extends AbstractListProduct
+class AbstractProduct extends AbstractListProduct
 {
     /** @var \Magento\Catalog\Helper\Image */
     protected $_imageHelper;
@@ -19,7 +19,7 @@ class ListProduct extends AbstractListProduct
     }
 
     public function afterGetJsLayout(
-        \Magento\Catalog\Block\Product\ListProduct $subject,
+        \Magento\Catalog\Block\Product\AbstractProduct $subject,
         $jsLayout
     ) {
         /** @var \Magento\Framework\View\Element\Template $jsLayoutBlock */
@@ -30,8 +30,14 @@ class ListProduct extends AbstractListProduct
             'items' => []
         ];
 
+        if(method_exists($subject, 'createCollection')) {
+            $subject->setData('product_collection', $subject->createCollection());
+        } else {
+            $subject->setData('product_collection', $subject->getLoadedProductCollection());
+        }
+
         /** @var \Magento\Catalog\Model\Product $item */
-        foreach($subject->getLoadedProductCollection() as $item) {
+        foreach($subject->getData('product_collection') as $item) {
             $image = $this->_imageHelper->init($item, 'category_page_grid');
 
             $jsLayout['data']['items'][] = [

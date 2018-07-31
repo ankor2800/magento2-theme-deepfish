@@ -3,9 +3,9 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Magento\Wishlist\CustomerData\Wishlist" type="DeepFish\Wishlist\Override\CustomerData\Wishlist" />
 
-    <type name="Magento\Catalog\Block\Product\ListProduct">
+    <type name="Magento\Catalog\Block\Product\AbstractProduct">
         <plugin name="DeepFish_Wishlist"
-                type="DeepFish\Wishlist\Plugin\Catalog\Block\Product\ListProduct"
+                type="DeepFish\Wishlist\Plugin\Catalog\Block\Product\AbstractProduct"
                 sortOrder="20"
         />
     </type>
