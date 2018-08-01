@@ -10,6 +10,19 @@
                         <item name="template" xsi:type="string">Magento_Catalog/product/list</item>
                     </item>
                     <item name="children" xsi:type="array">
+                        <item name="toolbar" xsi:type="array">
+                            <item name="component" xsi:type="string">
+                                Magento_Catalog/js/product/list/toolbar
+                            </item>
+                            <item name="config" xsi:type="array">
+                                <item name="template" xsi:type="string">
+                                    Magento_Catalog/product/list/toolbar
+                                </item>
+                                <item name="displayArea" xsi:type="string">
+                                    toolbar
+                                </item>
+                            </item>
+                        </item>
                         <item name="addToCompare" xsi:type="array">
                             <item name="component" xsi:type="string">
                                 Magento_Catalog/js/view/compare-products

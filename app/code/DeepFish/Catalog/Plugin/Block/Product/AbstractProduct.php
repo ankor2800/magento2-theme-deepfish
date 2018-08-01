@@ -1,6 +1,8 @@
 <?php
 namespace DeepFish\Catalog\Plugin\Block\Product;
 
+use \Magento\Catalog\Model\Product\ProductList\Toolbar;
+
 class AbstractProduct extends AbstractListProduct
 {
     /** @var \Magento\Catalog\Helper\Image */
@@ -32,6 +34,27 @@ class AbstractProduct extends AbstractListProduct
         $jsLayout['params'] = [
             'block_name' => $subject->getNameInLayout()
         ];
+
+        if($subject->getData('show_toolbar')) {
+
+            /** @var \Magento\Catalog\Block\Product\ProductList\Toolbar $toolbar */
+            $toolbar = $subject->getLayout()->createBlock(
+                \Magento\Catalog\Block\Product\ProductList\Toolbar::class
+            );
+            $orderVarName = Toolbar::ORDER_PARAM_NAME;
+            $directionVarName = Toolbar::DIRECTION_PARAM_NAME;
+
+            $jsLayout['data']['toolbar'] = [
+                'orders' => $toolbar->getAvailableOrders(),
+                'cur_order' => $toolbar->getCurrentOrder(),
+                'cur_direction' => $toolbar->getCurrentDirection(),
+                'order_var_name' => $orderVarName,
+                'direction_var_name' => $directionVarName
+            ];
+
+            $jsLayout['params'][$orderVarName] = $toolbar->getCurrentOrder();
+            $jsLayout['params'][$directionVarName] = $toolbar->getCurrentDirection();
+        }
 
         if(method_exists($subject, 'createCollection')) {
             $subject->setData('product_collection', $subject->createCollection());

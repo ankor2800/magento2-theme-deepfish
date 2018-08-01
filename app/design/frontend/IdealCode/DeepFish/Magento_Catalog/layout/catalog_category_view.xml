@@ -7,6 +7,7 @@
 
         <referenceBlock name="category.products.list">
             <arguments>
+                <argument name="show_toolbar" xsi:type="boolean">true</argument>
                 <argument name="show_pager" xsi:type="boolean">true</argument>
             </arguments>
         </referenceBlock>

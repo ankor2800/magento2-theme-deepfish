@@ -1,0 +1,87 @@
+main {
+    .toolbar {
+        margin-bottom: 51px;
+        .lib-vendor-prefix-display();
+
+        .dropdown {
+            position: relative;
+            min-width: 194px;
+
+            a {
+                display: block;
+                padding: 10px 40px 9px 25px;
+                .lib-css(color, @text__color);
+                .lib-line-height(1);
+            }
+
+            .action {
+                padding-top: 23px;
+                padding-bottom: 22px;
+                background: #f3f3f3;
+
+                &:after {
+                    position: absolute;
+                    right: 14px;
+                    top: 19px;
+                    .lib-icon-symbol(@icon-expand-more);
+                    .lib-css(color, @color-gray);
+                    .lib-font-size(23px);
+                }
+                &:hover {
+                    .lib-css(background, @color-gray90);
+                }
+            }
+
+            ul {
+                display: none;
+                position: absolute;
+                z-index: 1;
+                left: 0;
+                right: 0;
+                top: 58px;
+                opacity: 0;
+                .lib-css(background, @color-gray90);
+                .lib-css(transition, opacity 150ms ease-in-out, 1);
+
+                a:hover,
+                a.selected {
+                    .lib-css(background, @color-gray);
+                    .lib-css(color, @color-white);
+                }
+            }
+
+            &.active {
+                .action:after {
+                    .lib-css(content, @icon-expand-less);
+                }
+                ul {
+                    opacity: 1;
+                }
+            }
+        }
+
+        .sorter {
+            .lib-vendor-prefix-display();
+
+            .direction {
+                margin-left: 13px;
+                .lib-link-reverse();
+
+                &:before {
+                    display: block;
+                    position: relative;
+                    top: 3px;
+                    .lib-font-size(34px);
+                    .lib-icon-symbol(@icon-sort);
+                }
+
+                &.desc {
+                    &:before {
+                        top: 2px;
+                        .lib-css(transform, rotate(180deg), 1);
+                    }
+                }
+            }
+        }
+    }
+}

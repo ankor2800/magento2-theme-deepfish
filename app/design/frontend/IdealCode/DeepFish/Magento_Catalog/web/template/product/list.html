@@ -1,4 +1,6 @@
 <div class="preloader" if="data().items.length">
+    <each args="getRegion('toolbar')" render="" />
+
     <div class="product-list" each="data: data().items">
         <div class="item preloader" data-bind="mageInit: {loader: {}}">
             <div class="wrapper">

@@ -1,0 +1,26 @@
+<with args="$parent.data().toolbar">
+    <div class="toolbar">
+        <div class="sorter" if="Object.keys(orders).length > 1">
+            <div class="dropdown">
+                <a href="#" class="action" text="orders[cur_order]"></a>
+                <ul data-bind="mageInit: {'js/dropdown-dialog': {parentClass: 'active'}}"
+                    each="data: Object.keys(orders)">
+                    <li>
+                        <a href="#"
+                           data-bind="text: $parent.orders[$data], css: $parent.cur_order == $data ? 'selected' : ''"
+                           click="function(){ $parents[1].setCurOrder($data) }">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <a href="#"
+               class="direction"
+               data-bind="
+                   attr: {title: $t(cur_direction == 'asc' ? 'Set Descending Direction' : 'Set Ascending Direction')},
+                   css: cur_direction
+               "
+               click="function(){ $parent.setCurDirection(cur_direction == 'asc' ? 'desc' : 'asc') }">
+            </a>
+        </div>
+    </div>
+</with>
