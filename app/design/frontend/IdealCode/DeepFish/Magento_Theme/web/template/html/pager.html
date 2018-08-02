@@ -1,5 +1,5 @@
 <with args="$parent.data().pager">
-    <div class="pager" if="show_pager && (last_page_num > 1)">
+    <div class="pager" if="last_page_num > 1">
         <a href="#"
            class="button prev"
            data-bind="text: $t(anchor_text_for_previous ? anchor_text_for_previous : 'Previous')"

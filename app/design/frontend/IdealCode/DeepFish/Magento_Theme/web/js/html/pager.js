@@ -9,7 +9,7 @@ define([
                 params: true
             },
             imports: {
-                page_var_name: '${ $.parentName }:provider.pager.page_var_name'
+                data: '${ $.parentName }:data'
             },
             links: {
                 params: '${ $.parentName }:params'
@@ -22,7 +22,7 @@ define([
         setCurPage: function(cur_page) {
             this.params = Object.assign(
                 this.params,
-                {[this.page_var_name]: cur_page}
+                {[this.data.pager.page_var_name]: cur_page}
             );
         }
     });

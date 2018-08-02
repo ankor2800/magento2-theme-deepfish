@@ -22,5 +22,20 @@
                click="function(){ $parent.setCurDirection(cur_direction == 'asc' ? 'desc' : 'asc') }">
             </a>
         </div>
+
+        <div class="right">
+            <div class="amount" text="$parent.getAmount()"></div>
+            <div class="dropdown" if="limits.length > 1">
+                <a href="#" class="action" text="cur_limit"></a>
+                <ul data-bind="mageInit: {'js/dropdown-dialog': {parentClass: 'active'}}" each="data: limits">
+                    <li>
+                        <a href="#"
+                           data-bind="text: $data, css: $parent.cur_limit == $data ? 'selected' : ''"
+                           click="function(){ $parents[1].setCurLimit($data) }">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </with>

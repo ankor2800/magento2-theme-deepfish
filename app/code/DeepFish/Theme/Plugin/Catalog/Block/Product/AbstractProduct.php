@@ -22,46 +22,48 @@ class AbstractProduct extends \DeepFish\Catalog\Plugin\Block\Product\AbstractLis
         \Magento\Catalog\Block\Product\AbstractProduct $subject,
         $jsLayout
     ) {
-        /** @var \Magento\Theme\Block\Html\Pager $pager */
-        $pager = $subject->getLayout()->createBlock(\Magento\Theme\Block\Html\Pager::class);
+        if($subject->getData('show_pager')) {
 
-        /** @var \Magento\Catalog\Model\ResourceModel\Product\Collection $collection */
-        $collection = $subject->getData('product_collection');
+            /** @var \Magento\Theme\Block\Html\Pager $pager */
+            $pager = $subject->getLayout()->createBlock(\Magento\Theme\Block\Html\Pager::class);
 
-        if($subject->getData('page_var_name')) {
-            $pager->setPageVarName($subject->getData('page_var_name'));
+            /** @var \Magento\Catalog\Model\ResourceModel\Product\Collection $collection */
+            $collection = $subject->getData('product_collection');
+
+            if($subject->getData('page_var_name')) {
+                $pager->setPageVarName($subject->getData('page_var_name'));
+            }
+
+            $pager
+                ->setFrameLength(
+                    $this->_scopeConfig->getValue(
+                        'design/pagination/pagination_frame',
+                        \Magento\Store\Model\ScopeInterface::SCOPE_STORE
+                    )
+                )
+                ->setJump(
+                    $this->_scopeConfig->getValue(
+                        'design/pagination/pagination_frame_skip',
+                        \Magento\Store\Model\ScopeInterface::SCOPE_STORE
+                    )
+                )
+                ->setLimit($collection->getPageSize())
+                ->setCollection($collection);
+
+            $jsLayout['data']['pager'] = [
+                'anchor_text_for_next' => $pager->getAnchorTextForNext(),
+                'anchor_text_for_previous' => $pager->getAnchorTextForPrevious(),
+                'cur_page' => $pager->getCurrentPage(),
+                'last_page_num' => $pager->getLastPageNum(),
+                'can_show_first' => $pager->canShowFirst(),
+                'can_show_last' => $pager->canShowLast(),
+                'can_show_next_jump' => $pager->canShowNextJump(),
+                'can_show_previous_jump' => $pager->canShowPreviousJump(),
+                'frame_pages' => $pager->getFramePages(),
+                'page_var_name' => $pager->getPageVarName()
+            ];
+            $jsLayout['params'][$pager->getPageVarName()] = $pager->getCurrentPage();
         }
-
-        $pager
-            ->setFrameLength(
-                $this->_scopeConfig->getValue(
-                    'design/pagination/pagination_frame',
-                    \Magento\Store\Model\ScopeInterface::SCOPE_STORE
-                )
-            )
-            ->setJump(
-                $this->_scopeConfig->getValue(
-                    'design/pagination/pagination_frame_skip',
-                    \Magento\Store\Model\ScopeInterface::SCOPE_STORE
-                )
-            )
-            ->setLimit($collection->getPageSize())
-            ->setCollection($collection);
-
-        $jsLayout['data']['pager'] = [
-            'show_pager' => (bool) $subject->getData('show_pager'),
-            'anchor_text_for_next' => $pager->getAnchorTextForNext(),
-            'anchor_text_for_previous' => $pager->getAnchorTextForPrevious(),
-            'cur_page' => $pager->getCurrentPage(),
-            'last_page_num' => $pager->getLastPageNum(),
-            'can_show_first' => $pager->canShowFirst(),
-            'can_show_last' => $pager->canShowLast(),
-            'can_show_next_jump' => $pager->canShowNextJump(),
-            'can_show_previous_jump' => $pager->canShowPreviousJump(),
-            'frame_pages' => $pager->getFramePages(),
-            'page_var_name' => $pager->getPageVarName()
-        ];
-        $jsLayout['params'][$pager->getPageVarName()] = $pager->getCurrentPage();
 
         return $jsLayout;
     }

@@ -2,6 +2,7 @@ main {
     .toolbar {
         margin-bottom: 51px;
         .lib-vendor-prefix-display();
+        .lib-css(justify-content, space-between, 1);
 
         .dropdown {
             position: relative;
@@ -81,6 +82,19 @@ main {
                         .lib-css(transform, rotate(180deg), 1);
                     }
                 }
+            }
+        }
+
+        .right {
+            .lib-vendor-prefix-display();
+            .lib-vendor-box-align(center);
+
+            .amount {
+                .lib-css(color, @color-gray);
+            }
+            .dropdown {
+                min-width: 90px;
+                margin-left: 20px;
             }
         }
     }

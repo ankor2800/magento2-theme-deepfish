@@ -35,6 +35,13 @@ class AbstractProduct extends AbstractListProduct
             'block_name' => $subject->getNameInLayout()
         ];
 
+        /** @var \Magento\Catalog\Model\ResourceModel\Product\Collection $collection */
+        if(method_exists($subject, 'createCollection')) {
+            $collection = $subject->createCollection();
+        } else {
+            $collection = $subject->getLoadedProductCollection();
+        }
+
         if($subject->getData('show_toolbar')) {
 
             /** @var \Magento\Catalog\Block\Product\ProductList\Toolbar $toolbar */
@@ -43,27 +50,30 @@ class AbstractProduct extends AbstractListProduct
             );
             $orderVarName = Toolbar::ORDER_PARAM_NAME;
             $directionVarName = Toolbar::DIRECTION_PARAM_NAME;
+            $limitVarName = Toolbar::LIMIT_PARAM_NAME;
+            $firstNum = $collection->getPageSize() * ($collection->getCurPage() - 1);
 
             $jsLayout['data']['toolbar'] = [
                 'orders' => $toolbar->getAvailableOrders(),
+                'limits' => array_keys($toolbar->getAvailableLimit()),
                 'cur_order' => $toolbar->getCurrentOrder(),
                 'cur_direction' => $toolbar->getCurrentDirection(),
+                'cur_limit' => $toolbar->getLimit(),
+                'first_num' => $firstNum + 1,
+                'last_num' => $firstNum + $collection->count(),
+                'total_num' => $collection->getSize(),
                 'order_var_name' => $orderVarName,
-                'direction_var_name' => $directionVarName
+                'direction_var_name' => $directionVarName,
+                'limit_var_name' => $limitVarName
             ];
 
             $jsLayout['params'][$orderVarName] = $toolbar->getCurrentOrder();
             $jsLayout['params'][$directionVarName] = $toolbar->getCurrentDirection();
-        }
-
-        if(method_exists($subject, 'createCollection')) {
-            $subject->setData('product_collection', $subject->createCollection());
-        } else {
-            $subject->setData('product_collection', $subject->getLoadedProductCollection());
+            $jsLayout['params'][$limitVarName] = $toolbar->getLimit();
         }
 
         /** @var \Magento\Catalog\Model\Product $item */
-        foreach($subject->getData('product_collection') as $item) {
+        foreach($collection as $item) {
             $image = $this->_imageHelper->init($item, 'category_page_grid');
 
             $jsLayout['data']['items'][] = [
@@ -79,6 +89,7 @@ class AbstractProduct extends AbstractListProduct
             ];
         }
 
+        $subject->setData('product_collection', $collection);
         return $jsLayout;
     }
 }

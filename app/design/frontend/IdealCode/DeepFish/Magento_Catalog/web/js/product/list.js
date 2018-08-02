@@ -13,13 +13,6 @@ define([
         },
 
         /** @inheritdoc */
-        initialize: function() {
-            this._super();
-
-            this.provider = this.data();
-        },
-
-        /** @inheritdoc */
         initObservable: function() {
             this._super().observe({
                 data: this.data,
