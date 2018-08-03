@@ -51,22 +51,27 @@ class AbstractProduct extends AbstractListProduct
             $orderVarName = Toolbar::ORDER_PARAM_NAME;
             $directionVarName = Toolbar::DIRECTION_PARAM_NAME;
             $limitVarName = Toolbar::LIMIT_PARAM_NAME;
+            $modeVarName = Toolbar::MODE_PARAM_NAME;
             $firstNum = $collection->getPageSize() * ($collection->getCurPage() - 1);
 
             $jsLayout['data']['toolbar'] = [
+                'modes' => $toolbar->getModes(),
                 'orders' => $toolbar->getAvailableOrders(),
                 'limits' => array_keys($toolbar->getAvailableLimit()),
+                'cur_mode' => $toolbar->getCurrentMode(),
                 'cur_order' => $toolbar->getCurrentOrder(),
                 'cur_direction' => $toolbar->getCurrentDirection(),
                 'cur_limit' => $toolbar->getLimit(),
                 'first_num' => $firstNum + 1,
                 'last_num' => $firstNum + $collection->count(),
                 'total_num' => $collection->getSize(),
+                'mode_var_name' => $modeVarName,
                 'order_var_name' => $orderVarName,
                 'direction_var_name' => $directionVarName,
                 'limit_var_name' => $limitVarName
             ];
 
+            $jsLayout['params'][$modeVarName] = $toolbar->getCurrentMode();
             $jsLayout['params'][$orderVarName] = $toolbar->getCurrentOrder();
             $jsLayout['params'][$directionVarName] = $toolbar->getCurrentDirection();
             $jsLayout['params'][$limitVarName] = $toolbar->getLimit();

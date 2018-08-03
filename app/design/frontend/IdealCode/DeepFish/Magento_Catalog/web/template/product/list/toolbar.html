@@ -1,37 +1,57 @@
 <with args="$parent.data().toolbar">
     <div class="toolbar">
-        <div class="sorter" if="Object.keys(orders).length > 1">
-            <div class="dropdown">
-                <a href="#" class="action" text="orders[cur_order]"></a>
-                <ul data-bind="mageInit: {'js/dropdown-dialog': {parentClass: 'active'}}"
-                    each="data: Object.keys(orders)">
-                    <li>
-                        <a href="#"
-                           data-bind="text: $parent.orders[$data], css: $parent.cur_order == $data ? 'selected' : ''"
-                           click="function(){ $parents[1].setCurOrder($data) }">
-                        </a>
-                    </li>
-                </ul>
+        <div class="left">
+            <div class="modes" if="Object.keys(modes).length > 1" each="Object.keys(modes)">
+                <a href="#"
+                   data-bind="
+                       attr: {title: $parent.modes[$data]},
+                       css: $data + ($parent.cur_mode == $data ? ' active' : ''),
+                       click: function(){ $parents[1].setCurMode($data) }
+                   ">
+                </a>
             </div>
-            <a href="#"
-               class="direction"
-               data-bind="
-                   attr: {title: $t(cur_direction == 'asc' ? 'Set Descending Direction' : 'Set Ascending Direction')},
-                   css: cur_direction
-               "
-               click="function(){ $parent.setCurDirection(cur_direction == 'asc' ? 'desc' : 'asc') }">
-            </a>
+
+            <div class="sorter" if="Object.keys(orders).length > 1">
+                <div class="dropdown">
+                    <a href="#" class="action" text="orders[cur_order]"></a>
+                    <ul data-bind="mageInit: {'js/dropdown-dialog': {parentClass: 'active'}}"
+                        each="Object.keys(orders)">
+                        <li>
+                            <a href="#"
+                               data-bind="
+                                   text: $parent.orders[$data],
+                                   css: $parent.cur_order == $data ? 'selected' : '',
+                                   click: function(){ $parents[1].setCurOrder($data) }
+                               ">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="#"
+                   class="direction"
+                   data-bind="
+                       attr: {
+                           title: $t(cur_direction == 'asc' ? 'Set Descending Direction' : 'Set Ascending Direction')
+                       },
+                       css: cur_direction,
+                       click: function(){ $parent.setCurDirection(cur_direction == 'asc' ? 'desc' : 'asc') }
+                   ">
+                </a>
+            </div>
         </div>
 
         <div class="right">
             <div class="amount" text="$parent.getAmount()"></div>
             <div class="dropdown" if="limits.length > 1">
                 <a href="#" class="action" text="cur_limit"></a>
-                <ul data-bind="mageInit: {'js/dropdown-dialog': {parentClass: 'active'}}" each="data: limits">
+                <ul data-bind="mageInit: {'js/dropdown-dialog': {parentClass: 'active'}}" each="limits">
                     <li>
                         <a href="#"
-                           data-bind="text: $data, css: $parent.cur_limit == $data ? 'selected' : ''"
-                           click="function(){ $parents[1].setCurLimit($data) }">
+                           data-bind="
+                               text: $data,
+                               css: $parent.cur_limit == $data ? 'selected' : '',
+                               click: function(){ $parents[1].setCurLimit($data) }
+                           ">
                         </a>
                     </li>
                 </ul>

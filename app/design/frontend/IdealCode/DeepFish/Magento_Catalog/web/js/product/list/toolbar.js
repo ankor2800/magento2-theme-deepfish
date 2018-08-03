@@ -18,6 +18,16 @@ define([
         },
 
         /**
+         * @param cur_mode
+         */
+        setCurMode: function(cur_mode) {
+            this.params = Object.assign(
+                this.params,
+                {[this.data.toolbar.mode_var_name]: cur_mode}
+            );
+        },
+
+        /**
          * @param cur_order
          */
         setCurOrder: function(cur_order) {
