@@ -1,0 +1,47 @@
+<?php
+/**
+ * Category list template
+ *
+ * @var \DeepFish\Catalog\Block\Category\ListCategory $block
+ */
+
+$categories = $block->getList();
+?>
+<?php if (count($categories) > 0):?>
+    <div class="index-category row">
+        <?php
+        /**
+         * @var \Magento\Catalog\Model\Category $category
+         */
+        foreach ($categories as $category):
+        ?>
+            <div class="item">
+                <div class="wrapper"
+                    <?=strlen($category->getImageUrl()) ?
+                        "style=\"background-image: url('".$category->getImageUrl()."')\"" : ""?>
+                >
+                    <div>
+                        <h2><?=$category->getName()?></h2>
+                        <?php if ($category->getChildrenCount() > 0):?>
+                            <ul>
+                                <?php
+                                /**
+                                 * @var \Magento\Catalog\Model\Category $child
+                                 */
+                                foreach ($category->getData('children') as $child):
+                                ?>
+                                    <li>
+                                        <a href="<?=$child->getUrl()?>"><?=$child->getName()?></a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                        <a href="<?=$category->getUrl()?>" class="see-all">
+                            <?=sprintf(_('See all %s'), $category->getName())?>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
