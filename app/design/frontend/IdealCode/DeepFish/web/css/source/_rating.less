@@ -1,0 +1,31 @@
+.rating-summary {
+    .lib-vendor-prefix-display();
+
+    .result {
+        position: relative;
+
+        &:before,
+        :before {
+            .lib-css(letter-spacing, @rating-icon__letter-spacing);
+            .lib-css(font-family, @rating-icon__font);
+            .lib-css(color, @rating-icon__color);
+            .lib-font-size(@rating-icon__font-size);
+            .lib-rating-icons-content();
+        }
+
+        &:before {
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+
+        div {
+            overflow: hidden;
+
+            &:before {
+                position: relative;
+                .lib-css(color, @rating-icon__active__color);
+            }
+        }
+    }
+}

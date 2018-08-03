@@ -13,6 +13,7 @@
                 <div class="description" data-bind="html: description" if="description"></div>
 
                 <each args="$parent.getRegion('addToCart')" render="" />
+                <each args="$parent.getRegion('ratingSummary')" render="" />
                 <div class="add-to">
                     <each args="$parent.getRegion('addToWishlist')" render="" />
                     <each args="$parent.getRegion('addToCompare')" render="" />
