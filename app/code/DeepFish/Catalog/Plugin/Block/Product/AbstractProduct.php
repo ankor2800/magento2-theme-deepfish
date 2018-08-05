@@ -53,6 +53,7 @@ class AbstractProduct extends AbstractListProduct
             $limitVarName = Toolbar::LIMIT_PARAM_NAME;
             $modeVarName = Toolbar::MODE_PARAM_NAME;
             $firstNum = $collection->getPageSize() * ($collection->getCurPage() - 1);
+            $imageId = 'category_page_'.$toolbar->getCurrentMode();
 
             $jsLayout['data']['toolbar'] = [
                 'modes' => $toolbar->getModes(),
@@ -79,14 +80,20 @@ class AbstractProduct extends AbstractListProduct
 
         /** @var \Magento\Catalog\Model\Product $item */
         foreach($collection as $item) {
-            $image = $this->_imageHelper->init($item, 'category_page_grid');
+            $image = $this->_imageHelper->init($item, isset($imageId) ? $imageId : 'category_page_grid');
+            $imageTemplate = $image->getFrame() ?
+                'Magento_Catalog/product/image' :
+                'Magento_Catalog/product/image_with_borders';
 
             $jsLayout['data']['items'][] = [
                 'id' => $item->getEntityId(),
                 'name' => $item->getName(),
                 'url' => $item->getProductUrl(),
                 'image' => [
+                    'template' => $imageTemplate,
                     'src' => $image->getUrl(),
+                    'width' => $image->getWidth(),
+                    'height' => $image->getHeight(),
                     'alt' => $image->getLabel()
                 ],
                 'description' => $item->getData('short_description'),

@@ -89,15 +89,19 @@ main {
 
     .product-list {
         .item {
-            .add-to {
-                .wishlist {
-                    &:before {
-                        .lib-css(content, @icon-favorite-border);
-                    }
+            .wrapper {
+                .details {
+                    .add-to {
+                        .wishlist {
+                            &:before {
+                                .lib-css(content, @icon-favorite-border);
+                            }
 
-                    &.in-list {
-                        &:before {
-                            .lib-css(content, @icon-favorite);
+                            &.in-list {
+                                &:before {
+                                    .lib-css(content, @icon-favorite);
+                                }
+                            }
                         }
                     }
                 }

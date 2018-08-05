@@ -7,6 +7,10 @@
                 <width>245</width>
                 <height>245</height>
             </image>
+            <image id="category_page_list" type="small_image">
+                <width>440</width>
+                <height>440</height>
+            </image>
         </images>
     </media>
 </view>
