@@ -83,13 +83,32 @@ main {
 }
 
 .catalog-category-view {
-    .page-title {
-        text-align: left;
-        margin-top: -2px;
-        .lib-font-size(44px);
-    }
-
     .category-description {
         margin-bottom: 25px;
+    }
+}
+
+.catalog-product-view {
+    .row {
+        .product-media {
+            width: round(100%/12*7, 5);
+            .lib-vendor-prefix-flex-shrink(0);
+
+            .wrapper {
+                padding: 11px;
+            }
+        }
+
+        .product-info {
+            width: 100%;
+
+            .wrapper {
+                padding: 46px 48px 48px 48px;
+            }
+        }
+
+        .wrapper {
+            border: 1px solid #e6e6e7;
+        }
     }
 }

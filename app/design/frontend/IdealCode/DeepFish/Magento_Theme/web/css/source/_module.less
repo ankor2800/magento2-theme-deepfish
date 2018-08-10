@@ -339,6 +339,15 @@ main {
             }
         }
     }
+
+    .row {
+        margin: 0 -25px;
+        .lib-vendor-prefix-display();
+
+        > .item {
+            padding: 0 25px;
+        }
+    }
 }
 
 footer {
@@ -366,6 +375,23 @@ footer {
 
     .copyright {
         .lib-font-size(@font-size__s);
+    }
+}
+
+.catalog-category-view {
+    .page-title {
+        text-align: left;
+        margin-top: -2px;
+        .lib-font-size(44px);
+    }
+}
+
+.catalog-product-view {
+    .page-title {
+        text-align: left;
+        margin-bottom: 15px;
+        .lib-font-size(28px);
+        .lib-line-height(1.382em);
     }
 }
 
