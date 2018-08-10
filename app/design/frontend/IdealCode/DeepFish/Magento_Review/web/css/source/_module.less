@@ -6,6 +6,30 @@ main {
                     .rating-summary {
                         margin: 22px 0 1px 0;
                         .lib-css(justify-content, center, 1);
+
+                        a {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.list {
+            .item {
+                .wrapper {
+                    .details {
+                        .rating-summary {
+                            margin-top: 20px;
+                            .lib-css(justify-content, start, 1);
+                            .lib-vendor-box-align(center);
+
+                            a {
+                                display: inline-block;
+                                text-transform: uppercase;
+                                margin-left: 25px;
+                            }
+                        }
                     }
                 }
             }

@@ -3,5 +3,15 @@
         <div class="result">
             <div data-bind="style: {width: rating_summary + '%'}"></div>
         </div>
+        <div>
+            <a data-bind="
+                text: $t(reviews_count == 1 ? '%1 Review' : '%1 Reviews').replace('%1', reviews_count),
+                attr: {href: url + '#customer-reviews'}
+            "></a>
+            <a data-bind="
+                text: $t('Add your review'),
+                attr: {href: url + '#review-form'}
+            "></a>
+        </div>
     </div>
 </with>
