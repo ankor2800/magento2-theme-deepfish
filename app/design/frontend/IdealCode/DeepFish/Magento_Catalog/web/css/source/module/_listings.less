@@ -34,6 +34,10 @@ main {
 
                     .description {
                         margin-top: 10px;
+
+                        .more {
+                            display: none;
+                        }
                     }
 
                     .add-to {
@@ -72,6 +76,52 @@ main {
             }
             .@{layout-class-3columns} & {
                 width: 100%/2;
+            }
+        }
+
+        &.list {
+            margin: 0;
+
+            .item {
+                padding: 0;
+                margin: 0;
+                width: 100%;
+
+                .wrapper {
+                    padding: 45px 48px 45px 46px;
+                    text-align: left;
+                    .lib-vendor-prefix-display();
+
+                    > .image {
+                        width: 48%;
+                        margin-right: 35px;
+                        .lib-vendor-prefix-flex-shrink(0);
+                    }
+
+                    .details {
+                        width: 100%;
+
+                        .name {
+                            margin: 0;
+                            .lib-font-size(@font-size__l);
+                        }
+
+                        .description {
+                            .lib-line-height(1.4);
+
+                            .more {
+                                text-transform: uppercase;
+                                display: inline;
+                            }
+                        }
+                    }
+                }
+
+                & + .item {
+                    .wrapper {
+                        border-top: 0;
+                    }
+                }
             }
         }
     }

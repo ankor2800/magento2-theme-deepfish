@@ -1,7 +1,9 @@
 <div class="preloader" if="data().items.length">
     <each args="getRegion('toolbar')" render="" />
 
-    <div class="product-list" each="data: data().items">
+    <div class="product-list"
+         data-bind="css: data().hasOwnProperty('toolbar') ? data().toolbar.cur_mode : ''"
+         each="data().items">
         <div class="item preloader" data-bind="mageInit: {loader: {}}">
             <div class="wrapper">
                 <a class="image" data-bind="attr: {href: url, title: name}">
@@ -14,7 +16,11 @@
                     <div class="name">
                         <a data-bind="text: name, attr: {href: url}"></a>
                     </div>
-                    <div class="description" data-bind="html: description" if="description"></div>
+
+                    <div class="description" if="description">
+                        <span data-bind="html: description"></span>
+                        <a class="more" data-bind="text: $t('More'), attr: {href: url, title: name}"></a>
+                    </div>
 
                     <each args="$parent.getRegion('addToCart')" render="" />
                     <each args="$parent.getRegion('ratingSummary')" render="" />

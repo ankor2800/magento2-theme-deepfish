@@ -45,19 +45,19 @@ main {
                             border-left: 1px solid;
                             .lib-css(color, @color-gray);
                             .lib-css(border-color, @color-gray);
-                            .lib-vendor-prefix-flex-shrink(0);
+                            .lib-vendor-prefix-display();
+                            .lib-vendor-box-align(center);
+                            .lib-css(justify-content, center, 1);
 
                             &:before {
                                 position: relative;
-                                top: -1px;
                                 .lib-font-size(34px);
-                                .lib-line-height(56px);
                                 .lib-icon-symbol(@icon-add-shopping-cart);
                             }
 
                             &.required-options {
                                 &:before {
-                                    top: 0;
+                                    top: 1px;
                                     .lib-css(content, @icon-info-outline);
                                 }
                             }
@@ -83,6 +83,43 @@ main {
 
                             a {
                                 .lib-css(color, @color-white);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.list {
+            .item {
+                .wrapper {
+                    .details {
+                        .add-to-cart {
+                            max-width: 246px;
+
+                            .prices {
+                                padding: 11px 11px 11px 16px;
+
+                                .price {
+                                    .special-price {
+                                        margin-top: -4px;
+                                    }
+                                    .old-price {
+                                        margin: -9px 0 0 0;
+                                    }
+                                }
+                            }
+
+                            a {
+                                &:before {
+                                    top: -1px;
+                                }
+
+                                &.required-options {
+                                    &:before {
+                                        top: 0;
+                                    }
+                                }
                             }
                         }
                     }
