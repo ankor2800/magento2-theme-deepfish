@@ -15,5 +15,15 @@
         <move element="product.info.media" destination="product.row.media" />
         <move element="product.info.main" destination="product.row.main" />
         <move element="product.info.stock.sku" destination="product.info.main" before="-" />
+
+        <referenceBlock name="product.info.sku">
+            <arguments>
+                <argument name="css_class" xsi:type="string" />
+                <argument name="at_label" xsi:type="string">Product Code:</argument>
+                <argument name="add_attribute" xsi:type="string" />
+            </arguments>
+        </referenceBlock>
+
+        <move element="product.info.sku" destination="product.info.stock.sku" before="-" />
     </body>
 </page>

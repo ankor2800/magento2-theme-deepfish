@@ -103,7 +103,24 @@ main {
             width: 100%;
 
             .wrapper {
-                padding: 46px 48px 48px 48px;
+                padding: 41px 48px 48px 48px;
+
+                .attribute {
+                    text-transform: uppercase;
+                    margin-bottom: 7px;
+                    .lib-css(font-weight, @font-weight__semibold);
+                    .lib-vendor-prefix-display();
+                    .lib-css(color, @color-blue);
+                    .lib-font-size(16px);
+
+                    .type {
+                        white-space: nowrap;
+                        .lib-css(font-weight, @font-weight__semibold);
+                    }
+                    .value {
+                        margin-left: 12px;
+                    }
+                }
             }
         }
 
