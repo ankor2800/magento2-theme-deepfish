@@ -243,9 +243,11 @@ header {
                          margin-bottom: 10px;
 
                          .price {
-                             .lib-css(font-weight, @font-weight__heavybold);
-                             .lib-css(color, @color-gray);
                              .lib-font-size(20px);
+
+                             .old-price {
+                                 .lib-css(font-weight, @font-weight__heavybold);
+                             }
                          }
                     }
                 }
@@ -392,6 +394,24 @@ footer {
         margin-bottom: 15px;
         .lib-font-size(28px);
         .lib-line-height(1.382em);
+    }
+}
+
+.prices {
+    .price {
+        .lib-css(font-weight, @font-weight__heavybold);
+        .lib-css(color, @color-gray);
+
+        span {
+            display: block;
+        }
+        .special-price {
+            .lib-css(color, @color-blue);
+        }
+        .old-price {
+            text-decoration: line-through;
+            .lib-css(font-weight, @font-weight__regular);
+        }
     }
 }
 
