@@ -1,0 +1,19 @@
+<?php
+/**
+ * Product availability on product page
+ *
+ * @var \Magento\Catalog\Block\Product\View\Type\Simple $block
+ */
+
+$product = $block->getProduct();
+?>
+<?php if($block->displayProductStockStatus()): ?>
+    <div class="availability">
+        <?= __('Availability') ?>:
+        <?php if($product->isAvailable()): ?>
+            <span class="in-stock"><?= __('In stock') ?></span>
+        <?php else: ?>
+            <span class="out-of-stock"><?= __('Out of stock') ?></span>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>

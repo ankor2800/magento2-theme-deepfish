@@ -121,6 +121,21 @@ main {
                         margin-left: 12px;
                     }
                 }
+
+                .stock {
+                    margin-bottom: 13px;
+                    .lib-vendor-prefix-display();
+                    .lib-css(justify-content, space-between, 1);
+
+                    .availability {
+                        .in-stock {
+                            color: #54b70b;
+                        }
+                        .out-of-stock {
+                            color: #f43f64;
+                        }
+                    }
+                }
             }
         }
 
