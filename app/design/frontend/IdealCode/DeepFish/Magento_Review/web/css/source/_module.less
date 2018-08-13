@@ -7,8 +7,10 @@ main {
                         margin: 22px 0 1px 0;
                         .lib-css(justify-content, center, 1);
 
-                        a {
-                            display: none;
+                        .links {
+                            a {
+                                display: none;
+                            }
                         }
                     }
                 }
@@ -22,17 +24,24 @@ main {
                         .rating-summary {
                             margin-top: 20px;
                             .lib-css(justify-content, start, 1);
-                            .lib-vendor-box-align(center);
 
-                            a {
-                                display: inline-block;
-                                text-transform: uppercase;
-                                margin-left: 25px;
+                            .links {
+                                a {
+                                    display: inline-block;
+                                }
                             }
                         }
                     }
                 }
             }
+        }
+    }
+}
+
+.catalog-product-view {
+    .product-info {
+        .rating-summary {
+            margin: -1px 0 18px 0;
         }
     }
 }

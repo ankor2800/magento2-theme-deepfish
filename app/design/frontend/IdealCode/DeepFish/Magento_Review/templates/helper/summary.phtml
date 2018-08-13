@@ -1,0 +1,37 @@
+<?php
+/**
+ * Reviews summary on product page
+ *
+ * @var \Magento\Review\Block\Product\ReviewRenderer $block
+ */
+
+/** @var \Magento\Catalog\Model\Product $product */
+$product = $block->getData('product');
+
+$url = $product->getProductUrl().'#reviews';
+$urlForm = $product->getProductUrl().'#review-form';
+
+$reviewsCount = $block->getReviewsCount();
+$displayIfEmpty = $block->getData('display_if_empty');
+?>
+<?php if($reviewsCount || $displayIfEmpty): ?>
+    <div class="rating-summary">
+        <?php if($reviewsCount): ?>
+            <div class="result">
+                <div style="width: <?= $block->getRatingSummary() ?>%"></div>
+            </div>
+            <div class="links">
+                <a href="<?= $url ?>">
+                    <?= str_replace('%1', $reviewsCount, __($reviewsCount == 1 ? '%1 Review' : '%1 Reviews')) ?>
+                </a>
+                <a href="<?= $urlForm ?>">
+                    <?= __('Add your review') ?>
+                </a>
+            </div>
+        <?php elseif($displayIfEmpty): ?>
+            <a href="<?= $urlForm ?>">
+                <?= __('Be the first to review this product') ?>
+            </a>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>

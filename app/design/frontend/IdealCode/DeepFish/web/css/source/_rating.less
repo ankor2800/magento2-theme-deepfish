@@ -1,5 +1,6 @@
 .rating-summary {
     .lib-vendor-prefix-display();
+    .lib-vendor-box-align(center);
 
     .result {
         position: relative;
@@ -26,6 +27,14 @@
                 position: relative;
                 .lib-css(color, @rating-icon__active__color);
             }
+        }
+    }
+
+    .links {
+        a {
+            display: inline-block;
+            text-transform: uppercase;
+            margin-left: 25px;
         }
     }
 }

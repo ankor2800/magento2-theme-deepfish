@@ -30,5 +30,11 @@
 
         <move element="product.info.stock.sku" destination="product.info.main" before="-" />
         <move element="product.info.sku" destination="product.info.stock.sku" before="-" />
+
+        <!-- Price & review -->
+        <referenceContainer name="product.info.price" htmlClass="prices" />
+        <move element="product.info.review" destination="product.info.main" after="product.info.price" />
+
+        <referenceBlock name="product.info.overview" remove="true" />
     </body>
 </page>
