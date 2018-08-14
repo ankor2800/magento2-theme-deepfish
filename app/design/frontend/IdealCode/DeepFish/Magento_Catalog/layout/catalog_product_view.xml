@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <remove src="mage/gallery/gallery.css" />
+    </head>
     <body>
         <!-- Main layout -->
         <referenceContainer name="content">
@@ -15,6 +18,11 @@
 
         <move element="product.info.media" destination="product.row.media" />
         <move element="product.info.main" destination="product.row.main" />
+
+        <referenceContainer name="skip_gallery_before.wrapper" remove="true"/>
+        <referenceContainer name="skip_gallery_after.wrapper" remove="true"/>
+        <referenceBlock name="skip_gallery_before.target" remove="true" />
+        <referenceBlock name="skip_gallery_after.target" remove="true" />
 
         <!-- Sku attribute & stock availability -->
         <referenceBlock name="product.info.sku">

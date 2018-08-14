@@ -1,0 +1,115 @@
+<?php
+/**
+ * Product media data template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\Gallery
+ */
+
+$galleryOption = [
+    'config' => [
+        'width' => $block->getImageAttribute('product_page_image_medium', 'width'),
+        'height' => $block->getImageAttribute('product_page_image_medium', 'height')
+    ],
+    'options' => [
+        'width' => $block->getImageAttribute('product_page_image_medium', 'width'),
+        'thumbwidth' => $block->getImageAttribute('product_page_image_small', 'width'),
+        'transition' => $block->getVar('gallery/transition/effect'),
+        'nav' => $block->getVar('gallery/nav'),
+        'navtype' => $block->getVar('gallery/navtype'),
+        'navdir' => $block->getVar('gallery/navdir')
+    ],
+    'fullscreen' => [
+        'nav' => $block->getVar('gallery/fullscreen/nav'),
+        'navdir' => $block->getVar('gallery/fullscreen/navdir'),
+        'navtype' => $block->getVar('gallery/fullscreen/navtype'),
+        'transition' => $block->getVar('gallery/fullscreen/transition/effect')
+    ]
+];
+
+if ($block->getVar('gallery/loop')) {
+    $galleryOption['options']['loop'] = $block->getVar('gallery/loop');
+}
+
+if ($block->getVar('gallery/keyboard')) {
+    $galleryOption['options']['keyboard'] = $block->getVar('gallery/keyboard');
+}
+
+if ($block->getVar('gallery/arrows')) {
+    $galleryOption['options']['arrows'] = $block->getVar('gallery/arrows');
+}
+
+if ($block->getVar('gallery/allowfullscreen')) {
+    $galleryOption['options']['allowfullscreen'] = $block->getVar('gallery/allowfullscreen');
+}
+
+if ($block->getVar('gallery/caption')) {
+    $galleryOption['options']['caption'] = $block->getVar('gallery/caption');
+}
+
+if ($block->getVar('gallery/transition/duration')) {
+    $galleryOption['options']['transitionduration'] = $block->getVar('gallery/transition/duration');
+}
+
+if ($block->getVar('gallery/navwidth')) {
+    $galleryOption['options']['navwidth'] = $block->getVar('gallery/navwidth');
+}
+
+if ($block->getVar('gallery/navarrows')) {
+    $galleryOption['options']['navarrows'] = $block->getVar('gallery/navarrows');
+}
+
+if ($block->getImageAttribute('product_page_image_medium', 'height')
+    || $block->getImageAttribute('product_page_image_medium', 'width')) {
+    $galleryOption['options']['height'] =
+        $block->getImageAttribute('product_page_image_medium', 'height')
+            ?: $block->getImageAttribute('product_page_image_medium', 'width');
+}
+
+if ($block->getImageAttribute('product_page_image_small', 'height')
+    || $block->getImageAttribute('product_page_image_small', 'width')) {
+    $galleryOption['options']['thumbheight'] =
+        $block->getImageAttribute('product_page_image_small', 'height')
+            ?: $block->getImageAttribute('product_page_image_small', 'width');
+}
+
+if ($block->getVar('gallery/fullscreen/loop')) {
+    $galleryOption['fullscreen']['loop'] = $block->getVar('gallery/fullscreen/loop');
+}
+
+if ($block->getVar('gallery/fullscreen/navarrows')) {
+    $galleryOption['fullscreen']['navarrows'] = $block->getVar('gallery/fullscreen/navarrows');
+}
+
+if ($block->getVar('gallery/fullscreen/arrows')) {
+    $galleryOption['fullscreen']['arrows'] = $block->getVar('gallery/fullscreen/arrows');
+}
+
+if ($block->getVar('gallery/fullscreen/caption')) {
+    $galleryOption['fullscreen']['showCaption'] = $block->getVar('gallery/fullscreen/caption');
+}
+
+if ($block->getVar('gallery/fullscreen/transition/duration')) {
+    $galleryOption['fullscreen']['transitionduration'] = $block->getVar('gallery/fullscreen/transition/duration');
+}
+
+$galleryJs = [
+    'mage/gallery/gallery' => [
+        'mixins' => ['magnifier/magnify'],
+        'magnifierOpts' => $this->getVar('magnifier'),
+        'data' => \Zend_Json::decode($block->getGalleryImagesJson()),
+        'options' => $galleryOption['options'],
+        'fullscreen' => $galleryOption['fullscreen'],
+        'breakpoints' => $this->getVar('breakpoints')
+    ]
+];
+?>
+<div class="gallery" data-mage-init='<?=\Zend_Json::encode($galleryJs)?>'>
+    <div class="loader"></div>
+</div>
+
+<script type="text/javascript">
+    var config = <?=\Zend_Json::encode($galleryOption['config'])?>,
+        loader = document.querySelectorAll('.gallery .loader')[0];
+
+    loader.style.paddingBottom = (config.height / config.width * 100) + '%';
+</script>

@@ -7,10 +7,41 @@
                 <width>100</width>
                 <height>100</height>
             </image>
+
+            <image id="product_page_image_medium" type="image">
+                <width>745</width>
+                <height>745</height>
+            </image>
+
+            <image id="product_page_image_small" type="thumbnail">
+                <width>62</width>
+                <height>62</height>
+            </image>
+
             <image id="wishlist_sidebar_block" type="thumbnail">
                 <width>100</width>
                 <height>100</height>
             </image>
         </images>
     </media>
+
+    <vars module="Magento_Catalog">
+        <var name="gallery">
+            <var name="navwidth">90%</var>
+            <var name="keyboard">false</var>
+            <var name="arrows">false</var>
+            <var name="allowfullscreen">false</var>
+            <var name="transition">
+                <var name="effect">dissolve</var>
+                <var name="duration">20</var>
+            </var>
+        </var>
+        <var name="magnifier">
+            <var name="enabled">true</var>
+            <var name="top">0</var>
+            <var name="left">0</var>
+            <var name="width">100%</var>
+            <var name="height">100%</var>
+        </var>
+    </vars>
 </view>
