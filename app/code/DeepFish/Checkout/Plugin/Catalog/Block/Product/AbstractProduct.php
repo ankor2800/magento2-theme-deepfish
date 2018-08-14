@@ -12,7 +12,7 @@ class AbstractProduct extends \DeepFish\Catalog\Plugin\Block\Product\AbstractLis
         /** @var \Magento\Catalog\Model\Product $item */
         foreach($subject->getData('product_collection') as $item) {
             $jsLayout['data']['items'][$index++] += [
-                'price' => $subject->getProductPrice($item),
+                'format_price' => $subject->getProductPrice($item),
                 'is_salable' => $item->isSalable(),
                 'required_options' => $item->getTypeInstance()->hasRequiredOptions($item),
                 'add_to_cart' => $this->_getAddToParams(

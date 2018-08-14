@@ -99,6 +99,8 @@ class AbstractProduct extends AbstractListProduct
                     'alt' => $image->getLabel()
                 ],
                 'description' => $item->getData('short_description'),
+                'price' => $item->getPrice(),
+                'special_price' => $item->getSpecialPrice(),
                 'add_to_compare' => $this->_getAddToParams($subject->getAddToCompareUrl(), $item)
             ];
         }

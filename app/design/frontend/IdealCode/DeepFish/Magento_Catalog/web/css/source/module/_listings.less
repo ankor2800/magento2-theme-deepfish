@@ -7,7 +7,19 @@ main {
             margin-bottom: 50px;
             width: round(100%/3, 5);
 
+            .label {
+                position: absolute;
+                top: 9px;
+                left: 12px;
+                text-transform: uppercase;
+                padding: 5px 10px;
+                .lib-css(font-weight, @font-weight__heavybold);
+                .lib-css(background, @color-gray);
+                .lib-css(color, @color-white);
+            }
+
             .wrapper {
+                position: relative;
                 border: 1px solid #e4e4e5;
                 padding: 46px 27px 26px;
                 text-align: center;

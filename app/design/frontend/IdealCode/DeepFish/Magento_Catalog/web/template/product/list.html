@@ -6,6 +6,7 @@
          each="data().items">
         <div class="item preloader" data-bind="mageInit: {loader: {}}">
             <div class="wrapper">
+                <div class="label" translate="'Sale'" if="special_price && price != special_price"></div>
                 <a class="image" data-bind="attr: {href: url, title: name}">
                     <render args="{
                         name: image.template,

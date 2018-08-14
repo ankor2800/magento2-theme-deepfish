@@ -2,7 +2,7 @@
     <div class="add-to-cart"
          data-bind="css: $parent.productInCart(id) && !required_options ? 'in-cart' : ''"
          if="is_salable">
-        <div class="prices" data-bind="html: price"></div>
+        <div class="prices" data-bind="html: format_price"></div>
 
         <a href="#"
            class="required-options"
