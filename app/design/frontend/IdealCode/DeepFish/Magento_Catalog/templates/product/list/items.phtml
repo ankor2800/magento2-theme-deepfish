@@ -2,19 +2,29 @@
 /**
  * Product list
  *
- * @var $block \Magento\Catalog\Block\Product\AbstractProduct
+ * @var \Magento\Catalog\Block\Product\AbstractProduct $block
  */
 
-$jsLayout = [
-    'Magento_Ui/js/core/app' => [
-        'components' => [
-            $block->getJsId() => $block->getJsLayout()
-        ]
-    ]
-];
+$type = $block->getData('type');
+$items = $block->getItems();
+if(!is_array($items)) {
+    $items = $items->getData();
+}
 ?>
-<div class="<?= $block->getJsId() ?>"
-     data-mage-init='<?= \Zend_Json::encode($jsLayout) ?>'
-     data-bind="scope: '<?= $block->getJsId() ?>'">
-    <!-- ko template: getTemplate() --><!-- /ko -->
-</div>
+<?php if(count($items)): ?>
+    <div class="<?= $block->getJsId() ?>">
+        <?php if($type == 'related'): ?>
+            <h2>
+                <span><?= __('Related') ?></span>
+                <?= __('Products') ?>
+            </h2>
+        <?php elseif($type == 'upsell'): ?>
+            <h2>
+                <span><?= __('You may also be') ?></span>
+                <?= __('Interested in the following products') ?>
+            </h2>
+        <?php endif; ?>
+
+        <?php include($block->getTemplateFile('Magento_Catalog::product/list.phtml')); ?>
+    </div>
+<?php endif; ?>
