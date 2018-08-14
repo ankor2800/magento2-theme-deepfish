@@ -1,0 +1,20 @@
+<?php
+/**
+ * Product list
+ *
+ * @var $block \Magento\Catalog\Block\Product\AbstractProduct
+ */
+
+$jsLayout = [
+    'Magento_Ui/js/core/app' => [
+        'components' => [
+            $block->getJsId() => $block->getJsLayout()
+        ]
+    ]
+];
+?>
+<div class="<?= $block->getJsId() ?>"
+     data-mage-init='<?= \Zend_Json::encode($jsLayout) ?>'
+     data-bind="scope: '<?= $block->getJsId() ?>'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>

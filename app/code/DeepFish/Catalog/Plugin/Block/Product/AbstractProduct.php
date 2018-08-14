@@ -36,7 +36,9 @@ class AbstractProduct extends AbstractListProduct
         ];
 
         /** @var \Magento\Catalog\Model\ResourceModel\Product\Collection $collection */
-        if(method_exists($subject, 'createCollection')) {
+        if(method_exists($subject, 'getItems')) {
+            $collection = $subject->getItems();
+        } elseif(method_exists($subject, 'createCollection')) {
             $collection = $subject->createCollection();
         } else {
             $collection = $subject->getLoadedProductCollection();
