@@ -1,3 +1,10 @@
+html,
+body {
+    height: 100%;
+    .lib-vendor-prefix-display();
+    .lib-vendor-prefix-flex-direction();
+}
+
 header {
     .panel {
         margin-bottom: 24px;
@@ -272,6 +279,9 @@ header {
 
 main {
     margin: 30px 0;
+    width: 100%;
+    .lib-vendor-prefix-flex-grow(1);
+    .lib-vendor-box-align(flex-start);
 
     .page-title {
         text-align: center;
