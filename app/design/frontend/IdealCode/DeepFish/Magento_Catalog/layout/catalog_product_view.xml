@@ -36,5 +36,18 @@
         <move element="product.info.review" destination="product.info.main" after="product.info.price" />
 
         <referenceBlock name="product.info.overview" remove="true" />
+
+        <!-- Tabs -->
+        <referenceBlock name="product.info.description">
+            <arguments>
+                <argument name="title" xsi:type="string">Description</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceBlock name="product.attributes">
+            <arguments>
+                <argument name="title" xsi:type="string">Additional Information</argument>
+            </arguments>
+        </referenceBlock>
     </body>
 </page>

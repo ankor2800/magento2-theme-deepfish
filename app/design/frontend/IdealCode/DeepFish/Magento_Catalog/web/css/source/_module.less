@@ -90,6 +90,8 @@ main {
 
 .catalog-product-view {
     .row {
+        margin-bottom: 90px;
+
         .product-media {
             width: round(100%/12*7, 5);
             .lib-vendor-prefix-flex-shrink(0);
@@ -154,6 +156,50 @@ main {
 
         .wrapper {
             border: 1px solid #e6e6e7;
+        }
+    }
+
+    .product-detailed {
+        border: 1px solid #e4e4e5;
+        margin-bottom: 30px;
+        padding: 43px 50px 40px 50px;
+
+        > ul {
+            padding-bottom: 22px;
+            border-bottom: 2px solid;
+            .lib-css(border-color, @color-gray);
+            .lib-vendor-prefix-display();
+
+            li {
+                padding: 0 22px 4px 22px;
+                border-left: solid 1px #e4e4e5;
+
+                &:first-child {
+                    padding-left: 0;
+                    border: 0;
+                }
+
+                a {
+                    position: relative;
+                    top: 1px;
+                    text-transform: uppercase;
+                    .lib-css(font-weight, @font-weight__heavybold);
+                    .lib-line-height(22px);
+                    .lib-font-size(16px);
+                    .lib-link-reverse();
+                }
+
+                &.ui-tabs-active {
+                    a {
+                        .lib-css(color, @color-blue);
+                    }
+                }
+            }
+        }
+
+        .tab-content {
+            display: none;
+            margin: 43px 0 10px 0;
         }
     }
 

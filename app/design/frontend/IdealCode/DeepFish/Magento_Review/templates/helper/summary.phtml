@@ -21,15 +21,15 @@ $displayIfEmpty = $block->getData('display_if_empty');
                 <div style="width: <?= $block->getRatingSummary() ?>%"></div>
             </div>
             <div class="links">
-                <a href="<?= $url ?>">
+                <a href="<?= $url ?>" class="js-move">
                     <?= str_replace('%1', $reviewsCount, __($reviewsCount == 1 ? '%1 Review' : '%1 Reviews')) ?>
                 </a>
-                <a href="<?= $urlForm ?>">
+                <a href="<?= $urlForm ?>" class="js-move">
                     <?= __('Add your review') ?>
                 </a>
             </div>
         <?php elseif($displayIfEmpty): ?>
-            <a href="<?= $urlForm ?>">
+            <a href="<?= $urlForm ?>" class="js-move">
                 <?= __('Be the first to review this product') ?>
             </a>
         <?php endif; ?>

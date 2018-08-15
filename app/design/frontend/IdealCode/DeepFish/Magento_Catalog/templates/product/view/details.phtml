@@ -1,0 +1,36 @@
+<?php
+/**
+ * Tabs on detail page
+ *
+ * @var Magento\Catalog\Block\Product\View\Description $block
+ */
+$render = [];
+$layout = $block->getLayout();
+
+foreach($block->getGroupChildNames('detailed_info', 'getChildHtml') as $name) {
+    $alias = $layout->getElementAlias($name);
+    $content = $layout->renderElement($name);
+
+    if(trim($content)) {
+        $render[] = [
+            'title' => $block->getChildData($alias, 'title'),
+            'alias' => $alias,
+            'content' => $content
+        ];
+    }
+}
+?>
+<?php if(count($render) > 0): ?>
+    <div class="product-detailed" data-mage-init='{"Magento_Catalog/js/tabs": {}}'>
+        <ul>
+            <?php foreach($render as $block): ?>
+                <li><a href="#<?= $block['alias'] ?>"><?= $block['title'] ?></a></li>
+            <?php endforeach;?>
+        </ul>
+        <?php foreach($render as $block): ?>
+            <div id="<?= $block['alias'] ?>" class="tab-content">
+                <?= $block['content'] ?>
+            </div>
+        <?php endforeach;?>
+    </div>
+<?php endif; ?>
