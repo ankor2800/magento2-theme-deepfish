@@ -56,8 +56,8 @@ class ListCategory extends \Magento\Framework\View\Element\Template
 
                 $children->addFieldToFilter('parent_id', $category->getData($category->getIdFieldName()));
 
-                if ($this->getData('child-limit') > 0) {
-                    $children->setPageSize($this->getData('child-limit'));
+                if ($this->getData('child_limit') > 0) {
+                    $children->setPageSize($this->getData('child_limit'));
                 }
 
                 $category->setData('children', $children->getItems());

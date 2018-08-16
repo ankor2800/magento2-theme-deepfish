@@ -6,7 +6,7 @@
             <block name="index.category.list" class="DeepFish\Catalog\Block\Category\ListCategory"
                    template="DeepFish_Catalog::category/list.phtml" before="-">
                 <arguments>
-                    <argument name="child-limit" xsi:type="number">7</argument>
+                    <argument name="child_limit" xsi:type="number">7</argument>
                 </arguments>
             </block>
         </referenceContainer>
