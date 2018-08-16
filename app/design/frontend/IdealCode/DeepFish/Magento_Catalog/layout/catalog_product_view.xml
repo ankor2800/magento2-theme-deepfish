@@ -38,7 +38,7 @@
         <referenceBlock name="product.info.overview" remove="true" />
 
         <!-- Tabs -->
-        <referenceBlock name="product.info.description">
+        <referenceBlock name="product.info.description" template="product/view/description.phtml">
             <arguments>
                 <argument name="title" xsi:type="string">Description</argument>
             </arguments>

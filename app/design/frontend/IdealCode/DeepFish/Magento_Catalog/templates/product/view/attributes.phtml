@@ -1,0 +1,18 @@
+<?php
+/**
+ * Product additional attributes template
+ *
+ * @var \Magento\Framework\View\TemplateEngine\Php $this
+ * @var \Magento\Catalog\Block\Product\View\Attributes $block
+ */
+
+/** @var \Magento\Catalog\Helper\Output $helper */
+$helper = $this->helper(\Magento\Catalog\Helper\Output::class);
+$product = $block->getProduct();
+?>
+<?php foreach($block->getAdditionalData() as $data): ?>
+    <div class="attribute">
+        <div class="type"><?= $data['label'] ?></div>
+        <div class="value"><?= $helper->productAttribute($product, $data['value'], $data['code']) ?></div>
+    </div>
+<?php endforeach; ?>

@@ -200,6 +200,32 @@ main {
         .tab-content {
             display: none;
             margin: 43px 0 10px 0;
+
+            .attribute {
+                border-width: 0 0 1px;
+                border-style: solid;
+                border-color: #e4e4e5;
+                .lib-vendor-prefix-display();
+                .lib-vendor-box-align(center);
+
+                .type {
+                    width: 25%;
+                    text-align: right;
+                    text-transform: uppercase;
+                    border-right: 1px solid;
+                    border-color: #e4e4e5;
+                    .lib-css(color, @color-gray20);
+                }
+
+                .type,
+                .value {
+                    padding: 15px 20px;
+                }
+
+                &:last-child {
+                    border: 0;
+                }
+            }
         }
     }
 
