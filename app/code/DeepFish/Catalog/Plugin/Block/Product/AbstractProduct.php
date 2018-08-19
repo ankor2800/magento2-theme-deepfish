@@ -5,18 +5,25 @@ use \Magento\Catalog\Model\Product\ProductList\Toolbar;
 
 class AbstractProduct extends AbstractListProduct
 {
+    /** @var \Magento\Catalog\Helper\Output */
+    protected $_outputHelper;
+
     /** @var \Magento\Catalog\Helper\Image */
     protected $_imageHelper;
 
     /**
      * @param \Magento\Framework\Data\Helper\PostHelper $postHelper
+     * @param \Magento\Catalog\Helper\Output $outputHelper
      * @param \Magento\Catalog\Helper\Image $imageHelper
      */
     public function __construct(
         \Magento\Framework\Data\Helper\PostHelper $postHelper,
+        \Magento\Catalog\Helper\Output $outputHelper,
         \Magento\Catalog\Helper\Image $imageHelper
     ) {
+        $this->_outputHelper = $outputHelper;
         $this->_imageHelper = $imageHelper;
+
         parent::__construct($postHelper);
     }
 
@@ -89,7 +96,7 @@ class AbstractProduct extends AbstractListProduct
 
             $jsLayout['data']['items'][] = [
                 'id' => $item->getEntityId(),
-                'name' => $item->getName(),
+                'name' => $this->_outputHelper->productAttribute($item, $item->getName(), 'name'),
                 'url' => $item->getProductUrl(),
                 'image' => [
                     'template' => $imageTemplate,
@@ -98,10 +105,14 @@ class AbstractProduct extends AbstractListProduct
                     'height' => $image->getHeight(),
                     'alt' => $image->getLabel()
                 ],
-                'description' => $item->getData('short_description'),
                 'price' => $item->getPrice(),
                 'special_price' => $item->getSpecialPrice(),
-                'add_to_compare' => $this->_getAddToParams($subject->getAddToCompareUrl(), $item)
+                'add_to_compare' => $this->_getAddToParams($subject->getAddToCompareUrl(), $item),
+                'description' => $this->_outputHelper->productAttribute(
+                    $item,
+                    $item->getData('short_description'),
+                    'short_description'
+                )
             ];
         }
 
