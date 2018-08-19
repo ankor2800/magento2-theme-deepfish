@@ -84,7 +84,8 @@ header {
                         text-align: left;
 
                         li {
-                            border-bottom: 1px solid #e4e4e5;
+                            border-bottom: 1px solid;
+                            .lib-css(border-color, @border-color__base);
 
                             &:last-child {
                                 border: 0;
@@ -218,8 +219,9 @@ header {
                 .item {
                     position: relative;
                     padding: 11px 46px 19px 14px;
-                    border: 1px solid #e4e4e5;
                     margin: 10px 0;
+                    border: 1px solid;
+                    .lib-css(border-color, @border-color__base);
                     .lib-css(align-items, flex-start, 1);
                     .lib-vendor-prefix-display();
 
@@ -309,7 +311,8 @@ main {
             .item {
                 padding: 15px 15px 18px;
                 margin-bottom: 10px;
-                border: 1px solid #e4e4e5;
+                border: 1px solid;
+                .lib-css(border-color, @border-color__base);
                 .lib-css(align-items, flex-start, 1);
                 .lib-vendor-prefix-display();
 

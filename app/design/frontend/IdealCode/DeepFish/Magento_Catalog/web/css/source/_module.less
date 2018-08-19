@@ -160,9 +160,10 @@ main {
     }
 
     .product-detailed {
-        border: 1px solid #e4e4e5;
         margin-bottom: 30px;
         padding: 43px 50px 40px 50px;
+        border: 1px solid;
+        .lib-css(border-color, @border-color__base);
 
         > ul {
             padding-bottom: 22px;
@@ -172,7 +173,8 @@ main {
 
             li {
                 padding: 0 22px 4px 22px;
-                border-left: solid 1px #e4e4e5;
+                border-left: 1px solid;
+                .lib-css(border-color, @border-color__base);
 
                 &:first-child {
                     padding-left: 0;
@@ -204,17 +206,17 @@ main {
             .attribute {
                 border-width: 0 0 1px;
                 border-style: solid;
-                border-color: #e4e4e5;
                 .lib-vendor-prefix-display();
                 .lib-vendor-box-align(center);
+                .lib-css(border-color, @border-color__base);
 
                 .type {
                     width: 25%;
                     text-align: right;
                     text-transform: uppercase;
                     border-right: 1px solid;
-                    border-color: #e4e4e5;
                     .lib-css(color, @color-gray20);
+                    .lib-css(border-color, @border-color__base);
                 }
 
                 .type,
