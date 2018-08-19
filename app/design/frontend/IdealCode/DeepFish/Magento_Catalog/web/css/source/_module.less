@@ -151,6 +151,42 @@ main {
                         }
                     }
                 }
+
+                .add-to {
+                    margin-bottom: 15px;
+
+                    div {
+                        margin-bottom: 8px;
+
+                        a {
+                            position: relative;
+                            display: inline-block;
+                            text-transform: uppercase;
+                            padding: 9px 0 9px 38px;
+
+                            &:before {
+                                position: absolute;
+                                left: 0;
+                                .lib-css(font-family, @icons__font-name);
+                                .lib-css(color, @color-gray);
+                                .lib-font-size(34px);
+                            }
+
+                            &.compare {
+                                &:before {
+                                    top: -4px;
+                                    .lib-css(content, @icon-compare);
+                                }
+                            }
+
+                            &.in-list {
+                                &:before {
+                                    .lib-css(color, @color-blue);
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 

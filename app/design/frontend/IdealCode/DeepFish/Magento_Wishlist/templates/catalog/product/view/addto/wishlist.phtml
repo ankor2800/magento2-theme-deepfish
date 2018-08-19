@@ -1,0 +1,23 @@
+<?php
+/**
+ * @var \Magento\Wishlist\Block\Catalog\Product\View\AddTo\Wishlist $block
+ */
+
+$productId = $block->getProduct()->getEntityId();
+?>
+<?php if($block->isWishListAllowed()) : ?>
+    <div data-bind="scope: 'wishlist'">
+        <a href="#"
+           data-bind="
+            css: 'wishlist' + (productInWishlist(<?= $productId ?>) ? ' in-list' : ''),
+            text: productInWishlist(<?= $productId ?>) ?
+                '<?= __('Remove from Wishlist') ?>' :
+                '<?= __('Add to Wishlist') ?>',
+            attr: {
+                'data-ajax': productInWishlist(<?= $productId ?>) ?
+                    productInWishlist(<?= $productId ?>).delete_item_params :
+                    '<?= $block->escapeHtmlAttr($block->getWishlistParams()) ?>'
+            }
+        "></a>
+    </div>
+<?php endif; ?>

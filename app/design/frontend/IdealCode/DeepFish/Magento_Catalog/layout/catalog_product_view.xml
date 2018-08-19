@@ -11,7 +11,7 @@
         </referenceContainer>
 
         <referenceContainer name="product.info.media" htmlClass="wrapper" />
-        <referenceContainer name="product.info.main" htmlClass="wrapper" />
+        <referenceContainer name="product.info.main" htmlClass="wrapper preloader" />
 
         <move element="product.info.media" destination="product.row.media" />
         <move element="product.info.main" destination="product.row.main" />
@@ -34,6 +34,9 @@
         <!-- Price & review -->
         <referenceContainer name="product.info.price" htmlClass="prices" />
         <move element="product.info.review" destination="product.info.main" after="product.info.price" />
+
+        <!-- Social links -->
+        <move element="product.info.addto" destination="product.info.main" after="product.info" />
 
         <referenceBlock name="product.info.overview" remove="true" />
 

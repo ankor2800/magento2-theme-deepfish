@@ -77,3 +77,22 @@ main {
         }
     }
 }
+
+.catalog-product-view {
+    .product-info {
+        .add-to {
+            a.wishlist {
+                &:before {
+                    top: -5px;
+                    .lib-css(content, @icon-favorite-border);
+                }
+
+                &.in-list {
+                    &:before {
+                        .lib-css(content, @icon-favorite);
+                    }
+                }
+            }
+        }
+    }
+}

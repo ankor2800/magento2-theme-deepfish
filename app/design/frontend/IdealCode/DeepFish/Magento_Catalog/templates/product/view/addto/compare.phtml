@@ -1,0 +1,19 @@
+<?php
+/**
+ * @var \Magento\Catalog\Block\Product\View\Addto\Compare $block
+ */
+
+$productId = $block->getProduct()->getEntityId();
+?>
+<div data-bind="scope: 'compareProducts'">
+    <a href="#"
+       data-bind="
+        css: 'compare' + (productInCompare(<?= $productId ?>) ? ' in-list' : ''),
+        text: productInCompare(<?= $productId ?>) ? '<?= __('Remove from Compare') ?>' : '<?= __('Add to Compare') ?>',
+        attr: {
+            'data-ajax': productInCompare(<?= $productId ?>) ?
+                productInCompare(<?= $productId ?>).remove_url :
+                '<?= $block->escapeHtmlAttr($block->getPostDataParams()) ?>'
+        }
+    "></a>
+</div>
