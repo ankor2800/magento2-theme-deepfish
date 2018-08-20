@@ -27,6 +27,6 @@ class Links extends \Magento\Framework\View\Element\Html\Links
      */
     private function compare($firstLink, $secondLink)
     {
-        return ($firstLink->getData(self::SORT_ORDER) > $secondLink->getData(self::SORT_ORDER));
+        return ($firstLink->getData(self::SORT_ORDER) < $secondLink->getData(self::SORT_ORDER));
     }
 }

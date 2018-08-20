@@ -19,28 +19,28 @@
                 <arguments>
                     <argument name="label" xsi:type="string">About us</argument>
                     <argument name="path" xsi:type="string">about-us</argument>
-                    <argument name="sortOrder" xsi:type="number">10</argument>
+                    <argument name="sortOrder" xsi:type="number">180</argument>
                 </arguments>
             </block>
             <block name="footer.links.service" class="Magento\Framework\View\Element\Html\Link">
                 <arguments>
                     <argument name="label" xsi:type="string">Customer service</argument>
                     <argument name="path" xsi:type="string">customer-service</argument>
-                    <argument name="sortOrder" xsi:type="number">20</argument>
+                    <argument name="sortOrder" xsi:type="number">170</argument>
                 </arguments>
             </block>
             <block name="footer.links.template" class="Magento\Framework\View\Element\Html\Link">
                 <arguments>
                     <argument name="label" xsi:type="string">Template settings</argument>
                     <argument name="path" xsi:type="string">template-settings</argument>
-                    <argument name="sortOrder" xsi:type="number">30</argument>
+                    <argument name="sortOrder" xsi:type="number">160</argument>
                 </arguments>
             </block>
             <block name="footer.links.private" class="Magento\Framework\View\Element\Html\Link">
                 <arguments>
                     <argument name="label" xsi:type="string">Privacy policy</argument>
                     <argument name="path" xsi:type="string">privacy-policy-cookie-restriction-mode</argument>
-                    <argument name="sortOrder" xsi:type="number">40</argument>
+                    <argument name="sortOrder" xsi:type="number">150</argument>
                 </arguments>
             </block>
             <block name="footer.links.shipping" class="Magento\Framework\View\Element\Html\Link">
@@ -54,42 +54,42 @@
                 <arguments>
                     <argument name="label" xsi:type="string">Secure shopping</argument>
                     <argument name="path" xsi:type="string">secure</argument>
-                    <argument name="sortOrder" xsi:type="number">110</argument>
+                    <argument name="sortOrder" xsi:type="number">90</argument>
                 </arguments>
             </block>
             <block name="footer.links.international" class="Magento\Framework\View\Element\Html\Link">
                 <arguments>
                     <argument name="label" xsi:type="string">International shipping</argument>
                     <argument name="path" xsi:type="string">international-shipping</argument>
-                    <argument name="sortOrder" xsi:type="number">120</argument>
+                    <argument name="sortOrder" xsi:type="number">80</argument>
                 </arguments>
             </block>
             <block name="footer.links.affiliates" class="Magento\Framework\View\Element\Html\Link">
                 <arguments>
                     <argument name="label" xsi:type="string">Affiliates</argument>
                     <argument name="path" xsi:type="string">affiliates</argument>
-                    <argument name="sortOrder" xsi:type="number">130</argument>
+                    <argument name="sortOrder" xsi:type="number">70</argument>
                 </arguments>
             </block>
             <block name="footer.links.group" class="Magento\Framework\View\Element\Html\Link">
                 <arguments>
                     <argument name="label" xsi:type="string">Group sales</argument>
                     <argument name="path" xsi:type="string">group-sales</argument>
-                    <argument name="sortOrder" xsi:type="number">140</argument>
+                    <argument name="sortOrder" xsi:type="number">60</argument>
                 </arguments>
             </block>
             <block name="footer.links.track" class="Magento\Framework\View\Element\Html\Link">
                 <arguments>
                     <argument name="label" xsi:type="string">Track my order</argument>
                     <argument name="path" xsi:type="string">track</argument>
-                    <argument name="sortOrder" xsi:type="number">170</argument>
+                    <argument name="sortOrder" xsi:type="number">20</argument>
                 </arguments>
             </block>
             <block name="footer.links.help" class="Magento\Framework\View\Element\Html\Link">
                 <arguments>
                     <argument name="label" xsi:type="string">Help</argument>
                     <argument name="path" xsi:type="string">help</argument>
-                    <argument name="sortOrder" xsi:type="number">180</argument>
+                    <argument name="sortOrder" xsi:type="number">10</argument>
                 </arguments>
             </block>
         </referenceBlock>

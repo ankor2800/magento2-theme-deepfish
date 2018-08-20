@@ -18,12 +18,6 @@
             </arguments>
         </referenceBlock>
 
-        <referenceBlock name="my-account-link">
-            <arguments>
-                <argument name="sortOrder" xsi:type="number">10</argument>
-            </arguments>
-        </referenceBlock>
-
         <move element="authorization-link" destination="header.panel.right" />
         <referenceBlock name="register-link" remove="true" />
         <referenceBlock name="authentication-popup" remove="true" />
@@ -33,7 +27,7 @@
                    class="Magento\Customer\Block\Account\AuthorizationLink"
                    template="account/link/footer.phtml">
                 <arguments>
-                    <argument name="sortOrder" xsi:type="number">150</argument>
+                    <argument name="sortOrder" xsi:type="number">50</argument>
                 </arguments>
             </block>
         </referenceBlock>

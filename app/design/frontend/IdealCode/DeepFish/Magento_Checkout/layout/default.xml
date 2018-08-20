@@ -7,7 +7,7 @@
                 <arguments>
                     <argument name="path" xsi:type="helper" helper="Magento\Checkout\Helper\Cart::getCartUrl" />
                     <argument name="label" xsi:type="string">Checkout</argument>
-                    <argument name="sortOrder" xsi:type="number">40</argument>
+                    <argument name="sortOrder" xsi:type="number">10</argument>
                 </arguments>
             </block>
         </referenceBlock>
@@ -19,7 +19,7 @@
                 <arguments>
                     <argument name="path" xsi:type="helper" helper="Magento\Checkout\Helper\Cart::getCartUrl" />
                     <argument name="label" xsi:type="string">View cart</argument>
-                    <argument name="sortOrder" xsi:type="number">160</argument>
+                    <argument name="sortOrder" xsi:type="number">40</argument>
                 </arguments>
             </block>
         </referenceBlock>

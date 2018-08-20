@@ -7,7 +7,7 @@
                 <arguments>
                     <argument name="path" xsi:type="helper" helper="IdealCode\Blog\Helper\Blog::getBlogUrl" />
                     <argument name="label" xsi:type="string">Blog</argument>
-                    <argument name="sortOrder" xsi:type="number">30</argument>
+                    <argument name="sortOrder" xsi:type="number">20</argument>
                 </arguments>
             </block>
         </referenceBlock>

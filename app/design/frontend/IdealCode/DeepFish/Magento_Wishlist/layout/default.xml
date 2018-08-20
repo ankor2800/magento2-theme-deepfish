@@ -32,7 +32,7 @@
                 <arguments>
                     <argument name="path" xsi:type="helper" helper="Magento\Wishlist\Helper\Data::getListUrl" />
                     <argument name="label" xsi:type="string">My Wishlist</argument>
-                    <argument name="sortOrder" xsi:type="number">20</argument>
+                    <argument name="sortOrder" xsi:type="number">30</argument>
                 </arguments>
             </block>
         </referenceBlock>
@@ -56,7 +56,7 @@
                 <arguments>
                     <argument name="path" xsi:type="helper" helper="Magento\Wishlist\Helper\Data::getListUrl" />
                     <argument name="label" xsi:type="string">My Wishlist</argument>
-                    <argument name="sortOrder" xsi:type="number">160</argument>
+                    <argument name="sortOrder" xsi:type="number">30</argument>
                 </arguments>
             </block>
         </referenceBlock>

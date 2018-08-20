@@ -10,7 +10,7 @@
                 <arguments>
                     <argument name="label" xsi:type="string">Contact Us</argument>
                     <argument name="path" xsi:type="string">contact</argument>
-                    <argument name="sortOrder" xsi:type="number">90</argument>
+                    <argument name="sortOrder" xsi:type="number">110</argument>
                 </arguments>
             </block>
         </referenceBlock>

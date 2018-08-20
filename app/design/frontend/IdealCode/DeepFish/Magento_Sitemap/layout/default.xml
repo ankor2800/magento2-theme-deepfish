@@ -7,7 +7,7 @@
                 <arguments>
                     <argument name="label" xsi:type="string">Site map</argument>
                     <argument name="path" xsi:type="string">sitemap</argument>
-                    <argument name="sortOrder" xsi:type="number">50</argument>
+                    <argument name="sortOrder" xsi:type="number">140</argument>
                 </arguments>
             </block>
         </referenceBlock>
