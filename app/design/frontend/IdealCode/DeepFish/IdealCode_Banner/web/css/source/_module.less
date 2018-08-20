@@ -40,11 +40,17 @@
         > div {
             position: absolute;
             top: 0;
+            bottom: 0;
             width: 100%;
             text-align: center;
-            padding: 14% 0 0 0;
             opacity: 0;
             .lib-css(transition, opacity .4s linear 0s, 1);
+            .lib-vendor-box-align(center);
+            .lib-vendor-prefix-display();
+
+            > div {
+                width: 100%;
+            }
 
             h3, h2 {
                 .lib-css(color, @color-white);

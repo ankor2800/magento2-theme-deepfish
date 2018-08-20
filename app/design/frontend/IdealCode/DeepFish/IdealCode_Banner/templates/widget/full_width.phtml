@@ -27,11 +27,12 @@ $items = $block->getItems();
                 <?php endif;?>
                 <?php if (strlen($item->getContent()) > 0):?>
                     <div>
-                        <?=$item->getContent()?>
+                        <div>
+                            <?=$item->getContent()?>
+                        </div>
                     </div>
                 <?php endif;?>
             </div>
         <?php endforeach; ?>
     </div>
 <?php endif; ?>
-
