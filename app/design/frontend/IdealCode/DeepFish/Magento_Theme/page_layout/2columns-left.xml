@@ -5,7 +5,7 @@
 
     <referenceContainer name="columns" htmlTag="div" htmlClass="columns">
         <container name="div.sidebar.main" htmlTag="div" htmlClass="sidebar sidebar-main" before="main">
-            <container name="sidebar.main" as="sidebar_main" label="Sidebar Main" />
+            <container name="sidebar.main" as="sidebar_main" label="Sidebar Main" before="-" />
             <container name="sidebar.additional" as="sidebar_additional" label="Sidebar Additional" />
         </container>
     </referenceContainer>

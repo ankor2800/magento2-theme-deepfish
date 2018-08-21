@@ -1,0 +1,22 @@
+<?php
+/**
+ * Account navigation
+ *
+ * @var \Magento\Customer\Block\Account\Navigation $block
+ */
+
+$links = $block->getLinks();
+$cssClass = $block->getData('css_class');
+?>
+<?php if(count($links) > 0): ?>
+    <div class="block<?php if($cssClass): ?> <?= $cssClass ?><?php endif; ?>">
+        <h2><?= __('My Account') ?></h2>
+        <ul>
+            <?php /** @var \Magento\Framework\View\Element\Template $link */?>
+            <?php foreach($links as $link): ?>
+                <?php $link->setTemplate('account/sort-link.phtml'); ?>
+                <?= $block->renderLink($link) ?>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>

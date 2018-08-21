@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Set navigation position -->
+        <referenceBlock name="customer_account_navigation" template="Magento_Customer::account/navigation.phtml">
+            <arguments>
+                <argument name="css_class" xsi:type="string">account-nav</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="sidebar.main.account_nav" remove="true" />
+
+        <move element="customer_account_navigation" destination="sidebar.main" before="-" />
+
+        <!-- Navigation points -->
+        <referenceBlock name="customer-account-navigation-account-edit-link">
+            <arguments>
+                <argument name="sortOrder" xsi:type="number">240</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceBlock name="customer-account-navigation-address-link">
+            <arguments>
+                <argument name="sortOrder" xsi:type="number">230</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceBlock name="customer-account-navigation-delimiter-1" remove="true" />
+        <referenceBlock name="customer-account-navigation-delimiter-2" remove="true" />
+    </body>
+</page>

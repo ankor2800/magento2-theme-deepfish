@@ -1,0 +1,10 @@
+<?php
+/**
+ * Link in account navigation menu
+ *
+ * @var \Magento\Customer\Block\Account\SortLink $block
+ */
+?>
+<li<?php if($block->isCurrent()): ?> class="current"<?php endif; ?>>
+    <a href="<?= $block->getHref() ?>"><?= __($block->getLabel()) ?></a>
+</li>

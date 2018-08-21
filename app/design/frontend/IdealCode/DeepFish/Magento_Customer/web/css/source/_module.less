@@ -35,3 +35,23 @@ header {
         }
     }
 }
+
+.account {
+    .sidebar {
+        .block.account-nav {
+            li {
+                margin: 7px 0;
+
+                a {
+                    .lib-link-reverse(@text__color, @color-gray20);
+                }
+
+                &.current {
+                    a {
+                        .lib-css(color, @color-gray20);
+                    }
+                }
+            }
+        }
+    }
+}
