@@ -1,60 +1,63 @@
-header {
-    .navigation {
-        .content {
-            .wrapper {
-                position: relative;
+// Common styles
+& when (@media-common = true) {
+    header {
+        .navigation {
+            .content {
+                .wrapper {
+                    position: relative;
 
-                .search {
-                    a.action {
-                        .lib-link-reverse(@color-white);
-
-                        &:before {
-                            .lib-font-size(34px);
-                            .lib-line-height(70px);
-                            .lib-icon-symbol(@icon-search);
-                        }
-                    }
-
-                    form[name=search] {
-                        display: none;
-                        padding: 0 50px 0 0;
-                        position: absolute;
-                        left: 0;
-                        right: 0;
-                        top: 5px;
-                        .lib-css(background-color, @color-gray);
-
-                        .input-box {
-                            &:before {
-                                position: absolute;
-                                left: 19px;
-                                top: 4px;
-                                .lib-font-size(34px);
-                                .lib-css(color, @color-white);
-                                .lib-icon-symbol(@icon-search);
-                            }
-
-                            input {
-                                padding: 0 10px 0 75px;
-                                .lib-line-height(@line-height__base);
-                            }
-
-                            .mage-error[generated] {
-                                left: 77px;
-                            }
-                        }
-
-                        .close {
-                            position: absolute;
-                            right: -2px;
-                            top: 0;
-                            height: 60px;
-                            .lib-font-size(34px);
-                            .lib-line-height(60px);
+                    .search {
+                        a.action {
                             .lib-link-reverse(@color-white);
 
                             &:before {
-                                .lib-icon-symbol(@icon-close);
+                                .lib-font-size(34px);
+                                .lib-line-height(70px);
+                                .lib-icon-symbol(@icon-search);
+                            }
+                        }
+
+                        form[name=search] {
+                            display: none;
+                            padding: 0 50px 0 0;
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            top: 5px;
+                            .lib-css(background-color, @color-gray);
+
+                            .input-box {
+                                &:before {
+                                    position: absolute;
+                                    left: 19px;
+                                    top: 4px;
+                                    .lib-font-size(34px);
+                                    .lib-css(color, @color-white);
+                                    .lib-icon-symbol(@icon-search);
+                                }
+
+                                input {
+                                    padding: 0 10px 0 75px;
+                                    .lib-line-height(@line-height__base);
+                                }
+
+                                .mage-error[generated] {
+                                    left: 77px;
+                                }
+                            }
+
+                            .close {
+                                position: absolute;
+                                right: -2px;
+                                top: 0;
+                                height: 60px;
+                                .lib-font-size(34px);
+                                .lib-line-height(60px);
+                                .lib-link-reverse(@color-white);
+
+                                &:before {
+                                    .lib-icon-symbol(@icon-close);
+                                }
                             }
                         }
                     }

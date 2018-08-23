@@ -1,23 +1,26 @@
-header {
-    .header {
-        .phone {
-            text-align: right;
-            margin: 4px 23px 0 0;
+// Common styles
+& when (@media-common = true) {
+    header {
+        .header {
+            .phone {
+                text-align: right;
+                margin: 4px 23px 0 0;
 
-            .callto {
-                display: inline-block;
-                margin-bottom: -5px;
-                .lib-link-reverse();
-                .lib-font-size(@font-size__xl);
-                .lib-css(font-weight, @font-weight__heavybold);
-                .lib-css(transition, color 0.3s ease, 1);
-
-                .material-icons {
-                    margin-right: 4px;
-                    vertical-align: top;
-                    .lib-line-height(29px);
-                    .lib-css(color, @color-gray);
+                .callto {
+                    display: inline-block;
+                    margin-bottom: -5px;
+                    .lib-link-reverse();
+                    .lib-font-size(@font-size__xl);
                     .lib-css(font-weight, @font-weight__heavybold);
+                    .lib-css(transition, color 0.3s ease, 1);
+
+                    .material-icons {
+                        margin-right: 4px;
+                        vertical-align: top;
+                        .lib-line-height(29px);
+                        .lib-css(color, @color-gray);
+                        .lib-css(font-weight, @font-weight__heavybold);
+                    }
                 }
             }
         }

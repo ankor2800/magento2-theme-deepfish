@@ -1,33 +1,36 @@
-main {
-    .product-list {
-        .item {
-            .wrapper {
-                .details {
-                    .rating-summary {
-                        margin: 22px 0 1px 0;
-                        .lib-css(justify-content, center, 1);
+// Common styles
+& when (@media-common = true) {
+    main {
+        .product-list {
+            .item {
+                .wrapper {
+                    .details {
+                        .rating-summary {
+                            margin: 22px 0 1px 0;
+                            .lib-css(justify-content, center, 1);
 
-                        .links {
-                            a {
-                                display: none;
+                            .links {
+                                a {
+                                    display: none;
+                                }
                             }
                         }
                     }
                 }
             }
-        }
 
-        &.list {
-            .item {
-                .wrapper {
-                    .details {
-                        .rating-summary {
-                            margin-top: 20px;
-                            .lib-css(justify-content, start, 1);
+            &.list {
+                .item {
+                    .wrapper {
+                        .details {
+                            .rating-summary {
+                                margin-top: 20px;
+                                .lib-css(justify-content, start, 1);
 
-                            .links {
-                                a {
-                                    display: inline-block;
+                                .links {
+                                    a {
+                                        display: inline-block;
+                                    }
                                 }
                             }
                         }
@@ -36,12 +39,12 @@ main {
             }
         }
     }
-}
 
-.catalog-product-view {
-    .product-info {
-        .rating-summary {
-            margin: -1px 0 18px 0;
+    .catalog-product-view {
+        .product-info {
+            .rating-summary {
+                margin: -1px 0 18px 0;
+            }
         }
     }
 }

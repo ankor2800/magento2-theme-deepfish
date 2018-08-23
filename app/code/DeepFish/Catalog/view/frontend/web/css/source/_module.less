@@ -1,55 +1,58 @@
-.content {
-    .index-category {
-        padding-bottom: 50px;
+// Common styles
+& when (@media-common = true) {
+    .content {
+        .index-category {
+            padding-bottom: 50px;
 
-        .item {
-            width: round(100%/3, 5);
+            .item {
+                width: round(100%/3, 5);
 
-            .wrapper {
-                height: 100%;
-                border: solid 1px #e1e1e8;
-                background-size: cover;
+                .wrapper {
+                    height: 100%;
+                    border: solid 1px #e1e1e8;
+                    background-size: cover;
 
-                > div {
-                    padding: 32px 0px 49px 50px;
+                    > div {
+                        padding: 32px 0px 49px 50px;
 
-                    h2 {
-                        margin: 0 0 22px;
-                        .lib-font-size(44px);
-                        .lib-css(font-weight, @font-weight__heavybold);
-                        .lib-css(color, @color-gray);
-                    }
+                        h2 {
+                            margin: 0 0 22px;
+                            .lib-font-size(44px);
+                            .lib-css(font-weight, @font-weight__heavybold);
+                            .lib-css(color, @color-gray);
+                        }
 
-                    ul {
-                        padding-bottom: 14px;
+                        ul {
+                            padding-bottom: 14px;
 
-                        li {
-                            margin: 0 0 8px;
+                            li {
+                                margin: 0 0 8px;
 
-                            a {
-                                transition: padding 0.3s ease;
-                                .lib-link-reverse();
+                                a {
+                                    transition: padding 0.3s ease;
+                                    .lib-link-reverse();
 
-                                &:hover {
-                                    padding-left: 5px;
+                                    &:hover {
+                                        padding-left: 5px;
+                                    }
                                 }
                             }
                         }
-                    }
 
-                    .see-all {
-                        position: relative;
-                        text-transform: uppercase;
-                        padding: 0 15px 0 0;
-                        .lib-font-size(16px);
-                        .lib-css(font-weight, @font-weight__heavybold);
+                        .see-all {
+                            position: relative;
+                            text-transform: uppercase;
+                            padding: 0 15px 0 0;
+                            .lib-font-size(16px);
+                            .lib-css(font-weight, @font-weight__heavybold);
 
-                        &:after {
-                            position: absolute;
-                            right: -9px;
-                            top: -6px;
-                            .lib-font-size(23px);
-                            .lib-icon-symbol(@icon-chevron-right);
+                            &:after {
+                                position: absolute;
+                                right: -9px;
+                                top: -6px;
+                                .lib-font-size(23px);
+                                .lib-icon-symbol(@icon-chevron-right);
+                            }
                         }
                     }
                 }

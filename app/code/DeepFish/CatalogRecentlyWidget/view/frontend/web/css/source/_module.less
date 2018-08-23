@@ -1,15 +1,18 @@
-main {
-    .sidebar {
-        .block.recently {
-            .item {
-                .details {
-                    > div + div {
-                        margin-top: 5px;
-                    }
+// Common styles
+& when (@media-common = true) {
+    main {
+        .sidebar {
+            .block.recently {
+                .item {
+                    .details {
+                        > div + div {
+                            margin-top: 5px;
+                        }
 
-                    .price {
-                        .lib-css(color, @color-gray);
-                        .lib-css(font-weight, @font-weight__heavybold);
+                        .price {
+                            .lib-css(color, @color-gray);
+                            .lib-css(font-weight, @font-weight__heavybold);
+                        }
                     }
                 }
             }

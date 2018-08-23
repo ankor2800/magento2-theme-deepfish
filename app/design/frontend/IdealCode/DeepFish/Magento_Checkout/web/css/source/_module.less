@@ -1,115 +1,118 @@
 @import 'module/_minicart.less';
 
-main {
-    .product-list {
-        .item {
-            .wrapper {
-                .details {
-                    .add-to-cart {
-                        border: 2px solid;
-                        margin-top: 24px;
-                        .lib-vendor-prefix-display();
-                        .lib-css(border-color, @color-gray);
-                        .lib-css(justify-content, space-between, 1);
-                        .lib-css(transition, background 0.2s ease-in-out, 1);
-
-                        .prices {
-                            padding: 7px 11px 7px 16px;
-                            text-align: left;
-
-                            .price {
-                                .lib-font-size(28px);
-                                .lib-css(transition, color 0.2s ease-in-out, 1);
-
-                                .special-price {
-                                    margin-top: -7px;
-                                    .lib-css(transition, color 0.2s ease-in-out, 1);
-                                }
-                                .old-price {
-                                    margin: -9px 0 -5px 0;
-                                    .lib-font-size(@font-size__base);
-                                }
-                            }
-                        }
-
-                        a {
-                            width: 59px;
-                            border-left: 1px solid;
-                            .lib-css(color, @color-gray);
-                            .lib-css(border-color, @color-gray);
+// Common styles
+& when (@media-common = true) {
+    main {
+        .product-list {
+            .item {
+                .wrapper {
+                    .details {
+                        .add-to-cart {
+                            border: 2px solid;
+                            margin-top: 24px;
                             .lib-vendor-prefix-display();
-                            .lib-vendor-box-align(center);
-                            .lib-css(justify-content, center, 1);
+                            .lib-css(border-color, @color-gray);
+                            .lib-css(justify-content, space-between, 1);
+                            .lib-css(transition, background 0.2s ease-in-out, 1);
 
-                            &:before {
-                                position: relative;
-                                .lib-font-size(34px);
-                                .lib-icon-symbol(@icon-add-shopping-cart);
-                            }
+                            .prices {
+                                padding: 7px 11px 7px 16px;
+                                text-align: left;
 
-                            &.required-options {
-                                &:before {
-                                    top: 1px;
-                                    .lib-css(content, @icon-info-outline);
-                                }
-                            }
-                        }
+                                .price {
+                                    .lib-font-size(28px);
+                                    .lib-css(transition, color 0.2s ease-in-out, 1);
 
-                        &.in-cart {
-                            a:before {
-                                .lib-css(content, @icon-remove-shopping-cart);
-                            }
-                        }
-
-                        &:hover,
-                        &.in-cart {
-                            .lib-css(background, @color-blue);
-
-                            .prices .price {
-                                .lib-css(color, @color-white);
-
-                                .special-price {
-                                    .lib-css(color, @color-white);
+                                    .special-price {
+                                        margin-top: -7px;
+                                        .lib-css(transition, color 0.2s ease-in-out, 1);
+                                    }
+                                    .old-price {
+                                        margin: -9px 0 -5px 0;
+                                        .lib-font-size(@font-size__base);
+                                    }
                                 }
                             }
 
                             a {
-                                .lib-css(color, @color-white);
+                                width: 59px;
+                                border-left: 1px solid;
+                                .lib-css(color, @color-gray);
+                                .lib-css(border-color, @color-gray);
+                                .lib-vendor-prefix-display();
+                                .lib-vendor-box-align(center);
+                                .lib-css(justify-content, center, 1);
+
+                                &:before {
+                                    position: relative;
+                                    .lib-font-size(34px);
+                                    .lib-icon-symbol(@icon-add-shopping-cart);
+                                }
+
+                                &.required-options {
+                                    &:before {
+                                        top: 1px;
+                                        .lib-css(content, @icon-info-outline);
+                                    }
+                                }
+                            }
+
+                            &.in-cart {
+                                a:before {
+                                    .lib-css(content, @icon-remove-shopping-cart);
+                                }
+                            }
+
+                            &:hover,
+                            &.in-cart {
+                                .lib-css(background, @color-blue);
+
+                                .prices .price {
+                                    .lib-css(color, @color-white);
+
+                                    .special-price {
+                                        .lib-css(color, @color-white);
+                                    }
+                                }
+
+                                a {
+                                    .lib-css(color, @color-white);
+                                }
                             }
                         }
                     }
                 }
             }
-        }
 
-        &.list {
-            .item {
-                .wrapper {
-                    .details {
-                        .add-to-cart {
-                            max-width: 246px;
+            &.list {
+                .item {
+                    .wrapper {
+                        .details {
+                            .add-to-cart {
+                                max-width: 246px;
 
-                            .prices {
-                                padding: 11px 11px 11px 16px;
+                                .prices {
+                                    padding: 11px 11px 11px 16px;
 
-                                .price {
-                                    .special-price {
-                                        margin-top: -4px;
-                                    }
-                                    .old-price {
-                                        margin: -9px 0 0 0;
+                                    .price {
+                                        .special-price {
+                                            margin-top: -4px;
+                                        }
+                                        .old-price {
+                                            margin: -9px 0 0 0;
+                                        }
                                     }
                                 }
-                            }
 
-                            a {
-                                &:before {
-                                    top: -1px;
-                                }
-
-                                &.required-options {
+                                a {
                                     &:before {
-                                        top: 0;
+                                        top: -1px;
+                                    }
+
+                                    &.required-options {
+                                        &:before {
+                                            top: 0;
+                                        }
                                     }
                                 }
                             }
@@ -119,15 +122,15 @@ main {
             }
         }
     }
-}
 
-button,
-.button {
-    &.checkout {
-        padding: 0 30px;
-        border: 0;
-        .lib-css(color, @color-white);
-        .lib-css(background, @color-blue);
-        .lib-line-height(58px);
+    button,
+    .button {
+        &.checkout {
+            padding: 0 30px;
+            border: 0;
+            .lib-css(color, @color-white);
+            .lib-css(background, @color-blue);
+            .lib-line-height(58px);
+        }
     }
 }

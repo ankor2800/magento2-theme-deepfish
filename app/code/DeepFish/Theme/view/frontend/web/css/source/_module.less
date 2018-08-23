@@ -1,27 +1,30 @@
-header {
-    .panel {
-        .content {
-            .right {
-                .socials {
-                    margin: -1px 0 0 4px;
-                    .lib-font-size(16px);
+// Common styles
+& when (@media-common = true) {
+    header {
+        .panel {
+            .content {
+                .right {
+                    .socials {
+                        margin: -1px 0 0 4px;
+                        .lib-font-size(16px);
 
-                    a {
-                        margin: 0 0 0 24px;
+                        a {
+                            margin: 0 0 0 24px;
+                        }
                     }
                 }
             }
         }
     }
-}
 
-footer {
-    .socials {
-        margin: 0 0 15px;
-        .lib-font-size(26px);
+    footer {
+        .socials {
+            margin: 0 0 15px;
+            .lib-font-size(26px);
 
-        a {
-            margin: 0 19px;
+            a {
+                margin: 0 19px;
+            }
         }
     }
 }

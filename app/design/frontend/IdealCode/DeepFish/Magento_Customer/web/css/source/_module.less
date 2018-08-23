@@ -1,32 +1,35 @@
-header {
-    .panel {
-        .content {
-            .right {
-                .customer {
-                    text-transform: uppercase;
-                    margin: 0 0 0 30px;
-                    width: 90px;
-                    .lib-vendor-prefix-display();
+// Common styles
+& when (@media-common = true) {
+    header {
+        .panel {
+            .content {
+                .right {
+                    .customer {
+                        text-transform: uppercase;
+                        margin: 0 0 0 30px;
+                        width: 90px;
+                        .lib-vendor-prefix-display();
 
-                    &.active {
-                        a {
-                            .lib-vendor-prefix-display();
-                            .lib-vendor-box-align(center);
+                        &.active {
+                            a {
+                                .lib-vendor-prefix-display();
+                                .lib-vendor-box-align(center);
 
-                            &:before {
-                                text-align: center;
-                                margin: 1px 10px 0 0;
-                                width: 19px;
-                                height: 19px;
-                                .lib-line-height(19px);
-                                .lib-icon-symbol(@icon-lock);
-                                .lib-css(color, @color-white);
-                                .lib-css(background-color, @color-gray);
-                                .lib-css(transition, background 0.3s ease, 1);
-                            }
+                                &:before {
+                                    text-align: center;
+                                    margin: 1px 10px 0 0;
+                                    width: 19px;
+                                    height: 19px;
+                                    .lib-line-height(19px);
+                                    .lib-icon-symbol(@icon-lock);
+                                    .lib-css(color, @color-white);
+                                    .lib-css(background-color, @color-gray);
+                                    .lib-css(transition, background 0.3s ease, 1);
+                                }
 
-                            &:hover:before {
-                                .lib-css(background-color, @color-blue);
+                                &:hover:before {
+                                    .lib-css(background-color, @color-blue);
+                                }
                             }
                         }
                     }
@@ -34,21 +37,21 @@ header {
             }
         }
     }
-}
 
-.account {
-    .sidebar {
-        .block.account-nav {
-            li {
-                margin: 7px 0;
+    .account {
+        .sidebar {
+            .block.account-nav {
+                li {
+                    margin: 7px 0;
 
-                a {
-                    .lib-link-reverse(@text__color, @color-gray20);
-                }
-
-                &.current {
                     a {
-                        .lib-css(color, @color-gray20);
+                        .lib-link-reverse(@text__color, @color-gray20);
+                    }
+
+                    &.current {
+                        a {
+                            .lib-css(color, @color-gray20);
+                        }
                     }
                 }
             }

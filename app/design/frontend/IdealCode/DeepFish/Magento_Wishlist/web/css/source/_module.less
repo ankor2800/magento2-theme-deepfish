@@ -1,73 +1,76 @@
-header {
-    .panel {
-        .links {
-            li {
-                a {
-                    & .counter {
-                        margin-left: 4px;
-                    }
-                }
-            }
-        }
-    }
-
-    .header {
-        .dropdown.wishlist {
-            .action:before {
-                .lib-css(content, @icon-favorite-border);
-            }
-
-            .dialog {
-                .item {
-                    .details {
-                        .lib-vendor-box-align(flex-start);
-                        .lib-vendor-prefix-flex-direction();
-                        .lib-vendor-prefix-display();
-
-                        > a {
-                            order: 1;
+// Common styles
+& when (@media-common = true) {
+    header {
+        .panel {
+            .links {
+                li {
+                    a {
+                        & .counter {
+                            margin-left: 4px;
                         }
                     }
                 }
-
-                .actions {
-                    .lib-css(justify-content, flex-end, 1);
-                }
             }
         }
-    }
-}
 
-main {
-    .sidebar {
-        .block.wishlist {
-            .item {
-                .details {
-                    .name {
-                        margin-bottom: 5px;
-                    }
-
-                    > a {
-                        text-transform: uppercase;
-                    }
+        .header {
+            .dropdown.wishlist {
+                .action:before {
+                    .lib-css(content, @icon-favorite-border);
                 }
-            }
-        }
-    }
 
-    .product-list {
-        .item {
-            .wrapper {
-                .details {
-                    .add-to {
-                        .wishlist {
-                            &:before {
-                                .lib-css(content, @icon-favorite-border);
+                .dialog {
+                    .item {
+                        .details {
+                            .lib-vendor-box-align(flex-start);
+                            .lib-vendor-prefix-flex-direction();
+                            .lib-vendor-prefix-display();
+
+                            > a {
+                                order: 1;
                             }
+                        }
+                    }
 
-                            &.in-list {
+                    .actions {
+                        .lib-css(justify-content, flex-end, 1);
+                    }
+                }
+            }
+        }
+    }
+
+    main {
+        .sidebar {
+            .block.wishlist {
+                .item {
+                    .details {
+                        .name {
+                            margin-bottom: 5px;
+                        }
+
+                        > a {
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+            }
+        }
+
+        .product-list {
+            .item {
+                .wrapper {
+                    .details {
+                        .add-to {
+                            .wishlist {
                                 &:before {
-                                    .lib-css(content, @icon-favorite);
+                                    .lib-css(content, @icon-favorite-border);
+                                }
+
+                                &.in-list {
+                                    &:before {
+                                        .lib-css(content, @icon-favorite);
+                                    }
                                 }
                             }
                         }
@@ -76,20 +79,20 @@ main {
             }
         }
     }
-}
 
-.catalog-product-view {
-    .product-info {
-        .add-to {
-            a.wishlist {
-                &:before {
-                    top: -5px;
-                    .lib-css(content, @icon-favorite-border);
-                }
-
-                &.in-list {
+    .catalog-product-view {
+        .product-info {
+            .add-to {
+                a.wishlist {
                     &:before {
-                        .lib-css(content, @icon-favorite);
+                        top: -5px;
+                        .lib-css(content, @icon-favorite-border);
+                    }
+
+                    &.in-list {
+                        &:before {
+                            .lib-css(content, @icon-favorite);
+                        }
                     }
                 }
             }

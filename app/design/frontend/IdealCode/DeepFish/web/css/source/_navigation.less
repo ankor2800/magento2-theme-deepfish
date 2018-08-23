@@ -1,198 +1,201 @@
-.navigation {
-    .lib-css(background, @navigation-desktop__background);
+// Common styles
+& when (@media-common = true) {
+    .navigation {
+        .lib-css(background, @navigation-desktop__background);
 
-    .menu {
-        overflow: hidden;
-        .lib-vendor-prefix-display();
-        .lib-vendor-prefix-flex-grow(1);
-
-        > ul {
+        .menu {
+            overflow: hidden;
             .lib-vendor-prefix-display();
+            .lib-vendor-prefix-flex-grow(1);
 
-            .divider {
-                width: 1px;
-                padding: 0;
-                margin: 22px 30px;
-                .lib-css(background, @navigation-desktop-level0-item__color);
-
-                &:last-child {
-                    display: none;
-                }
-            }
-
-            > li {
-                .lib-css(padding, @navigation-desktop-level0-item__padding);
+            > ul {
                 .lib-vendor-prefix-display();
 
-                > a {
-                    white-space: nowrap;
-                    text-transform: uppercase;
-                    .lib-css(color, @navigation-desktop-level0-item__color);
-                    .lib-css(font-weight, @font-weight__heavybold);
-                    .lib-font-size(16px);
+                .divider {
+                    width: 1px;
+                    padding: 0;
+                    margin: 22px 30px;
+                    .lib-css(background, @navigation-desktop-level0-item__color);
+
+                    &:last-child {
+                        display: none;
+                    }
+                }
+
+                > li {
+                    .lib-css(padding, @navigation-desktop-level0-item__padding);
                     .lib-vendor-prefix-display();
-                }
 
-                &.parent {
                     > a {
-                        &:after {
-                            content: '\f107';
-                            font-family: 'FontAwesome';
-                            width: 20px;
-                            text-align: center;
-                            .lib-css(font-weight, @font-weight__regular);
-                            .lib-css(color, @navigation-desktop-level0-item__color);
-                            .lib-line-height(22px);
-                        }
-                    }
-                }
-
-                &.active,
-                &.has-active {
-                    > a {
-                        .lib-css(color, @navigation-desktop-level0-item__active__color);
-                    }
-                }
-
-                &:hover {
-                    > a {
-                        .lib-css(color, @navigation-desktop-level0-item__hover__color);
-                    }
-                }
-
-                .submenu {
-                    z-index: 3;
-                    display: none;
-                    position: absolute;
-                    .lib-css(background, @submenu-desktop__background);
-                    .lib-css(padding, @submenu-desktop__padding);
-
-                    &.open {
-                        opacity: 0;
+                        white-space: nowrap;
+                        text-transform: uppercase;
+                        .lib-css(color, @navigation-desktop-level0-item__color);
+                        .lib-css(font-weight, @font-weight__heavybold);
+                        .lib-font-size(16px);
                         .lib-vendor-prefix-display();
                     }
 
-                    > ul {
-                        li {
-                            position: relative;
-                            padding: 5px 0;
-                            margin-bottom: 10px;
-
-                            a {
-                                white-space: nowrap;
-                                position: relative;
-                                .lib-css(color, @submenu-desktop-item__color);
-                                .lib-css(padding, @submenu-desktop-item__padding);
-
-                                &:before {
-                                    position: absolute;
-                                    left: 0;
-                                    width: 19px;
-                                    text-align: center;
-                                    margin-top: 1px;
-                                    .lib-css(transition, left 0.2s ease-in-out 0s, 1);
-                                    .lib-icon-symbol(@icon-chevron-right);
-                                    .lib-css(background, @color-white);
-                                    .lib-css(color, @color-blue);
-                                    .lib-line-height(19px);
-                                    .lib-font-size(16px);
-                                }
-
-                                &:hover {
-                                    .lib-css(color, @submenu-desktop-item__hover__color);
-
-                                    &:before {
-                                        left: 4px;
-                                    }
-                                }
-                            }
-
-                            &.active,
-                            &.has-active {
-                                > a {
-                                    .lib-css(color, @submenu-desktop-item__active__color);
-                                }
-                            }
-
-                            &:last-child {
-                                margin-bottom: 0;
-                            }
-
-                            ul {
-                                z-index: 3;
-                                display: none;
-                                position: absolute;
-                                padding: 25px 30px;
-                                .lib-css(background, @submenu-desktop__background);
-                                .lib-css(box-shadow, 0 0 20px rgba(0, 0, 0, 0.15), 1);
-
-                                &.open {
-                                    opacity: 0;
-                                    display: block;
-                                }
+                    &.parent {
+                        > a {
+                            &:after {
+                                content: '\f107';
+                                font-family: 'FontAwesome';
+                                width: 20px;
+                                text-align: center;
+                                .lib-css(font-weight, @font-weight__regular);
+                                .lib-css(color, @navigation-desktop-level0-item__color);
+                                .lib-line-height(22px);
                             }
                         }
                     }
 
-                    .banner {
-                        margin: 5px 0 5px 50px;
-                        position: relative;
+                    &.active,
+                    &.has-active {
+                        > a {
+                            .lib-css(color, @navigation-desktop-level0-item__active__color);
+                        }
+                    }
 
-                        a {
-                            .over {
-                                position: absolute;
-                                top: 0;
-                                bottom: 0;
-                                left: 0;
-                                right: 0;
+                    &:hover {
+                        > a {
+                            .lib-css(color, @navigation-desktop-level0-item__hover__color);
+                        }
+                    }
 
-                                .lib-url('images/banner-hover.png', 'DeepFish_Theme');
-                                background: url(@url);
-                            }
+                    .submenu {
+                        z-index: 3;
+                        display: none;
+                        position: absolute;
+                        .lib-css(background, @submenu-desktop__background);
+                        .lib-css(padding, @submenu-desktop__padding);
 
-                            .inner {
-                                position: absolute;
-                                bottom: 7%;
-                                text-align: center;
-                                .lib-css(color, @color-white);
+                        &.open {
+                            opacity: 0;
+                            .lib-vendor-prefix-display();
+                        }
 
-                                .title {
-                                    display: block;
-                                    text-transform: uppercase;
-                                    margin-bottom: 8px;
-                                    .lib-css(font-weight, @font-weight__heavybold);
-                                    .lib-line-height(1.1);
-                                    .lib-font-size(37px);
+                        > ul {
+                            li {
+                                position: relative;
+                                padding: 5px 0;
+                                margin-bottom: 10px;
+
+                                a {
+                                    white-space: nowrap;
+                                    position: relative;
+                                    .lib-css(color, @submenu-desktop-item__color);
+                                    .lib-css(padding, @submenu-desktop-item__padding);
+
+                                    &:before {
+                                        position: absolute;
+                                        left: 0;
+                                        width: 19px;
+                                        text-align: center;
+                                        margin-top: 1px;
+                                        .lib-css(transition, left 0.2s ease-in-out 0s, 1);
+                                        .lib-icon-symbol(@icon-chevron-right);
+                                        .lib-css(background, @color-white);
+                                        .lib-css(color, @color-blue);
+                                        .lib-line-height(19px);
+                                        .lib-font-size(16px);
+                                    }
+
+                                    &:hover {
+                                        .lib-css(color, @submenu-desktop-item__hover__color);
+
+                                        &:before {
+                                            left: 4px;
+                                        }
+                                    }
                                 }
-                                .text {
-                                    display: block;
-                                    margin-bottom: 30px;
-                                    .lib-line-height(1.4);
+
+                                &.active,
+                                &.has-active {
+                                    > a {
+                                        .lib-css(color, @submenu-desktop-item__active__color);
+                                    }
                                 }
-                                .link {
-                                    display: inline-block;
-                                    min-width: 148px;
-                                    letter-spacing: .3px;
-                                    text-transform: uppercase;
-                                    border: 2px solid;
-                                    .lib-css(font-weight, @font-weight__bold);
-                                    .lib-css(border-color, @color-white);
-                                    .lib-line-height(56px);
+
+                                &:last-child {
+                                    margin-bottom: 0;
+                                }
+
+                                ul {
+                                    z-index: 3;
+                                    display: none;
+                                    position: absolute;
+                                    padding: 25px 30px;
+                                    .lib-css(background, @submenu-desktop__background);
+                                    .lib-css(box-shadow, 0 0 20px rgba(0, 0, 0, 0.15), 1);
+
+                                    &.open {
+                                        opacity: 0;
+                                        display: block;
+                                    }
                                 }
                             }
+                        }
 
-                            .over,
-                            .link {
-                                .lib-css(transition, 0.3s all cubic-bezier(0.785, 0.135, 0.15, 0.86), 1);
-                            }
+                        .banner {
+                            margin: 5px 0 5px 50px;
+                            position: relative;
 
-                            &:hover {
+                            a {
                                 .over {
-                                    opacity: 0;
+                                    position: absolute;
+                                    top: 0;
+                                    bottom: 0;
+                                    left: 0;
+                                    right: 0;
+
+                                    .lib-url('images/banner-hover.png', 'DeepFish_Theme');
+                                    background: url(@url);
                                 }
+
+                                .inner {
+                                    position: absolute;
+                                    bottom: 7%;
+                                    text-align: center;
+                                    .lib-css(color, @color-white);
+
+                                    .title {
+                                        display: block;
+                                        text-transform: uppercase;
+                                        margin-bottom: 8px;
+                                        .lib-css(font-weight, @font-weight__heavybold);
+                                        .lib-line-height(1.1);
+                                        .lib-font-size(37px);
+                                    }
+                                    .text {
+                                        display: block;
+                                        margin-bottom: 30px;
+                                        .lib-line-height(1.4);
+                                    }
+                                    .link {
+                                        display: inline-block;
+                                        min-width: 148px;
+                                        letter-spacing: .3px;
+                                        text-transform: uppercase;
+                                        border: 2px solid;
+                                        .lib-css(font-weight, @font-weight__bold);
+                                        .lib-css(border-color, @color-white);
+                                        .lib-line-height(56px);
+                                    }
+                                }
+
+                                .over,
                                 .link {
-                                    .lib-css(background, @color-white);
-                                    .lib-css(color, @color-gray);
+                                    .lib-css(transition, 0.3s all cubic-bezier(0.785, 0.135, 0.15, 0.86), 1);
+                                }
+
+                                &:hover {
+                                    .over {
+                                        opacity: 0;
+                                    }
+                                    .link {
+                                        .lib-css(background, @color-white);
+                                        .lib-css(color, @color-gray);
+                                    }
                                 }
                             }
                         }

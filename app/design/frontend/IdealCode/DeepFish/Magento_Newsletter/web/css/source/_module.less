@@ -1,39 +1,42 @@
-footer {
-    .subscribe {
-        margin: 0 0 23px;
+// Common styles
+& when (@media-common = true) {
+    footer {
+        .subscribe {
+            margin: 0 0 23px;
 
-        h2 {
-            margin: 0 0 3px;
-            .lib-font-size(44px);
-            .lib-css(color, @color-blue);
-            .lib-css(font-weight, @font-weight__heavybold);
-        }
+            h2 {
+                margin: 0 0 3px;
+                .lib-font-size(44px);
+                .lib-css(color, @color-blue);
+                .lib-css(font-weight, @font-weight__heavybold);
+            }
 
-        h3 {
-            margin: 0 0 22px;
-            .lib-font-size(24px);
-            .lib-css(color, @color-blue);
-        }
+            h3 {
+                margin: 0 0 22px;
+                .lib-font-size(24px);
+                .lib-css(color, @color-blue);
+            }
 
-        .input-box {
-            position: relative;
-            max-width: 390px;
-            margin: 0 auto;
+            .input-box {
+                position: relative;
+                max-width: 390px;
+                margin: 0 auto;
 
-            input {
-                padding: 0 24px;
+                input {
+                    padding: 0 24px;
 
-                &.mage-error {
-                    .lib-css(background-color, @input-text-validation__background-error);
+                    &.mage-error {
+                        .lib-css(background-color, @input-text-validation__background-error);
+                    }
                 }
-            }
 
-            button {
-                letter-spacing: 0.45px;
-            }
+                button {
+                    letter-spacing: 0.45px;
+                }
 
-            .mage-error[generated] {
-                left: 2px;
+                .mage-error[generated] {
+                    left: 2px;
+                }
             }
         }
     }

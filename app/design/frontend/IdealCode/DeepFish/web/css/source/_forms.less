@@ -1,65 +1,68 @@
-input {
-    .lib-css(background, @input-text__background);
-    .lib-css(border, @input-text__border);
-    .lib-css(color, @input-text__color);
-    .lib-css(font-family, @input-text__font-family);
-    .lib-font-size(@input-text__font-size);
+// Common styles
+& when (@media-common = true) {
+    input {
+        .lib-css(background, @input-text__background);
+        .lib-css(border, @input-text__border);
+        .lib-css(color, @input-text__color);
+        .lib-css(font-family, @input-text__font-family);
+        .lib-font-size(@input-text__font-size);
 
-    &::-moz-placeholder {
-        .lib-css(color, @input-text-placeholder__color);
-    }
-
-    &::-webkit-input-placeholder {
-        .lib-css(color, @input-text-placeholder__color);
-    }
-
-    &:-ms-input-placeholder {
-        .lib-css(color, @input-text-placeholder__color);
-    }
-
-    &:focus {
         &::-moz-placeholder {
-            .lib-css(opacity, @input-text-placeholder__focus__opacity);
+            .lib-css(color, @input-text-placeholder__color);
         }
 
         &::-webkit-input-placeholder {
-            .lib-css(opacity, @input-text-placeholder__focus__opacity);
+            .lib-css(color, @input-text-placeholder__color);
         }
 
         &:-ms-input-placeholder {
-            .lib-css(opacity, @input-text-placeholder__focus__opacity);
+            .lib-css(color, @input-text-placeholder__color);
+        }
+
+        &:focus {
+            &::-moz-placeholder {
+                .lib-css(opacity, @input-text-placeholder__focus__opacity);
+            }
+
+            &::-webkit-input-placeholder {
+                .lib-css(opacity, @input-text-placeholder__focus__opacity);
+            }
+
+            &:-ms-input-placeholder {
+                .lib-css(opacity, @input-text-placeholder__focus__opacity);
+            }
         }
     }
-}
 
-.mage-error[generated] {
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-    z-index: 1;
-    .lib-css(color, @form-validation-note__color-error);
-    .lib-css(padding, @form-validation-note__padding);
-    .lib-css(background, @form-validation-note__background);
-    .lib-css(border, @form-validation-note__border);
-    .lib-css(border-radius, 3px, 1);
-    .lib-font-size(@form-validation-note__font-size);
-    .lib-css(transition, all 1s, 1);
-
-    &:before {
-        content: '';
+    .mage-error[generated] {
+        opacity: 0;
+        visibility: hidden;
         position: absolute;
-        top: -4px;
-        left: 10px;
-        width: 8px;
-        height: 8px;
-        .lib-css(border, @form-validation-note__border);
+        z-index: 1;
+        .lib-css(color, @form-validation-note__color-error);
+        .lib-css(padding, @form-validation-note__padding);
         .lib-css(background, @form-validation-note__background);
-        .lib-css(transform, rotate(45deg), 1);
-        border-right: 0;
-        border-bottom: 0;
-    }
-    &.active {
-        opacity: 1;
-        visibility: visible;
+        .lib-css(border, @form-validation-note__border);
+        .lib-css(border-radius, 3px, 1);
+        .lib-font-size(@form-validation-note__font-size);
+        .lib-css(transition, all 1s, 1);
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: 10px;
+            width: 8px;
+            height: 8px;
+            .lib-css(border, @form-validation-note__border);
+            .lib-css(background, @form-validation-note__background);
+            .lib-css(transform, rotate(45deg), 1);
+            border-right: 0;
+            border-bottom: 0;
+        }
+        &.active {
+            opacity: 1;
+            visibility: visible;
+        }
     }
 }

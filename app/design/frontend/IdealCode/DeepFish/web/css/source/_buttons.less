@@ -1,42 +1,45 @@
-button,
-.button {
-    position: relative;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    .lib-css(font-family, @button__font-family);
-    .lib-css(font-weight, @button__font-weight);
-    .lib-css(cursor, @button__cursor);
-    .lib-css(display, @button__display);
-    .lib-css(padding, @button__padding);
-    .lib-css(color, @button__color);
-    .lib-css(background, @button__background);
-    .lib-css(border, @button__border);
-    .lib-css(transition, all 0.2s ease-in-out, 1);
-    .lib-font-size(@button__font-size);
-    .lib-line-height(@button__line-height);
-
-
-    &:after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 0;
-        .lib-css(background, @button__hover__background);
-        .lib-css(transition, all 0.3s ease, 1);
-    }
-
-    span {
+// Common styles
+& when (@media-common = true) {
+    button,
+    .button {
         position: relative;
-        z-index: 2;
-    }
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        .lib-css(font-family, @button__font-family);
+        .lib-css(font-weight, @button__font-weight);
+        .lib-css(cursor, @button__cursor);
+        .lib-css(display, @button__display);
+        .lib-css(padding, @button__padding);
+        .lib-css(color, @button__color);
+        .lib-css(background, @button__background);
+        .lib-css(border, @button__border);
+        .lib-css(transition, all 0.2s ease-in-out, 1);
+        .lib-font-size(@button__font-size);
+        .lib-line-height(@button__line-height);
 
-    &:hover {
-        .lib-css(color, @button__hover__color);
 
         &:after {
-            height: 100%;
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            .lib-css(background, @button__hover__background);
+            .lib-css(transition, all 0.3s ease, 1);
+        }
+
+        span {
+            position: relative;
+            z-index: 2;
+        }
+
+        &:hover {
+            .lib-css(color, @button__hover__color);
+
+            &:after {
+                height: 100%;
+            }
         }
     }
 }

@@ -1,12 +1,15 @@
-.lib-set-default-border-box();
-.lib-universal();
+// Common styles
+& when (@media-common = true) {
+    .lib-set-default-border-box();
+    .lib-universal();
 
-* {
-    outline: 0;
-}
-ul {
-    list-style: none;
-}
-img {
-    display: block;
+    * {
+        outline: 0;
+    }
+    ul {
+        list-style: none;
+    }
+    img {
+        display: block;
+    }
 }
