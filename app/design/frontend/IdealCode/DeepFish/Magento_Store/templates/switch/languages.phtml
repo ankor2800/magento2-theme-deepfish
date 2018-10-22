@@ -9,16 +9,8 @@ $helper = $this->helper('Magento\Framework\Data\Helper\PostHelper');
         <a class="action" title="Language" href="#"><?= $block->escapeHtml($block->getStoreCode()) ?></a>
             <ul>
                 <?php foreach ($block->getStores() as $_lang): ?>
-                    <?php
-                    $postData = $helper->getPostData(
-                        $block->getUrl('stores/store/switch'),
-                        [
-                            \Magento\Store\Api\StoreResolverInterface::PARAM_NAME => $_lang->getCode()
-                        ]
-                    );
-                    ?>
-                    <li>
-                        <a href="#" data-post='<?=$postData?>'
+                     <li>
+                        <a href="#" data-post='<?=$block->getTargetStorePostData($_lang)?>'
                            <?=($_lang->getId() == $block->getCurrentStoreId() ? "class=\"selected\"" : "")?>>
                             <?= $block->escapeHtml($_lang->getName()) ?>
                         </a>
